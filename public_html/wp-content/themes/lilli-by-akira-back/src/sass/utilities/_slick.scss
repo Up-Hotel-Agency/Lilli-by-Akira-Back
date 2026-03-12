@@ -203,6 +203,7 @@
             border: none;
             margin: 0;
             font-size: 0;
+            min-height: unset;
 
             &:before,
             &:after {

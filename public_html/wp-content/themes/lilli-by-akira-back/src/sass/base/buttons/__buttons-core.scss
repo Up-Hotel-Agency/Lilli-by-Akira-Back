@@ -18,7 +18,7 @@ input[type="button"] {
 
     //Resets
     border: 0;
-    border-radius: 0;
+    border-radius: 4px;
     background: transparent;
     appearance: none;
     cursor: pointer;
@@ -30,6 +30,11 @@ input[type="button"] {
     @extend %button-transition;
     @include text-style(button-text, m);
     padding: var(--space-xs) var(--space-m);
+
+    min-height: var(--size-l-3);
+    align-items: center;
+    justify-content: center;
+    display: flex;
 
     &.fill {
         flex-grow: 1;

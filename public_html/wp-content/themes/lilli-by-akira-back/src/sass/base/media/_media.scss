@@ -31,6 +31,11 @@ lite-youtube{
 }
 
 
+.media-container{
+    border-radius: 12px;
+    overflow: hidden;
+}
+
 //Restore heights if no aspect ratio is set
 .no-aspect.media-container{
     &, img, .slick-list, .slick-track{

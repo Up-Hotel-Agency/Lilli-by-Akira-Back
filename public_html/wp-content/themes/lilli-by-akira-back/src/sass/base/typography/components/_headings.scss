@@ -1,9 +1,9 @@
 h1,
 .h1 {
-    @include text-style('large-heading', '1');
+    @include text-style('large-heading', 'XL');
 
     .subtitle {
-        @include text-style('subtitle', '1');
+        @include text-style('subtitle', 'L');
     }
 }
 

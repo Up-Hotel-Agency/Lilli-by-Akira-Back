@@ -40,6 +40,16 @@ $vars-text-styles: (
             "font-style": regular,
             "text-transform": none
         ),
+        "XL": (
+            "font-size": var(--font-size-5xl),
+            "line-height": var(--line-height-2x-tight),
+            "letter-spacing": var(--letter-spacing-tight)
+        ),
+        "L": (
+            "font-size": var(--font-size-4xl),
+            "line-height": var(--line-height-2x-tight),
+            "letter-spacing": var(--letter-spacing-tight)
+        ),
         "1": (
             "font-size": var(--font-size-3xl),
             "line-height": var(--line-height-2x-tight),
@@ -87,6 +97,11 @@ $vars-text-styles: (
             "font-weight": 400,
             "font-style": regular,
             "text-transform": none
+        ),
+        "L": (
+            "font-size": var(--font-size-xl),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-0)
         ),
         "1": (
             "font-size": var(--font-size-l),

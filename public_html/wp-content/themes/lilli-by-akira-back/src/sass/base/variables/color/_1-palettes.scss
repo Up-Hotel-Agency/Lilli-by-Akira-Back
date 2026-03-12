@@ -10,20 +10,26 @@ $vars-color-palette: (
         "neutral": (
             "black": (
                 //Base Black
-                "base": #000410,
+                "base": #3c3c3c, //Charcoal
             ),
             "white": (
                 //Base White
-                "base": #FFFFFF,
+                "base": #f6f4ee, //Cream
             ),
         ),
         "brand": (
             "primary": ( 
                 //Base Brand color
-                "base": #0066FF,
+                "base": #a89157, //Gold
 
                 //Text color on top of base BG color
                 "reverse": var(--color-white),
+            ),
+            "secondary": (
+                "base" : #dcdad5,
+
+                "reverse": var(--color-black),
+
             )
         ),
         "ui": (

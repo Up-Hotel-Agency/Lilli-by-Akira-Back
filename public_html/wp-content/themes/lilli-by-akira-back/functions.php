@@ -129,3 +129,10 @@ include 'functions/setup-gravityforms.php';
  */
 
  include 'functions/disallow-blocks.php';
+  add_filter('wp_get_attachment_image_attributes', function ($attr) {
+    unset($attr['width']);
+    unset($attr['height']);
+    return $attr;
+}, 10);
+add_filter('wp_img_tag_add_width_and_height_attr', '__return_false');
+add_filter( 'wp_img_tag_add_auto_sizes', '__return_false' );

@@ -17,6 +17,8 @@
     text-align: center;
     will-change: transform;
     background-color: var(--card-color-background);
+    border-radius: 12px;
+    overflow: hidden;
 
     &.no-grow {
         flex-grow: 0;

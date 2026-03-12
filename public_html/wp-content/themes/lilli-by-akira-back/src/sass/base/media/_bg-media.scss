@@ -64,6 +64,7 @@
         background: #000; //Fallback for browsers that don't support relative colours
         // background: hsl(from var(--color-black) h s Min(l, 10) / var(--opacity, 0.1));
         mix-blend-mode: multiply;
+        opacity: var(--opacity);
     }
 }
 

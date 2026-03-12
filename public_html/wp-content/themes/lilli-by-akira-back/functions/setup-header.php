@@ -2,7 +2,7 @@
 if(!function_exists('get_header_type')){
     // wrap in an if statement in case set in a child theme
     function get_header_type() {
-        $header_type = 'header_1'; // set the header type here
+        $header_type = 'header_3'; // set the header type here
         return $header_type;
     }
 }

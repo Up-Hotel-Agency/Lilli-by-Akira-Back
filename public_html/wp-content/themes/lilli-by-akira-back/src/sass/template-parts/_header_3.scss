@@ -1,5 +1,5 @@
 :root {
-    --header-height: var(--size-l-5); //Make header height a variable
+    --header-height: var(--size-xl-2); //Make header height a variable
 }
 
 body {
@@ -105,7 +105,12 @@ body {
 
     svg {
         display: block;
+        max-height: var(--size-xl-3);
         margin: 0;
+        width: var(--size-xl-1);
+        height: 100%;
+        //padding-block: var(--space-m);
+        
 
         @include breakpoint(max-width, S) {
             max-height: var(--size-l-2);
@@ -124,6 +129,9 @@ body {
 .header-right {
     padding-right: var(--container-wide);
     gap: var(--space-m);
+    height: 100%;
+    padding: unset;
+
     
     @include breakpoint(max-width, S) {
         padding-right: 0;
@@ -162,6 +170,18 @@ body {
         }
     }
     .button.primary {
+
+        height: 100%;
+        max-height: unset;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: unset;
+
+        span{
+             @include text-style('large-heading', '3');
+        }
+
         @include breakpoint(max-width, M) {
             font-size: var(--font-size-s);
             padding: var(--space-2xs) var(--space-xs);

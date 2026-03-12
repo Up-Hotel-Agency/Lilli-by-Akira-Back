@@ -31,7 +31,15 @@ $vars-color-themes: (
 
             //Text color on top of base BG color
             "reverse": var(--color-primary-reverse),
-        )
+        ),
+       
+        "accent-secondary": ( 
+            //Base Primary Color
+            "base": var(--color-secondary),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-secondary-reverse),
+        ),
     ),
 
     "dark": (
@@ -57,7 +65,15 @@ $vars-color-themes: (
 
             //Text color on top of base BG color
             "reverse": var(--color-primary-reverse),
-        )
+        ),
+
+        "accent-secondary": ( 
+            //Base Primary Color
+            "base": var(--color-secondary),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-secondary-reverse),
+        ),
     ),
 
     "accent": (
@@ -84,7 +100,15 @@ $vars-color-themes: (
 
             //Text color on top of base BG color
             "reverse": var(--color-primary),
-        )
+        ),
+
+        "accent-secondary": ( 
+            //Base Primary Color
+            "base": var(--color-secondary),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-secondary-reverse),
+        ),
     ),
 
     "image": (
@@ -111,9 +135,20 @@ $vars-color-themes: (
 
             //Text color on top of base BG color
             "reverse": var(--color-black),
-        )
+        ),
+
+        "accent-secondary": ( 
+            //Base Primary Color
+            "base": var(--color-black),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-white),
+        ),
     )
 );
+
+
+
 
 
 //===========================
