@@ -1,0 +1,60 @@
+//Margins and Vertical Rhythm
+
+.rhythm {
+    > * {
+        margin-bottom: var(--space-xl);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    > p + p,
+    >h2 + p,
+    >h3 + p,
+    >h4 + p,
+    >h5 + p,
+    >h6 + p,
+    > .content-wrap + .buttons {
+        margin-top: calc(-1 * var(--space-m));
+    }
+
+    //Max width for certain elements in content sections to force correct character per line
+
+    p, blockquote, li {
+        max-width: var(--width-content);
+    }
+
+}
+
+section.row {
+    + {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul,
+        ol {
+            margin-top: var(--row-x-loose);
+        }   
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol {
+    + {
+        section.row {
+            margin-top: var(--row-x-loose);
+        }
+    }
+}   

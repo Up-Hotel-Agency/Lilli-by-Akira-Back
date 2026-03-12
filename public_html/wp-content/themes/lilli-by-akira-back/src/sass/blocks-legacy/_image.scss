@@ -1,0 +1,12 @@
+.wp-block-image {
+    max-width: var(--width-content);
+    margin: var(--space-2xl) auto var(--space-l);
+
+    img {
+        max-width: 100%;
+    }
+    figcaption {
+        color: color-opacity(var(--color-body), 0.5);
+        @include text-style('body', 's');
+    }
+}

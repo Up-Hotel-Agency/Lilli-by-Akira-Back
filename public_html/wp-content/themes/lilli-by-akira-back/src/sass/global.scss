@@ -1,0 +1,34 @@
+
+//Use mixins from variables folder
+@import "utilities/aos";
+
+//Variables, Functions, Mixins, etc
+@import "utilities/breakpoints";
+@import "utilities/mixins";
+@import "utilities/placeholders";
+@import "base/variables/typography/2-text-style/_3-mixins";
+
+//styles particular to layout
+@import "template-parts/footer_general";
+@import "template-parts/single";
+@import "template-parts/modal";
+@import "template-parts/search";
+@import "base/forms/_forms-core";
+
+// legacy blocks
+@import "blocks-legacy/*.scss";
+
+// pick your footer
+@import "template-parts/footer_1";
+// @import "template-parts/footer_2";
+// @import "template-parts/footer_3";
+
+// modules
+@import "template-parts/inpage-nav";
+
+// Plugins
+@import "utilities/fancybox";
+@import "utilities/slick";
+
+// Print
+@import "base/print";

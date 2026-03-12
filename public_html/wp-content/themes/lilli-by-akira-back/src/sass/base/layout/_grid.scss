@@ -1,0 +1,128 @@
+//Rows
+.row {
+    position: relative;
+
+    &.theme--image {
+        z-index: 1;
+    }
+    
+
+    //////////////////////////////////////////
+    /// SPACING CONFIG
+    //////////////////////////////////////////
+
+    //Default Row spacing
+    --row-spacing-top: var(--row-m);
+    --row-spacing-bottom: var(--row-m);
+    --row-spacing: var(--row-spacing-top) var(--row-spacing-bottom);
+
+    //Set top and bottom row spacing
+    padding-block: var(--row-spacing);
+
+
+    //Additional inner padding if the row has a background
+    &.has-background {
+        --row-spacing-top: var(--row-xl);
+        --row-spacing-bottom: var(--row-xl);
+    }
+
+    //Additonal bottom padding of a row if the following row has a background
+    &:not(.has-background):has(+ .has-background) {
+        --row-spacing-bottom: var(--row-xl);
+    }
+
+    //Additonal top padding of a row if the previous row has a background
+    &.has-background + .row:not(.has-background) {
+        --row-spacing-top: var(--row-xl);
+    }
+
+    //////////////////////////////////////////
+    /// END SPACING CONFIG
+    //////////////////////////////////////////
+}
+
+
+//Containers
+.container {
+    padding-inline: var(--container-standard);
+
+    &.nopadd-md {
+        @include breakpoint(max-width, L) {
+            padding-inline: 0;
+        }
+    }
+    &.nopadd-tablet {
+        @include breakpoint(max-width, M) {
+            padding-inline: 0;
+        }
+    }
+    &.nopadd-mob {
+        @include breakpoint(max-width, S) {
+            padding-inline: 0;
+        }
+    }
+}
+
+.container-left {
+    padding-inline-start: var(--container-standard);
+
+    &.nopadd-mob {
+        @include breakpoint(max-width, S) {
+            padding-inline-end: 0;
+        }
+    }
+}
+
+.container-right {
+    padding-inline-end: var(--container-standard);
+    
+    &.nopadd-mob {
+        @include breakpoint(max-width, S) {
+            padding-inline-end: 0;
+        }
+    }
+}
+
+//WP Align Attributes
+
+.alignwide {
+    width: calc(100% - (2 * var(--container-standard)));
+    margin-inline: auto;
+}
+
+.alignfull {
+    width: 100%;
+}
+
+
+.mobile-scroll {
+    @include breakpoint(max-width, S) {
+        position: relative !important;
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: start !important;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+
+        // this stops the scroll bar from overlapping the items
+        padding-bottom: var(--space-m);
+        margin-bottom: calc(-1 * var(--space-m));
+
+        //Break out of container
+        width: 100%;
+        max-width: none !important;
+        padding-inline: var(--container-standard);
+
+        > * {
+            flex-basis: calc( var(--width-content) - var(--gutter-standard) );
+            flex-shrink: 0 !important;
+            scroll-snap-align: center;
+        }
+
+        [data-aos^=fade] {
+            transform: none !important;
+            opacity: 1 !important;
+        }
+    }
+}

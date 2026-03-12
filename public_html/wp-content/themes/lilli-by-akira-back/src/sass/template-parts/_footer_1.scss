@@ -1,0 +1,31 @@
+.footer {
+    padding-block: var(--space-xl);
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: var(--space-l);
+
+        @include breakpoint(max-width, XS) {
+            li {
+                width: 50%;
+            }
+        }
+        a {
+            margin: var(--space-2xs) var(--space-s);
+            color: var(--color-body);
+            display: block;
+
+            &:hover {
+                color: var(--color-accent-primary);
+            }
+        }
+    }
+}
+
+.social-links {
+    .button {
+        margin: 0 var(--space-xs);
+    }
+}

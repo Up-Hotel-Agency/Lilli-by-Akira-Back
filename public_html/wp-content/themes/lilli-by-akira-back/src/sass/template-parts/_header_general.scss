@@ -1,0 +1,191 @@
+.nav-toggle {
+    margin: 0;
+
+    .menu-icon {
+        position: relative;
+        height: var(--size-m-1);
+        width: var(--size-m-3);
+
+        @include breakpoint(max-width, XS) {
+            margin-left: 0;
+        }
+
+        //Use px sizes on low dpi screens to prevent aliasing issues
+        @media (max-resolution: 144dpi) {
+            height: 16px;
+            width: 24px;
+
+            span {
+                height: 2px;
+            }
+        }
+
+        span {
+            display: block;
+            background-color: var(--color-body);
+            height: var(--size-s-1);
+            width: 100%;
+            transition: all .15s cubic-bezier(0.7, 0, 0, 1);
+            position: absolute;
+            left: 0;
+    
+            &:nth-child(1) {
+                top: 0;
+            }
+            &:nth-child(2) {
+                top: calc(50% - 1px);
+            }
+            &:nth-child(3) {
+                bottom: 0;
+            }
+        }
+    }
+    &.active {
+        .menu-icon {
+            //Animate hamburger menu into a cross
+            span {
+                &:nth-child(1) {
+                    top: calc(50% - 0.5px);
+                    rotate: 45deg;
+                }
+                &:nth-child(2) {
+                    opacity: 0;
+                    transform: translateX(-1rem);
+                }
+                &:nth-child(3) {
+                    bottom: calc(50% - 0.5px);
+                    rotate: -45deg;
+                }
+            }
+        }
+    }
+}
+
+.header .button {
+    .hide-mobile {
+        padding: 0 var(--space-3xs);
+
+        @include breakpoint(max-width, XS) {
+            display: none;
+        }
+    }
+    .hide-desktop {
+        padding: 0 var(--space-3xs);
+        display: none;
+
+        @include breakpoint(max-width, XS) {
+            display: block;
+        }
+    }
+}
+
+.search-bar{
+    position: relative;
+    @extend %transition;
+    .remove-search{
+        display: none;
+        position: absolute;
+        width: var(--size-m-1);
+        height: var(--size-m-1);
+        top: 50%;
+        transform: translateY(-50%);
+        right: calc(var(--space-s) + var(--size-m-3) + var(--space-3xs));
+        margin: 0;
+        z-index: 9;
+        cursor: pointer;
+    }
+    &.active{
+        @extend %transition;
+        .svg-search{
+            right: var(--space-s);
+        }
+        input{
+            min-width: 160px;
+            min-height: var(--size-l-2);
+            padding: var(--space-2xs) calc(var(--space-s) + var(--size-m-3) + var(--size-m-1)) var(--space-2xs) var(--space-s) !important;
+            border: 1px solid;
+            border-color: var(--color-body) !important;
+            border-radius: 100px;
+            &::placeholder{
+                opacity: 1;
+            }
+            &:hover{
+                border-color: var(--color-body) !important;
+            }
+        }
+    }
+    &.filled{
+        .remove-search{
+            display: block;
+        }
+
+    }
+    input.searchinput{
+        padding: var(--space-2xs) 0 var(--space-2xs) 0;
+        margin: 0;
+        width: var(--size-m-3);
+        border: 1px solid;
+        border-color: transparent;
+        &::placeholder{
+            opacity: 0;
+        }
+        &:focus{
+            min-width: 160px;
+            min-height: var(--size-l-2);
+            padding: var(--space-2xs) calc(var(--space-s) + var(--size-m-3) + var(--size-m-1)) var(--space-2xs) var(--space-s);
+            border: 1px solid;
+            border-color: var(--color-body);
+            border-radius: 100px;
+            &::placeholder{
+                opacity: 1;
+            }
+        }
+        &:hover{
+            border-color: transparent;
+        }
+    }
+    .svg-search{
+        margin: 0;
+        width: var(--size-m-3);
+        height: var(--size-m-3);
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    @include breakpoint(max-width, XS) {
+        height: var(--header-height);
+        align-content: center;
+        &.active{
+            align-content: center;
+            position: fixed;
+            width: 100vw;
+            left: 0;
+            height: 100vh;
+            top: 0;
+            z-index: 1;
+            background: red;
+            .svg-search{
+                left: unset;
+                transform: translateY(-50%);
+                right: calc(var(--space-s) + var(--space-s));
+            }
+            input.searchinput{
+                margin: var(--space-xs) var(--space-s);
+            }
+        }
+
+        input.searchinput{
+            width: calc(100% - var(--space-s) - var(--space-s));
+            margin: 0 var(--space-s);
+            height: auto;
+            padding: var(--space-2xs);
+        }
+        .svg-search{
+            left: 50%;
+            right: unset;
+            transform: translate(-50%, -50%);
+            top: 50%;
+        }
+    }
+}

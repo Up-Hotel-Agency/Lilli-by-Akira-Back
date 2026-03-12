@@ -1,0 +1,27 @@
+@use "sass:map";
+
+//===========================
+//Apply Global Letter Spacing variables here
+//===========================
+$vars-letter-spacing: (
+    "x-tight": -0.06,
+    "tight": -0.03,
+    "0": 0,
+    "loose": 0.03,
+    "x-loose": 0.06,
+    "2x-loose": 0.13,
+    "3x-loose": 0.25
+);
+
+:root {
+
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $var, $value in $vars-letter-spacing {
+        //NB. Appends 'em' onto value from map
+        //e.g. --letter-spacing-x-tight
+        --letter-spacing-#{$var}: #{$value}em;
+    }
+
+}

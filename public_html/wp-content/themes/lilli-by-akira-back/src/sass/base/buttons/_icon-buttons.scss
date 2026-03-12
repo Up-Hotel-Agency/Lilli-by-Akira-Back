@@ -1,0 +1,44 @@
+//Icon Button Styling
+
+.button,
+button,
+input[type="submit"],
+input[type="button"] {
+    &, &.primary, &.secondary {
+
+    //Icon styling
+        &.icon {
+            min-width: 0;
+            padding: 0;
+            border-radius: 100%;
+            padding: 0;
+            width: var(--size-l-2);
+            height: var(--size-l-2);
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0;
+
+            svg {
+                width: var(--size-m-3);
+                height: var(--size-m-3);
+                display: block;
+            }
+
+            &.size-s {
+                width: var(--size-m-5);
+                height: var(--size-m-5);
+
+                svg {
+                    width: var(--size-m-1);
+                    height: var(--size-m-1);
+                }
+            }
+
+            &:before {
+                border-radius: 100%;
+            }
+        }
+    }
+}

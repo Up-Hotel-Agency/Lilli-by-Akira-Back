@@ -1,0 +1,2 @@
+.offers-grid .cta-blocks{display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, 24rem), 1fr));gap:var(--space-l)}.offers-grid .cta-blocks .cta{width:100%;max-width:none;margin:0}.offers-actions .post-share{margin-left:var(--space-l)}@media only screen and (max-width: 40rem){.offers-actions .post-share{margin-left:0;margin-top:var(--space-l);width:100%}}
+/*# sourceMappingURL=offers_grid.css.map */

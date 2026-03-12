@@ -1,0 +1,36 @@
+@use "sass:map";
+
+// General Breakpoints
+$breakpoints: (
+    'XXXS': 22.5rem,
+    'XXS': 30rem,
+    'XS': 40rem,
+    'S': 48rem,
+    'M': 64rem,
+    'MS': 52rem,
+    'ML': 75rem,
+    'L': 90rem,
+    'XL': 105rem,
+    'XXL': 112rem,
+);
+
+
+//===========================
+//Function to generate breakpoints based on the map above
+//===========================
+@mixin breakpoint($property: max-width, $size) {
+
+    @if ($property == 'min-width') {
+        $size: calc(map.get($breakpoints, $size) + 1px);
+    } @else {
+        $size: map.get($breakpoints, $size);
+    }
+  
+    @if ($size) {
+      @media only screen and (#{$property}: $size) {
+        @content;
+      }
+    } @else {
+      @error '`#{$size}` does not exist in the breakpoints map. Go to utilities/_breakpoints.scss for the full list';
+    }
+  }

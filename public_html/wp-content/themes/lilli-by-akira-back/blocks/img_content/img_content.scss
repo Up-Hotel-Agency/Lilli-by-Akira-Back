@@ -1,0 +1,157 @@
+@import "../gutenberg_block";
+
+.img-content {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    column-gap: var(--gutter-standard);
+    row-gap: var(--space-m);
+    position: relative;
+
+    @include breakpoint(min-width, S) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    @include breakpoint(min-width, M) {
+        column-gap: var(--gutter-loose);
+    }
+
+    @include breakpoint(min-width, L) {
+        column-gap: var(--gutter-x-loose);
+    }
+
+    &.alignfull, &.style-card {
+        gap: 0;
+
+        .content {
+            padding: var(--space-2xl) var(--container-standard);
+
+            @include breakpoint(min-width, S) {
+                padding: var(--space-3xl);
+            }
+        }
+    }
+
+    &.style-card {
+        background-color: var(--color-background-alt);
+        gap: 0;
+
+        //If both align full and card style, put a small amount of margin in from the row
+        &.alignfull {
+            width: calc(100% - (2 * var(--space-s)));
+            margin-inline: auto;
+        }
+    }
+
+    .content {
+        max-width: var(--width-content);
+        flex-grow: 1;
+        flex-basis: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .content-inner {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        .content-wrap {
+            width: 100%;
+        }
+        .js-single-modal-trigger-ajax{
+            margin-bottom: 0;
+        }
+    }
+    .img {
+        position: relative;
+
+        @include breakpoint(max-width, XS) {
+            width: 100%;
+        }
+        img {
+            width: 100%;
+        }
+        .slick-list,
+        .slick-track {
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        .slick-controls {
+            width: 100%;
+
+            .slick-control {
+                color: var(--color-body);
+
+                &:hover {
+                    color: var(--color-accent-primary);
+                }
+            }
+        }
+    }
+    &.text-image {
+        .content {
+            order: 1;
+    
+            @include breakpoint(max-width, XS) {
+                order: unset;
+            }
+        }
+        .img {
+            order: 2;
+
+            @include breakpoint(max-width, XS) {
+                order: unset;
+            }
+        }
+    }
+    &.mob-img-bottom {
+        @include breakpoint(max-width, XS) {
+            .content {
+                order: 1;
+            }
+            .img {
+                order: 2;
+            }
+        }
+    }
+    &.column {
+        grid-template-columns: minmax(0, 1fr);
+
+        .content {
+            margin: 0;
+            width: 100%;
+            text-align: center;
+            flex-basis: auto;
+            align-items: unset;
+
+            .buttons {
+                justify-content: center;
+                margin-bottom: 0;
+            }
+        }
+        .img {
+            width: 100%;
+            
+            .image-carousel {
+                min-height: 18rem;
+
+                @include breakpoint(max-width, XS) {
+                    min-height: 16rem;
+                }
+            }
+        }
+    }
+}
+
+
+//Used exclusively for certain blocks that use this block as a dependency (e.g. Rooms Grid)
+.img-content-columns {
+    display: grid;
+    gap: var(--gutter-standard);
+
+    @include breakpoint(min-width, S) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}

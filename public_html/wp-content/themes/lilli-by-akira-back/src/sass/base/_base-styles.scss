@@ -1,0 +1,127 @@
+//Make colours transition nicely
+* {
+  //Get all known properties that use color. We don't want to use the 'all' keyword as it can cause potential performance issues and have unexpected transition behaviour for other properties
+  --color-props: accent-color, background-color, border-block-end-color, border-block-start-color, border-bottom-color, border-color, border-inline-end-color, border-inline-start-color, border-left-color, border-right-color, border-top-color, box-shadow, caret-color, color, column-rule-color, outline-color, scrollbar-color, text-decoration-color, text-emphasis-color, text-shadow, fill, flood-color, lighting-color, stop-color, stroke;
+    
+  transition-property: var(--color-props);
+  transition-duration: 0.6s;
+  transition-timing-function: ease;
+}
+
+
+//Set base background colour here (is also applied via a different method for the block editor)
+$base-bg-color: var(--color-background);
+
+body {
+    background-color: $base-bg-color;
+    color: var(--color-body);
+    accent-color: var(--color-accent-primary); //Set the color of browser default form elements (e.g. checkboxes)
+
+    &.modal-open {
+        overflow: clip;
+        .page-container {
+            z-index: 25;
+        }
+    }
+}
+
+.page-container {
+    position: relative;
+    z-index: 1;
+    
+    > {
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        ul,
+        ol,
+        blockquote {
+            max-width: var(--width-content);
+            margin-inline: auto;
+        }
+    }
+
+    // clear AOS on first 2 gutenberg blocks. Has to be up to nth-child(4) due to inline style tags for the first 2 block
+    .row {
+        &:nth-child(1):not(.full-height) ~ .row:nth-child(-n + 2 of .row) {
+            [data-aos^=fade][data-aos^=fade] {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    }
+}
+
+.gallery-modal,
+.single-modal,
+.custom-modal {
+    position: fixed;
+    visibility: hidden;
+    z-index: 200;
+    top: 0;
+    transform: translateY(-150%);
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.5s ease-in-out;
+
+    &.active,
+    &.forced {
+        visibility: visible;
+        transform: translateY(0);
+    }
+}
+
+// this is here so it loads above the fold and doesn't flash up
+.rooms-guests-select {
+    position: absolute;
+    top: calc(100% + var(--space-2xs));
+    width: 100%;
+    min-width: 20rem;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.slick-slide:focus {
+    outline: 0;
+}
+
+.stick-in {
+    position: sticky;
+
+    @include breakpoint(max-width, XS) {
+        position: relative;
+        top: auto;
+    }
+}
+
+ul.list-reset {
+    margin: 0;
+    padding: 0;
+
+    li {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        &:before {
+            display: none;
+        }
+    }
+}
+
+.screenreader-link {
+    position: fixed;
+    left: var(--space-l);
+    z-index: 100;
+    top: -100%;
+
+    &:focus {
+        top: 0px;
+    }
+}

@@ -1,0 +1,22 @@
+@use "sass:map";
+@import '_1-text-styles';
+
+//===========================
+//Create mixin to generate text styles
+//===========================
+
+@mixin text-style($group, $style: "") {
+
+    //List CSS properties to be used in the mixin
+    $properties: font-family, font-weight, text-transform, font-size, line-height, letter-spacing, font-style;
+
+    //For each property, prioritise non-global values. If property not found, use the "global" value instead
+    @each $property in $properties {
+        @if map.has-key($vars-text-styles, $group, $style, $property) {
+            #{$property}: var(--#{$property}-#{$group}-#{$style});
+        }
+        @else if map.has-key($vars-text-styles, $group, "global", $property) {
+            #{$property}: var(--#{$property}-#{$group});
+        }
+    }
+}

@@ -1,0 +1,98 @@
+//Global styling for Background Media components
+
+//If row has a BG image or video, put the BG at the back and make sure content appears in front
+.row:has(.block-bg-img) > * {
+    z-index: 1;
+}
+.row:has(.block-bg-img)>.block-bg-img {
+    z-index: 0;
+}
+
+.block-bg-img, .page-bg-img {
+    inset: 0;
+    z-index: -1;
+
+    img,
+    video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+//Target BG image being used at block level
+.block-bg-img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+//Target BG image being used at page level
+.page-container > .block-bg-img, .page-bg-img {
+    position: fixed;
+    width: 100dvw;
+    height: 100dvh;
+}
+
+.block-bg-img, .page-bg-img {
+    &.bg-image-carousel {
+        &.slick-slider {
+            position: absolute;
+
+            .slick-list {
+                height: 100%;
+
+                .slick-track {
+                    height: 100%;
+                }
+            }
+        }
+    }
+}
+
+//Image overlay
+[class*="overlay--"] {
+    &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        background: #000; //Fallback for browsers that don't support relative colours
+        // background: hsl(from var(--color-black) h s Min(l, 10) / var(--opacity, 0.1));
+        mix-blend-mode: multiply;
+    }
+}
+
+.overlay--lighter:after {
+    --opacity: 0.1;
+}
+
+.overlay--light:after {
+    --opacity: 0.25;
+}
+
+.overlay--medium:after {
+    --opacity: 0.4;
+}
+
+.overlay--dark:after {
+    --opacity: 0.65;
+}
+
+.overlay--darker:after {
+    --opacity: 0.8;
+}
+
+.overlay--darkest:after {
+    --opacity: 0.9;
+}
+
+//Redefine background colour when has-background invoked
+:where(.has-background) {
+    background-color: var(--color-background);
+    color: var(--color-body);
+}

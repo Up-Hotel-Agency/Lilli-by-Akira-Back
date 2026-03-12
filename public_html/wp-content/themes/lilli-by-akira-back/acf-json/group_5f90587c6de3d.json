@@ -1,0 +1,152 @@
+{
+    "key": "group_5f90587c6de3d",
+    "title": "Offer",
+    "fields": [
+        {
+            "key": "field_644fca8a62bb0",
+            "label": "Offers Featured Images \/ Video",
+            "name": "offers_media",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Please upload multimedia assets such as images or videos to this offer. In the event that these assets cannot be displayed in certain areas, a video thumbnail or the first image will be presented as a substitute.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_643fdae25b202"
+            ],
+            "display": "group",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        },
+        {
+            "key": "field_5f9058932947b",
+            "label": "Overline",
+            "name": "overline",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f90589f2947c",
+            "label": "Custom Title",
+            "name": "title",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "Leave this blank to use the title of the offer",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f9058a62947d",
+            "label": "Subtitle",
+            "name": "subtitle",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": "",
+            "maxlength": ""
+        },
+        {
+            "key": "field_5f98144b2cce5",
+            "label": "Intro \/ Content",
+            "name": "intro_content",
+            "aria-label": "",
+            "type": "wysiwyg",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        },
+        {
+            "key": "field_5f9058ab2947e",
+            "label": "Booking Link",
+            "name": "link_field",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_5f75b04e969d7"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 1
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "offers"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content",
+        "featured_image"
+    ],
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1733243382
+}

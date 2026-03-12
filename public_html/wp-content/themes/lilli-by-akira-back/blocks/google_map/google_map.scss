@@ -1,0 +1,52 @@
+@import "../gutenberg_block";
+
+.map-container {
+    width: 100%;
+    min-height: 32rem;
+    background: var(--color-background-alt);
+    margin-top: var(--space-xl);
+
+    @include breakpoint(max-width, XS) {
+        min-height: 20rem;
+    }
+    button {
+        &:before,
+        &:after {
+            display: none;
+        }
+    }
+}
+
+.map-lockup {
+    .map-container {
+        width: 50%;
+
+        @include breakpoint(max-width, S) {
+            width: 100%;
+            margin-bottom: var(--space-3xl);
+        }
+    }
+    .content-lockup-wrapper {
+        width: 50%;
+
+        @include breakpoint(max-width, S) {
+            width: 100%;
+        }
+    }
+    &.content-map {
+        .content-lockup-wrapper {
+            order: 1;
+
+            @include breakpoint(max-width, S) {
+                order: 2;
+            }
+        }
+        .map-container {
+            order: 2;
+
+            @include breakpoint(max-width, S) {
+                order: 1;
+            }
+        }
+    }
+}

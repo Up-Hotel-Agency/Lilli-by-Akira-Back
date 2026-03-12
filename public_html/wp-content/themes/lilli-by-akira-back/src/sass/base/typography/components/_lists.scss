@@ -1,0 +1,116 @@
+li {
+    @include text-style('body', 'm');
+    margin-bottom: var(--space-s);
+    padding-left: var(--space-m);
+    position: relative;
+    list-style: none; //Remove default marker styling – currently marker pseudo element isn't flexible enough to use
+}
+
+ul {
+    margin-bottom: var(--space-m);
+
+    &.no-margin {
+        margin-bottom: 0;
+
+        li:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &.less-margin {
+        margin-bottom: var(--space-2xs);
+    }
+    &.more-margin {
+        margin-bottom: var(--space-xl);
+    }
+    li {
+        &:before {
+            content: "";
+            width: 4px;
+            height: 4px;
+            border-radius: 100%;
+            position: absolute;
+            top: var(--space-2xs);
+            left: 0;
+            background-color: currentColor;
+            border: 1px solid;
+            border-color: currentColor;
+            display: block;
+        }
+    }
+    &.unstyled {
+        padding: 0;
+        margin: 0;
+        
+        li {
+            padding: 0;
+            margin: 0;
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+    ul {
+        margin-bottom: 0;
+        margin-top: var(--space-xs);
+
+        li {
+            &:before {
+                background: none;
+            }
+        }
+    }
+}
+
+ol {
+    margin-bottom: var(--space-m);
+    counter-reset: ol-counter;
+
+    li {
+        &::marker {
+            display: none;
+        }
+        &:before {
+            background: none;
+            border: 0;
+            width: auto;
+            height: auto;
+            position: absolute;
+            left: 0;
+            color: var(--color-accent-primary);
+            @include text-style('small-heading', '2');
+            display: block;
+            content: counter(ol-counter)'.';
+            counter-increment: ol-counter;
+            top: 0;
+        }
+        ol {
+            margin-bottom: 0;
+            margin-top: var(--space-s);
+            counter-reset: letter;
+
+            li {
+                &:before {
+                    content: counter(letter, lower-alpha)'.';
+                    counter-increment: letter;
+                  
+                }
+            }
+        }
+    }
+}
+
+.text-align-center,
+.text-center {
+    ul {
+        li {
+            padding: 0 0 var(--space-s) 0;
+            border-bottom: 1px solid;
+            border-color: color-opacity(var(--color-body), 0.1);
+
+            &:before {
+                display: none;
+            }
+        }
+    }
+}

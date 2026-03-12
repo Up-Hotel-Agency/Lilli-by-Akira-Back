@@ -1,0 +1,8 @@
+.wp-block-media-text {
+    p.has-large-font-size {
+        @include text-style('large-heading', '1');
+        color: var(--color-accent-primary);
+        margin-bottom: var(--space-s);
+        display: block;
+    }
+}

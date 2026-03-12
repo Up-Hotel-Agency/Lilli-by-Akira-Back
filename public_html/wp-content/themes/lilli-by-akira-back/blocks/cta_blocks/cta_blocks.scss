@@ -1,0 +1,154 @@
+@import "../gutenberg_block";
+
+.cta-blocks {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+    gap: var(--gutter-standard);
+}
+
+.cta {
+    min-height: var(--size-2xl-4);
+    flex-grow: 1;
+    overflow: hidden;
+    aspect-ratio: 4/5;
+    position: relative;
+    @extend %nav-transition;
+    text-align: center;
+    will-change: transform;
+    background-color: var(--card-color-background);
+
+    &.js-category-target {
+        @extend %transition;
+    }
+    .cta-inner {
+        position: absolute;
+        z-index: 3;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        padding: var(--space-l);
+
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+    h2,
+    h3,
+    h4,
+    h5 {
+        width: 100%;
+    }
+    header,
+    div {
+        width: 100%;
+    }
+    p {
+        max-width: 36rem;
+        width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .buttons {
+        padding-top: var(--space-m);
+
+        @include breakpoint(max-width, M) {
+            margin-top: 0;
+        }
+        @include breakpoint(max-width, S) {
+            margin-top: var(--space-s);
+        }
+        
+    }
+    img {
+        z-index: 1;
+        @extend %nav-transition;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &.not-square {
+        padding: 0;
+        height: auto;
+        min-height: 0;
+
+        .cta-inner {
+            position: static;
+        }
+    }
+    &.xs\:not-square {
+        @include breakpoint(max-width, XS) {
+            padding: 0;
+            height: auto;
+            min-height: 0;
+    
+            .cta-inner {
+                position: static;
+            }
+        }
+    }
+    &.theme--image {
+        &:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            @extend %nav-transition;
+            background: var(--color-black);
+            mix-blend-mode: multiply;
+            opacity: 0.4;
+        }
+    }
+    &:hover {
+        transform: translateY(-0.25rem);
+    }
+    &.no-hover {
+        &:hover {
+            transform: translateY(0);
+        }
+    }
+}
+
+.cta-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @include breakpoint(max-width, XS) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    .cta {
+        flex-grow: 0;
+
+        @include breakpoint(max-width, M) {
+            min-height: 22em;
+        }
+        .cta-inner {
+            width: 100%;
+        }
+    }
+}
+
+.events-grid {
+    .cta {
+        flex-grow: 0;
+    }
+}
+
+.mobile-scroll {
+    @include breakpoint(max-width, S) {
+        
+        .cta {
+            width: var(--width-content);
+        }
+    }
+}

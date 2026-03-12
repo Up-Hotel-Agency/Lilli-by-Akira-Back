@@ -1,0 +1,99 @@
+h1,
+.h1 {
+    @include text-style('large-heading', '1');
+
+    .subtitle {
+        @include text-style('subtitle', '1');
+    }
+}
+
+h2,
+.h2 {
+    @include text-style('large-heading', '2');
+
+    .subtitle {
+        @include text-style('subtitle', '1');
+    }
+}
+
+h3,
+.h3 {
+    @include text-style('large-heading', '3');
+
+    .subtitle {
+        @include text-style('subtitle', '2');
+    }
+}
+
+h4,
+.h4 {
+    @include text-style('small-heading', '1');
+
+    .subtitle {
+        @include text-style('subtitle', '2');
+    }
+}
+
+h5,
+.h5 {
+    @include text-style('small-heading', '2');
+
+    .subtitle {
+        font-size: var(--font-size-xs);
+    }
+}
+
+h6,
+.h6 {
+    @include text-style('small-heading', '3');
+
+    .subtitle {
+        font-size: var(--font-size-xs);
+    }
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    margin-bottom: var(--space-m);
+    display: block;
+    color: var(--color-body);
+
+    &.no-margin {
+        margin-bottom: 0;
+    }
+    &.less-margin {
+        margin-bottom: var(--space-2xs);
+    }
+    &.more-margin {
+        margin-bottom: var(--space-xl);
+    }
+    .subtitle {
+        margin-top: var(--space-3xs);
+        display: block;
+    }
+    strong {
+        text-transform: none;
+        color: var(--color-accent-primary);
+    }
+}
+
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    .subtitle {
+        margin-top: 0;
+    }
+}

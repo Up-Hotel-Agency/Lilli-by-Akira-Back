@@ -1,0 +1,25 @@
+@import '_1-text-styles';
+@import '_3-mixins';
+
+//===========================
+//Create utility classes for each mixin
+//===========================
+@each $group, $styles in $vars-text-styles {
+
+
+    .#{$group} {
+        @include text-style($group);
+    }
+
+
+    @each $style, $vars in $styles {
+
+        @if $style != "global" {
+            .#{$group}-#{$style} {
+                @include text-style($group, $style);
+            }
+        }
+
+    }
+
+}

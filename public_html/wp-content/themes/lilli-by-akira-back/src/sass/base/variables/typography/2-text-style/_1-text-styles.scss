@@ -1,0 +1,174 @@
+@use "sass:map";
+
+//===========================
+//Apply Text Style variables here
+//===========================
+$vars-text-styles: (
+    "body": (
+        "global": (
+            "font-family": var(--font-family-primary),
+            "font-weight": 400,
+            "font-style": regular,
+            "text-transform": none
+        ),
+        "l": (
+            "font-size": var(--font-size-l),
+            "line-height": var(--line-height-standard),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "m": (
+            "font-size": var(--font-size-m),
+            "line-height": var(--line-height-standard),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "s": (
+            "font-size": var(--font-size-s),
+            "line-height": var(--line-height-standard),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "xs": (
+            "font-size": var(--font-size-xs),
+            "line-height": var(--line-height-standard),
+            "letter-spacing": var(--letter-spacing-loose)
+        )
+    ),
+
+    "large-heading": (
+        "global": (
+            "font-family": var(--font-family-secondary),
+            "font-weight": 700,
+            "font-style": regular,
+            "text-transform": none
+        ),
+        "1": (
+            "font-size": var(--font-size-3xl),
+            "line-height": var(--line-height-2x-tight),
+            "letter-spacing": var(--letter-spacing-tight)
+        ),
+        "2": (
+            "font-size": var(--font-size-2xl),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "3": (
+            "font-size": var(--font-size-xl),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        )
+    ),
+
+    "small-heading": (
+        "global": (
+            "font-family": var(--font-family-primary),
+            "font-weight": 700,
+            "font-style": regular,
+            "text-transform": uppercase
+        ),
+        "1": (
+            "font-size": var(--font-size-m),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-x-loose)
+        ),
+        "2": (
+            "font-size": var(--font-size-s),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-x-loose)
+        ),
+        "3": (
+            "font-size": var(--font-size-xs),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-x-loose)
+        )
+    ),
+
+    "subtitle": (
+        "global": (
+            "font-family": var(--font-family-secondary),
+            "font-weight": 400,
+            "font-style": regular,
+            "text-transform": none
+        ),
+        "1": (
+            "font-size": var(--font-size-l),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "2": (
+            "font-size": var(--font-size-m),
+            "line-height": var(--line-height-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        )
+    ),
+
+    "button-text": (
+        "global": (
+            "font-family": var(--font-family-secondary),
+            "font-weight": 400,
+            "font-style": regular,
+            "text-transform": none
+        ),
+        "l": (
+            "font-size": var(--font-size-l),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "m": (
+            "font-size": var(--font-size-m),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        ),
+        "s": (
+            "font-size": var(--font-size-s),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-0)
+        )
+    ),
+
+    "label": (
+        "global": (
+            "font-family": var(--font-family-primary),
+            "font-weight": 700,
+            "font-style": regular,
+            "text-transform": none
+        ),
+        "1": (
+            "font-size": var(--font-size-xs),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-loose)
+        ),
+        "2": (
+            "font-size": var(--font-size-2xs),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-loose)
+        ),
+        "3": (
+            "font-size": var(--font-size-3xs),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-x-loose)
+        )
+    ),
+
+    "overline": (
+        "global": (
+            "font-family": var(--font-family-primary),
+            "font-weight": 700,
+            "font-style": regular,
+            "text-transform": uppercase
+        ),
+        "1": (
+            "font-size": var(--font-size-xs),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-2x-loose)
+        ),
+        "2": (
+            "font-size": var(--font-size-2xs),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-2x-loose)
+        ),
+        "3": (
+            "font-size": var(--font-size-3xs),
+            "line-height": var(--line-height-x-tight),
+            "letter-spacing": var(--letter-spacing-2x-loose)
+        )
+    )
+);

@@ -1,0 +1,46 @@
+@import "../gutenberg_block";
+
+.column-content {
+    --items: 1; //Set number of items per row
+
+    display: grid;
+    column-gap: var(--gutter-standard);
+    row-gap: var(--space-xl);
+    grid-template-columns: repeat(var(--items), minmax(0, 1fr)); //1 col, minmax prevents image blowout by slider
+
+
+    @include breakpoint(min-width, S) {
+        
+        &:has(> .content-lockup:nth-child(2)) {
+            --items: 2; //2 items per row
+        }
+
+        &:has(> .content-lockup:nth-child(3)) {
+            --items: 3; //3 items per row
+        }
+    }
+
+    .content-lockup {
+            width: 100%;
+
+            @include breakpoint(max-width, M) {
+                max-width: var(--width-content);
+                margin-inline: auto;
+            }
+
+        .media-container {
+            margin-bottom: var(--space-l);
+            position: relative;
+        }
+        p {
+            @include text-style('body', 's');
+        }
+    }
+
+    &.mobile-scroll {
+        @include breakpoint(max-width, S) {
+            
+        }
+    }
+}
+

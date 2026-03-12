@@ -1,0 +1,65 @@
+//If editor chooses a different background shade in block fields, swaps around background and background alt to allow cards to show properly
+
+.background--std {
+
+    &.has-background {
+        background-color: var(--color-background);
+    }
+
+    --section-bg: var(--color-background);
+    --section-bg-alt: var(--color-background-alt);
+
+    //Swap background and background alt for all children except elements with their own background classes (avoids recursion), and theme override classes
+    > *:not([class*="background--"], [class*="theme--"]) {
+        --color-background: var(--section-bg);
+        --color-background-alt: var(--section-bg-alt);
+    }
+}
+
+.background--alt {
+
+    &.has-background {
+        background-color: var(--color-background-alt);
+    }
+
+    --section-bg: var(--color-background-alt);
+    --section-bg-alt: var(--color-background);
+
+    //Swap background and background alt for all children except elements with their own background classes (avoids recursion), and theme override classes
+    > *:not([class*="background--"], [class*="theme--"]) {
+        --color-background: var(--section-bg);
+        --color-background-alt: var(--section-bg-alt);
+    }
+}
+
+.background--inverted {
+
+    &.has-background {
+        background-color: var(--color-body);
+    }
+
+    --section-bg: var(--color-body);
+    --section-bg-alt: color-opacity(var(--color-body), 0.75);
+    --section-fg: var(--color-background);
+
+    //Swap background and background alt for all children except elements with their own background classes (avoids recursion), and theme override classes
+    > *:not([class*="background--"], [class*="theme--"]) {
+        --color-background: var(--section-bg);
+        --color-background-a75: color-mix(in srgb, var(--section-bg), transparent 25%);
+        --color-background-a50: color-mix(in srgb, var(--section-bg), transparent 50%);
+        --color-background-a25: color-mix(in srgb, var(--section-bg), transparent 75%);
+        --color-background-a10: color-mix(in srgb, var(--section-bg), transparent 90%);
+        --color-background-a5: color-mix(in srgb, var(--section-bg), transparent 95%);
+        --color-background-a1: color-mix(in srgb, var(--section-bg), transparent 99%);
+
+        --color-background-alt: var(--section-bg-alt);
+
+        --color-body: var(--section-fg);
+        --color-body-a75: color-mix(in srgb, var(--section-fg), transparent 25%);
+        --color-body-a50: color-mix(in srgb, var(--section-fg), transparent 50%);
+        --color-body-a25: color-mix(in srgb, var(--section-fg), transparent 75%);
+        --color-body-a10: color-mix(in srgb, var(--section-fg), transparent 90%);
+        --color-body-a5: color-mix(in srgb, var(--section-fg), transparent 95%);
+        --color-body-a1: color-mix(in srgb, var(--section-fg), transparent 99%);
+    }
+}

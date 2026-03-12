@@ -1,0 +1,35 @@
+//Import base style partials
+@import "load-fonts";
+
+@import "components/headings";
+@import "components/paragraphs";
+@import "components/lists";
+@import "components/links";
+@import "components/tables";
+@import "components/blockquotes";
+@import "components/captions";
+@import "components/hr";
+
+
+
+//HTML and Body Styling
+html {
+    font-size: 100%;
+    font-variant-numeric: lining-nums;
+
+    @include breakpoint(max-width, XXXS) {
+        font-size: calc(100% - 1vw);
+    }
+    @include breakpoint(min-width, XL) {
+        font-size: calc(100% + 0.125vw);
+    }
+}
+
+body {
+    // Default text style
+    @include text-style('body', 'm');
+
+    &.menu-open {
+        overflow: hidden;
+    }
+}

@@ -1,0 +1,38 @@
+@use "sass:map";
+
+//===========================
+//Apply Global Font Family variables here
+//===========================
+$vars-font-family: (
+    "primary": (
+        "main": 'Inter'
+    ),
+    "secondary": (
+        "main": 'Red Hat Display'
+    )
+);
+
+$vars-font-fallbacks: (
+    "primary": (
+        "fallback": (system-ui, sans-serif) //Parentheses will not show in output
+    ),
+    "secondary": (
+        "fallback": (system-ui, sans-serif) //Parentheses will not show in output
+    )
+);
+
+$vars-font-family-merged: map.deep-merge($vars-font-family, $vars-font-fallbacks);
+
+
+:root {
+
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $var, $map in $vars-font-family-merged {
+                //Merge main and fallback fonts into one family var
+                //e.g. --font-family-primary
+                --font-family-#{$var}: #{map.get($vars-font-family-merged, $var, "main")}, #{map.get($vars-font-family-merged, $var, "fallback")};
+    }
+
+}

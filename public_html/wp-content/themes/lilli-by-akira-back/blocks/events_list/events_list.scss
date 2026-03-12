@@ -1,0 +1,76 @@
+@import "../gutenberg_block";
+
+.event-divider {
+    border-bottom: 1px solid;
+    border-color: color-opacity(var(--color-body), 0.1);
+}
+
+.events-grid {
+    display: grid;
+    column-gap: var(--gutter-standard);
+    row-gap: var(--space-xl);
+    grid-template-columns: repeat(auto-fill, minmax(Min(100%, 20rem), 1fr));
+
+}
+
+.event-block {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--gutter-standard);
+
+    .event-img-outer {
+        grid-column: span 3;
+
+        @include breakpoint(max-width, M) {
+            grid-column: span 2;
+        }
+    }
+    .event-img {
+        position: relative;
+        width: 100%;
+    }
+    .event-content {
+        grid-column: span 3;
+
+        @include breakpoint(max-width, M) {
+            grid-column: span 4;
+        }
+
+        padding-block: var(--space-xs);
+
+        @include breakpoint(max-width, S) {
+            min-width: 0;
+            width: 100%;
+        }
+        p {
+            svg {
+                color: var(--color-accent-primary);
+                margin-right: var(--space-xs);
+            }
+        }
+    }
+}
+
+.events-actions {
+    .addeventatc {
+        margin-left: var(--space-l);
+
+        @include breakpoint(max-width, XS) {
+            margin-left: 0;
+            margin-top: var(--space-l);
+            margin-bottom: 0;
+            width: 100%;
+        }
+    }
+}
+
+.single-event-details {
+    p {
+        width: 50%;
+
+        svg {
+            color: var(--color-accent-primary);
+            margin-right: var(--space-xs);
+        }
+    }
+}

@@ -1,0 +1,43 @@
+@use "sass:map";
+
+//===========================
+//Apply space variables here
+//===========================
+$vars-row: (
+    "desktop": (
+        "0": 0,
+        "xs": map.get($vars-space, "desktop", "m"),
+        "s": map.get($vars-space, "desktop", "l"),
+        "m": map.get($vars-space, "desktop", "xl"),
+        "l": map.get($vars-space, "desktop", "2xl"),
+        "xl": map.get($vars-space, "desktop", "3xl"),
+        "2xl": map.get($vars-space, "desktop", "4xl"),
+    ),
+    "mobile": (
+        "0": 0,
+        "xs": map.get($vars-space, "mobile", "m"),
+        "s": map.get($vars-space, "mobile", "l"),
+        "m": map.get($vars-space, "mobile", "xl"),
+        "l": map.get($vars-space, "mobile", "2xl"),
+        "xl": map.get($vars-space, "mobile", "3xl"),
+        "2xl": map.get($vars-space, "mobile", "4xl"),
+    )
+);
+
+
+:root {
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $mode, $vars in $vars-row {
+        @if ($mode == "desktop") {
+            @each $var, $value in $vars {
+                // Set up min and max values
+                $row-min: map.get($vars-row, "mobile", $var);
+                $row-max: map.get($vars-row, "desktop", $var);
+
+                --row-#{$var}: #{fluid-val($row-min, $row-max)}; //e.g. --row-s
+            } 
+        }
+    }
+}

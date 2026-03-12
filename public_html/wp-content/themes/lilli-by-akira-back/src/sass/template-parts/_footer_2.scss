@@ -1,0 +1,157 @@
+.footer {
+    padding-block: var(--space-xl);
+
+    .social-links {
+        width: 5%;
+        flex-shrink: 0;
+
+        @include breakpoint(max-width, XS) {
+            width: 100%;
+        }
+        .button {
+            margin: 0 0 1rem 0;
+
+            @include breakpoint(max-width, XS) {
+                margin: 0 0.5rem;
+            }
+        }
+    }
+}
+
+.footer-logo {
+    width: 25%;
+    padding-right: var(--gutter-standard);
+
+    @include breakpoint(max-width, S) {
+        width: 100%;
+        padding-right: 0;
+    }
+    svg {
+        max-width: 90%;
+
+        @include breakpoint(max-width, S) {
+            width: var(--size-xl-4);
+            height: auto;
+        }
+        @include breakpoint(max-width, XS) {
+            width: var(--size-xl-2);
+        }
+    }
+}
+
+.footer-content {
+    width: 70%;
+
+    @include breakpoint(max-width, S) {
+        width: 90%;
+    }
+    @include breakpoint(max-width, XS) {
+        width: 100%;
+    }
+    .footer-menu {
+        @include breakpoint(max-width, XS) {
+            width: 100%;
+        }
+    }
+}
+
+.footer-menu {
+    margin-bottom: var(--space-l);
+    width: 100%;
+
+    @include breakpoint(max-width, XS) {
+        margin-bottom: var(--space-m);
+        border-bottom: 1px solid;
+        border-color: color-opacity(var(--color-body), 0.1);
+    }
+
+    .footer-menu-wrap {
+        @include breakpoint(min-width, XS) {
+            display: block !important; // this is in case someone closes it on mobile and goes to a larger screen
+        }
+        @include breakpoint(max-width, XS) {
+            display: none;
+            padding-bottom: var(--space-2xs);
+        }
+    }
+    ul {
+        width: 100%;
+        display: grid;
+        // Make a 2 column grid where the columns have an auto min-width but a max-width of 18rem so they don't stretch ridiculously far
+        grid-template-columns: repeat(2, minmax(auto, 16rem));
+        column-gap: var(--gutter-standard);
+        row-gap: var(--space-s);
+    }
+    a {
+        display: block;
+        color: var(--color-body);
+        font-size: var(--font-size-s);
+
+        @include breakpoint(max-width, XS) {
+            padding: var(--space-s) 0;
+        }
+        &:hover {
+            color: var(--color-accent-primary);
+        }
+    }
+}
+
+.mob-footer-menu-toggle {
+    width: 100%;
+
+    .button.icon {
+        display: none;
+
+        @include breakpoint(max-width, XS) {
+            display: flex;
+        }
+    }
+    @include breakpoint(max-width, XS) {
+        font-size: var(--font-size-l);
+
+        &.active {
+            color: var(--color-accent-primary);
+
+            .button {
+                border-color: var(--color-accent-primary);
+
+                svg {
+                    color: var(--color-accent-primary);
+                }
+            }
+        }
+    }
+}
+
+.footer-content-top {
+    display: grid;
+    // Basically this is saying "if there's enough space, fill in columns at comfortable width with a min-width of 16rem
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: var(--gutter-standard);
+}
+
+.footer-content-bottom {
+    @include breakpoint(max-width, XS) {
+        padding-top: var(--space-m);
+        text-align: center;
+    }
+    span {
+        margin-right: var(--gutter-standard);
+
+        @include breakpoint(max-width, S) {
+            margin: 0 0 var(--space-m) 0;
+            width: 100%;
+
+            &:last-child {
+                margin-bottom: var(--space-xl);
+            }
+        }
+    }
+    a {
+        color: var(--color-body);
+
+        &:hover {
+            color: var(--color-accent-primary);
+        }
+    }
+}

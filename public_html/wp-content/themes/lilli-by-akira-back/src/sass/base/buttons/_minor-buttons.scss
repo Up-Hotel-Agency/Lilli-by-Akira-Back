@@ -1,0 +1,57 @@
+//Minor Button Styling
+
+.button.minor,
+button.minor,
+input[type="button"].minor {
+
+    color: var(--color-body);
+    background: none;
+    border: 1px solid transparent;
+
+    svg {
+        color: var(--color-body);
+    }
+    
+    //Hover state
+    &:hover,
+    &.active {
+        transform: none;
+
+        color: var(--color-accent-primary);
+
+        //Icons on Hover
+        svg {
+            color: var(--color-accent-primary);
+        }
+
+        //Underline on Hover
+        &:after {
+            opacity: 1;
+            transform: scaleX(1);
+        }
+    }
+
+    // no underline or padding
+    &.stripped {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+
+        &:before {
+            display: none;
+        }
+        &.no-hover {
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    &.disabled {
+        color: color-opacity(var(--color-body), 0.25);
+        pointer-events: none;
+
+        svg {
+            color: color-opacity(var(--color-body), 0.25);
+        }
+    }
+}

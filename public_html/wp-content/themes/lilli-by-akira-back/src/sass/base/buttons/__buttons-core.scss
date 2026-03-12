@@ -1,0 +1,207 @@
+//Global Button Styling
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-s);
+
+    &.centered {
+        justify-content: center;
+    }
+}
+
+
+.button,
+button,
+input[type="submit"],
+input[type="button"] {
+
+    //Resets
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    appearance: none;
+    cursor: pointer;
+    width: auto;
+    display: inline-block;
+    position: relative;
+    text-align: center;
+    z-index: 1;
+    @extend %button-transition;
+    @include text-style(button-text, m);
+    padding: var(--space-xs) var(--space-m);
+
+    &.fill {
+        flex-grow: 1;
+    }
+
+    //Set icon transitions
+    svg {
+        @extend %button-transition;
+    }
+
+    //Set up focus styling
+    &:before {
+        content:"";
+        background: transparent;
+        position: absolute;
+        top: -2px;
+        left: -2px;
+        width: calc(100% + 4px);
+        height: calc(100% + 4px);
+        border-radius: 4px;
+        box-shadow: 0px 0px 18px var(--color-success), 0px 0px 18px var(--color-success);
+
+        //Hide until active
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    //Focus reset
+    &:focus {
+        outline: 0;
+
+        &:before {
+            opacity: 1;
+            visibility: visible;
+        }
+    }
+
+    &.unstyled {
+        background: none;
+        min-width: 0;
+        border-radius: 0;
+        border: 0;
+        padding: 0;
+        color: var(--color-accent-primary);
+
+        &:hover {
+            color: color-tint(var(--color-accent-primary), light);
+
+            svg {
+                color: color-tint(var(--color-accent-primary), light);
+            }
+        }
+        &:focus {
+            box-shadow: none;
+        }
+    }
+
+    &.transparent {
+        color: var(--color-background);
+        background: none;
+        border: 1px solid;
+        border-color: var(--color-background);
+
+        &:hover {
+            border: 1px solid;
+
+            color: var(--color-background);
+            background-color: var(--color-body);
+            border-color: var(--color-body);
+        }
+    }
+
+    &.invert {
+        color: var(--color-accent-primary);
+        background-color: var(--color-body);
+        border: 0;
+
+        &:hover {
+            border: 0;
+            background-color: var(--color-accent-primary);
+            color: var(--color-body);
+        }
+    }
+
+    //Buttons with icons
+    &.icon-left,
+    &.icon-right,
+    &.icon-both {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+
+        svg {
+            width: var(--size-m-3);
+            height: var(--size-m-3);
+        }
+        &.size-s {
+            svg {
+                width: var(--size-m-2);
+                height: var(--size-m-2);
+            }   
+        }
+    }
+    &.icon-left {
+        padding: var(--space-xs) var(--space-m) var(--space-xs) var(--space-xs);
+    }
+    &.icon-right {
+        padding: var(--space-xs) var(--space-xs) var(--space-xs) var(--space-m);
+    }
+    &.icon-both {
+        padding: var(--space-xs);
+    }
+    &.icon-top {
+        svg {
+            display: block;
+            margin: 0 auto var(--space-3xs) auto;
+        }
+    }
+    &.icon-both {
+        svg {
+            &:first-child {
+                margin-right: var(--space-2xs);
+            }
+            &:last-child {
+                margin-left: var(--space-2xs);
+            }
+        }
+    }
+    &.icon-right {
+        svg {
+            margin-left: var(--space-2xs);
+        }
+    }
+    &.icon-left {
+        svg {
+            margin-right: var(--space-2xs);
+        }
+    }
+    &.icon-position-right{
+        display: flex;
+        justify-content: center;
+        gap: var(--space-2xs);
+        align-items: center;
+        span{
+            order: 1;
+        }
+        svg{
+            width: var(--size-m-3);
+            height: var(--size-m-3);
+            order: 2;
+            // color: var(--color-body);
+        }
+    }
+    &.icon-position-left{    
+        display: flex;
+        justify-content: center;
+        gap: var(--space-2xs);
+        align-items: center;
+        span{
+            order: 2;
+        }
+        svg{
+            width: var(--size-m-3);
+            height: var(--size-m-3);
+            order: 1;
+            // color: var(--color-body);
+        }
+    }
+}
+
+//Import Button variations
+@import "primary-buttons";
+@import "secondary-buttons";
+@import "minor-buttons";
+@import "icon-buttons";

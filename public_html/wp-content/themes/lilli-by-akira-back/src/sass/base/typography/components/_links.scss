@@ -1,0 +1,56 @@
+a {
+    position: relative;
+    color: var(--color-accent-primary);
+    text-decoration: none;
+    @extend %transition;
+
+    &:hover {
+        color: color-tint(var(--color-accent-primary), lighter);
+    }
+
+    &.underlined {
+        display: inline-block;
+        color: #000;
+
+        &:before {
+            position: absolute;
+            content: "";
+            height: 1px;
+            background-color: var(--color-body);
+            bottom: 0;
+            width: 100%;
+        }
+        &:after {
+            position: absolute;
+            content: "";
+            height: 1px;
+            background-color: var(--color-accent-primary);
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            transform: translateX(-50%);
+            @extend %nav-transition;
+        }
+        &:hover {
+            color: var(--color-accent-primary);
+
+            &:after {
+                width: 100%;
+            }
+        }
+        &.small {
+            font-size: var(--font-size-s);;
+        }
+        &.white {
+            color: #fff;
+            border-bottom: 1px solid #fff;
+
+            &:hover {
+                color: var(--color-accent-primary);
+            }
+            &:after {
+                background-color: var(--color-accent-primary);
+            }
+        }
+    }
+}

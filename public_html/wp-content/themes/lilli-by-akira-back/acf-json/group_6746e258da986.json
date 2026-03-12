@@ -1,0 +1,192 @@
+{
+    "key": "group_6746e258da986",
+    "title": "Row Settings",
+    "fields": [
+        {
+            "key": "field_67471310477e2",
+            "label": "Background",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Add a background for this row",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_67471287477df",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_674708f4e21d9"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_6746e259482b0",
+            "label": "Colour Scheme",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Change the colour palette and theme for this row",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_69934b9c120e7",
+            "label": "Colour Behaviour",
+            "name": "colour_behaviour",
+            "aria-label": "",
+            "type": "button_group",
+            "instructions": "Select whether the chosen colours for this row changes this row only, or changes the colour of the page when this row enters the viewport",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "choices": {
+                "standard": "Standard",
+                "page_transition": "Page Transition"
+            },
+            "default_value": "standard",
+            "return_format": "value",
+            "allow_null": 0,
+            "allow_in_bindings": 1,
+            "layout": "horizontal"
+        },
+        {
+            "key": "field_674712c9477e0",
+            "label": "Palette",
+            "name": "palette",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_67470986e21da"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_674712ef477e1",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_67470e71e21e0"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_67471509477e4",
+            "label": "Spacing",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "Spacing options for this row",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_67471513477e5",
+            "label": "Row Spacing",
+            "name": "row_spacing",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "Override the default spacing at the top and bottom of your row",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_6745ee2210ed6"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Master field settings to apply to all row blocks",
+    "show_in_rest": 0,
+    "display_title": "",
+    "modified": 1771322775
+}

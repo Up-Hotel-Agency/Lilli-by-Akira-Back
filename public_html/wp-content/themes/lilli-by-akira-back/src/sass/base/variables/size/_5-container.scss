@@ -1,0 +1,35 @@
+@use "sass:map";
+
+//===========================
+//Apply space variables here
+//===========================
+$vars-container: (
+    "desktop": (
+        "narrow": map.get($vars-size, "desktop", "2xl-2"),
+        "standard": map.get($vars-size, "desktop", "xl-4"),
+        "wide": map.get($vars-size, "desktop", "l-2"),
+    ),
+    "mobile": (
+        "narrow": map.get($vars-size, "mobile", "l-2"),
+        "standard": map.get($vars-size, "mobile", "m-5"),
+        "wide": map.get($vars-size, "mobile", "m-3"),
+    )
+);
+
+
+:root {
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $mode, $vars in $vars-container {
+        @if ($mode == "desktop") {
+            @each $var, $value in $vars {
+                // Set up min and max values
+                $container-min: map.get($vars-container, "mobile", $var);
+                $container-max: map.get($vars-container, "desktop", $var);
+
+                --container-#{$var}: #{fluid-val($container-min, $container-max)}; //e.g. --container-narrow
+            } 
+        }
+    }
+}

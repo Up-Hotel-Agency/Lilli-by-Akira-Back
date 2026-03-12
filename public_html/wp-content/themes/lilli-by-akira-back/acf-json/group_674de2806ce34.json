@@ -1,0 +1,54 @@
+{
+    "key": "group_674de2806ce34",
+    "title": "Page Theme",
+    "fields": [
+        {
+            "key": "field_674de280d6995",
+            "label": "Page Settings",
+            "name": "page_settings",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "group_674ddfc989081"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1733243382
+}

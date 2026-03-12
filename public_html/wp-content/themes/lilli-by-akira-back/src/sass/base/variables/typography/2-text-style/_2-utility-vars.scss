@@ -1,0 +1,24 @@
+@import '_1-text-styles';
+
+//===========================
+//Function to generate utility variables based on the map above
+//===========================
+:root {
+    @each $group, $styles in $vars-text-styles {
+        @each $style, $vars in $styles {
+            @each $var, $value in $vars {
+
+                //Create global vars (e.g. Body)
+                @if $style == "global" {
+                    --#{$var}-#{$group}: #{$value}; //e.g. --font-family-body
+                } 
+
+                //Create style-specific vars (e.g. Body l)
+                @else {
+                    --#{$var}-#{$group}-#{$style}: #{$value}; //e.g. --font-size-body-l
+                }
+
+            }
+        }
+    }
+}

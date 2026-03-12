@@ -1,0 +1,201 @@
+:root {
+    --header-height: var(--size-l-5); //Make header height a variable
+}
+
+body {
+    &:not(:has(.banner-block.theme--image)) {
+        padding-top: var(--header-height);
+    }
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    height: var(--header-height);
+    padding: var(--space-xs) 0;
+    background-color: var(--color-background);
+    @extend %transition;
+}
+
+.logo {
+    margin-left: 0;
+    margin-right: var(--space-l);
+
+    svg {
+        display: block;
+        margin: 0;
+
+        @include breakpoint(max-width, XS) {
+            width: var(--size-xl-2);
+        }
+        path {
+            @extend %transition;
+        }
+    }
+}
+
+.header-left {
+    padding-left: var(--container-wide);
+}
+
+.header-right {
+    padding-right: var(--container-wide);
+    
+    ul {
+        display: flex;
+
+        @include breakpoint(max-width, M) {
+            display: none;
+        }
+        a {
+            @include text-style('body', 's');
+            @extend .flex;
+            @extend .items-center;
+            margin: 0 var(--space-xs);
+            color: var(--color-body);
+    
+            &:hover {
+                color: var(--color-accent-primary);
+            }
+            svg {
+                margin-left: var(--space-2xs);
+                display: block;
+            }
+            @media screen and (max-width: 80em) {
+                font-size: var(--font-size-xs);
+            }
+        }
+    }
+    .button.primary {
+        &.active {
+            &:before {
+                display: none;
+            }
+        }
+        @media only screen and (max-width: 300px) {
+            // for VERY small screens
+            font-size: var(--font-size-xs);
+            padding: var(--space-2xs) var(--space-xs);
+        }
+    }
+    .menu-icon {
+        margin-bottom: var(--space-3xs);
+    }
+}
+
+.nav-toggle {
+    padding-left: var(--space-m);
+    color: var(--color-body);
+
+    @include breakpoint(max-width, XS) {
+        padding-left: var(--space-s);
+    }
+    .menu-icon {
+        margin-top: var(--space-3xs);
+        margin-bottom: var(--space-3xs);
+        margin-left: var(--space-xs);
+    }
+}
+
+.menu-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateY(-150%);
+    width: 100%;
+    height: 100%;
+    z-index: 21;
+    background-color: var(--color-accent-primary);
+    overflow: auto;
+    @extend %nav-transition;
+    text-align: center;
+
+    &.menu-open {
+        z-index: 21;
+        transform: translateY(0);
+    }
+
+    .menu-button {
+        position: absolute;
+        top: var(--space-xs);
+        right: 8.5rem;
+        background-color: var(--color-accent-primary-reverse);
+        color: var(--color-accent-primary);
+
+        @include breakpoint(max-width, XS) {
+            top: 0.5rem;
+            right: 5rem;
+        }
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+
+        &:hover {
+            a {
+                opacity: 0.25;
+            }
+            li:hover {
+                > a {
+                    opacity: 1;
+                }
+            }
+        }
+        a {
+            @include text-style('large-heading', '2');
+            color: #fff;
+            display: block;
+            padding: 0.75rem;
+        }
+        .sub-menu {
+            display: flex;
+            @extend %nav-transition;
+            max-height: 0;
+            overflow: hidden;
+    
+            @include breakpoint(max-width, XS) {
+                display: block;
+            }
+            a {
+                @include text-style('body', 'l');
+    
+                @include breakpoint(max-width, XS) {
+                    opacity: 1;
+                    padding: 0.675rem;
+                }
+            }
+        }
+        .menu-item-has-children {
+            &:hover {
+                .sub-menu {
+                    max-height: 8rem;
+    
+                    @include breakpoint(max-width, XS) {
+                        max-height: 20rem;
+                    }
+                }
+            }
+        }
+    }
+    .nav-toggle {
+        position: absolute;
+        top: var(--space-m);
+        right: var(--container-wide);
+        color: #fff;
+
+        @include breakpoint(max-width, XS) {
+            top: var(--space-xs);
+        }
+        .menu-icon span {
+            background: #fff;
+        }
+    }
+}
+
+//Move menu away when fullscreen gallery present
+.gallery-full-container:first-child {
+    margin-top: calc( -1 * var(--header-height) );
+}

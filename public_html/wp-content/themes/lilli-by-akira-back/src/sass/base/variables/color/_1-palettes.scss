@@ -1,0 +1,88 @@
+@use "sass:map";
+
+//===========================
+//Color Palettes:
+//Define base brand colors here
+//Does your project require multiple palettes? Duplicate the "default" key below)
+//===========================
+$vars-color-palette: (
+    "default": (
+        "neutral": (
+            "black": (
+                //Base Black
+                "base": #000410,
+            ),
+            "white": (
+                //Base White
+                "base": #FFFFFF,
+            ),
+        ),
+        "brand": (
+            "primary": ( 
+                //Base Brand color
+                "base": #0066FF,
+
+                //Text color on top of base BG color
+                "reverse": var(--color-white),
+            )
+        ),
+        "ui": (
+            "success": ( 
+                //Base UI Success color
+                "base": #4CC27B,
+
+                //Text color on top of base BG color
+                "reverse": var(--color-white),
+            ),
+            "warning": (
+                //Base UI Warning color
+                "base": #EEBE43,
+
+                //Text color on top of base BG color
+                "reverse": var(--color-black),
+            ),
+            "danger": ( 
+                //Base UI Error color
+                "base": #DE3C4B,
+
+                //Text color on top of base BG color
+                "reverse": var(--color-white),
+            )
+        )
+    )
+);
+
+
+//===========================
+//Function to generate utility variables based on the map above
+//===========================
+
+@each $palette, $categories in $vars-color-palette {
+    $classList: null;
+    $paletteClass: ".palette--" + #{$palette};
+
+    //Add :root class if 'default'
+    @if $palette == "default" {
+        $classList: ":root, " + #{$paletteClass};
+    }
+    @else {
+        $classList: #{$paletteClass};
+    }
+
+    #{$classList} {
+        @each $category, $groups in $categories {
+            @each $group, $vars in $groups {
+                @each $var, $value in $vars {
+
+                    @if $var == "base" {
+                        --color-#{$group}: #{$value}; //e.g. --color-primary
+                    }
+                    @else {
+                        --color-#{$group}-#{$var}: #{$value}; //e.g. --color-primary-light
+                    }
+
+                }
+            }
+        }
+    }
+}

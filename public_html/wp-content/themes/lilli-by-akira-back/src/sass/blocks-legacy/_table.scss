@@ -1,0 +1,13 @@
+.wp-block-table {
+    max-width: var(--width-content);
+    margin-inline: auto;
+
+    &.is-style-stripes {
+        border: 0;
+
+        th,
+        td {
+            border-color: color-opacity(var(--color-body), 0.1);
+        }
+    }
+}

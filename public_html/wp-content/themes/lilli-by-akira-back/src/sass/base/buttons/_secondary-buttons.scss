@@ -1,0 +1,40 @@
+//Secondary Button Styling
+
+.buttons .button,
+.button,
+button,
+input[type="button"] {
+    &.secondary {
+
+        //Secondary button default styling
+        color: var(--color-body);
+        background-color: transparent;
+        border: solid 1px;
+        border-color: var(--color-body);
+
+        svg {
+            color: var(--color-body);
+        }
+        //Hover state
+        &:hover,
+        &.active {
+            color: var(--color-accent-primary);
+            border-color: var(--color-accent-primary);
+    
+            svg {
+                color: var(--color-accent-primary);
+            }
+        }
+    }
+
+    &.disabled {
+        color: color-opacity(var(--color-body), 0.25);
+        border-color: color-opacity(var(--color-body), 0.25);
+        background: transparent;
+        pointer-events: none;
+
+        svg {
+            color: color-opacity(var(--color-body), 0.25);
+        }
+    }
+}

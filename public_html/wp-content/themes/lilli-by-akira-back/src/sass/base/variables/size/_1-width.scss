@@ -1,0 +1,37 @@
+@use "sass:map";
+@use 'sass:math';
+
+//===========================
+//Apply width variables here
+//===========================
+$vars-width: (
+    "viewport": (
+        "desktop": 1440,
+        "mobile": 375
+    ),
+    "content": (
+        "desktop": 788,
+        "mobile": 319
+    )
+);
+
+
+:root {
+
+//===========================
+// Width variables (for production use, in rem)
+//===========================
+
+    // Set up viewport width variable
+    $viewport-min-width: map.get($vars-width, "viewport", "mobile");
+    $viewport-max-width: map.get($vars-width, "viewport", "desktop");
+
+    --width-viewport: #{fluid-val($viewport-min-width, $viewport-max-width)};
+
+
+    // Set up content width variable
+    $content-max-width: map.get($vars-width, "content", "desktop");
+    $content-max-width-rem: math.div($content-max-width, 16) * 1rem;
+
+    --width-content: min(100%, #{$content-max-width-rem});
+}

@@ -1,0 +1,56 @@
+@use "sass:map";
+
+//===========================
+//Apply width variables here
+//===========================
+$vars-font-size: (
+    "desktop": (
+        "3xs": 8,
+        "2xs": 10,
+        "xs": 12,
+
+        "s": 14,
+        "m": 16,
+        "l": 21,
+
+        "xl": 28,
+        "2xl": 38,
+        "3xl": 51,
+        "4xl": 67,
+        "5xl": 90
+    ),
+    "mobile": (
+        "3xs": 7,
+        "2xs": 8,
+        "xs": 10,
+
+        "s": 12,
+        "m": 14,
+        "l": 18,
+
+        "xl": 22,
+        "2xl": 27,
+        "3xl": 34,
+        "4xl": 40,
+        "5xl": 48
+    )
+);
+
+
+:root {
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $mode, $vars in $vars-font-size {
+        @if ($mode == "desktop") {
+            @each $var, $value in $vars {
+                // Set up min and max values
+                $font-size-min: map.get($vars-font-size, "mobile", $var);
+                $font-size-max: map.get($vars-font-size, "desktop", $var);
+
+                //Uses size-base variable from size.scss
+                --font-size-#{$var}: #{fluid-val($font-size-min, $font-size-max)}; //e.g. --font-size-s
+            } 
+        }
+    }
+}

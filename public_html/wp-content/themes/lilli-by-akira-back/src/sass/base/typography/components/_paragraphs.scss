@@ -1,0 +1,35 @@
+p {
+    @include text-style('body', 'm');
+    margin-bottom: var(--space-s);
+    color: var(--color-body);
+
+    &.no-margin {
+        margin-bottom: 0;
+    }
+    &.less-margin {
+        margin-bottom: var(--space-2xs);
+    }
+    &.quote {
+        &:before {
+            content: open-quote;
+        }
+        &:after {
+            content: close-quote;
+        }
+    }
+}
+
+strong,
+b {
+    font-weight: 700;
+    color: var(--color-body);
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+.bold {
+    font-weight: 700;
+}

@@ -1,0 +1,134 @@
+{
+    "key": "group_674ddfc989081",
+    "title": "Page Settings",
+    "fields": [
+        {
+            "key": "field_674ddfc990c71",
+            "label": "Background",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_674ddfc990f9f",
+            "label": "Background",
+            "name": "background",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_674708f4e21d9"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_674ddfc991055",
+            "label": "Colour Scheme",
+            "name": "",
+            "aria-label": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 1,
+            "multi_expand": 1,
+            "endpoint": 0
+        },
+        {
+            "key": "field_674ddfc99110a",
+            "label": "Palette",
+            "name": "palette",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_67470986e21da"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        },
+        {
+            "key": "field_674ddfc9911bf",
+            "label": "Theme",
+            "name": "theme",
+            "aria-label": "",
+            "type": "clone",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "clone": [
+                "field_67470e71e21e0"
+            ],
+            "display": "seamless",
+            "layout": "block",
+            "prefix_label": 0,
+            "prefix_name": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "post"
+            }
+        ],
+        [
+            {
+                "param": "post_type",
+                "operator": "!=",
+                "value": "post"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "side",
+    "style": "seamless",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": false,
+    "description": "Master field settings to apply to all row blocks",
+    "show_in_rest": 0,
+    "modified": 1733243382
+}

@@ -1,0 +1,157 @@
+@use "sass:map";
+//Apply defined color variables here
+
+//===========================
+//Color Themes:
+//Based on brand palette variables from color-palette.scss, allows for switching between light, dark, etc
+//===========================
+
+$vars-color-themes: (
+    "light": (
+        "mix": (
+            tint: #FFF,
+            shade: #000,
+        ),
+
+        "body": ( 
+            //Base Body
+            "base": var(--color-black),
+        ),
+
+        "background": ( 
+            //Base Background
+            "base": var(--color-white),
+            "alt": color-shade(var(--color-white), 5%),
+            "alt-2": color-shade(var(--color-white), 10%),
+        ),
+
+        "accent-primary": ( 
+            //Base Primary Color
+            "base": var(--color-primary),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-primary-reverse),
+        )
+    ),
+
+    "dark": (
+        "mix": (
+            tint: #000,
+            shade: #FFF,
+        ),
+
+        "body": ( //Base Body
+            "base": var(--color-white),
+        ),
+
+        "background": ( 
+            //Base Background
+            "base": var(--color-black),
+            "alt": color-shade(var(--color-black), 10%),
+            "alt-2": color-shade(var(--color-black), 20%),
+        ),
+
+        "accent-primary": ( 
+            //Base Primary Color
+            "base": var(--color-primary),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-primary-reverse),
+        )
+    ),
+
+    "accent": (
+        "mix": (
+            tint: #000,
+            shade: #FFF,
+        ),
+
+        "body": ( 
+            //Base Body
+            "base": var(--color-primary-reverse),
+        ),
+
+        "background": ( 
+            //Base Background
+            "base": var(--color-primary),
+            "alt": color-shade(var(--color-primary), light),
+            "alt-2": color-shade(var(--color-primary), lighter),
+        ),
+
+        "accent-primary": ( 
+            //Base Primary Color
+            "base": var(--color-primary-reverse),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-primary),
+        )
+    ),
+
+    "image": (
+        "mix": (
+            tint: #000,
+            shade: #FFF,
+        ),
+
+        "body": ( 
+            //Base Body
+            "base": var(--color-white),
+        ),
+
+        "background": ( 
+            //Base Background
+            "base": var(--color-black),
+            "alt": color-shade(var(--color-black), 10%),
+            "alt-2": color-shade(var(--color-black), 20%),
+        ),
+
+        "accent-primary": ( 
+            //Base Primary Color
+            "base": var(--color-white),
+
+            //Text color on top of base BG color
+            "reverse": var(--color-black),
+        )
+    )
+);
+
+
+//===========================
+//Function to generate utility variables based on the map above
+//===========================
+
+$classList: null;
+$defaultList: ":root, " + ".theme--default";
+$theme-default: "light";
+
+@each $theme, $groups in $vars-color-themes {
+    $themeClass: ".theme--" + #{$theme}; //e.g. ".theme--light", ".theme--dark", etc
+
+    //Add :root class for the default theme
+    @if $theme == $theme-default {
+        $classList: #{$defaultList} + ", " + #{$themeClass};
+    }
+
+    @else {
+        $classList: #{$themeClass};
+    }
+
+    //Generate the rest of the styles
+    #{$classList} {
+        @each $group, $vars in $groups {
+            @each $var, $value in $vars {
+                @if $var =="base" {
+                    --color-#{$group}: #{$value}; //e.g. --color-primary
+                }
+                @else {
+                    --color-#{$group}-#{$var}: #{$value}; //e.g. --color-primary-light
+                }
+            }
+        }
+
+        //Apply inheritable theme colors (so that using theme utility classes override properly)
+        @at-root :where(&) {
+            color: var(--color-body);
+        }
+    }
+}

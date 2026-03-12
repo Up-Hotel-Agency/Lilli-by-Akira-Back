@@ -1,0 +1,86 @@
+@import "../gutenberg_block";
+
+.grid-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+
+    @include breakpoint(max-width, M) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include breakpoint(max-width, S) {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    &.grid-columns-5 {
+        grid-template-columns: repeat(5, 1fr);
+
+        @include breakpoint(max-width, M) {
+            grid-template-columns: repeat(2, 1fr);
+
+            .grid-list-item {
+                &:last-of-type {
+                    grid-column: span 2;
+                }
+            }
+        }
+    }
+    &.grid-columns-4 {
+        grid-template-columns: repeat(4, 1fr);
+
+        .list-content-title {
+            @include text-style('small-heading', '1');
+        }
+
+        @include breakpoint(max-width, M) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    &.grid-columns-3 {
+        grid-template-columns: repeat(3, 1fr);
+
+        .list-content-title {
+            @include text-style('large-heading', '3');
+        }
+
+        @include breakpoint(max-width, M) {
+            grid-template-columns: repeat(2, 1fr);
+
+            .grid-list-item {
+                &:last-of-type {
+                    grid-column: span 2;
+                }
+            }
+        }
+    }
+    &.grid-columns-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    &.grid-columns-1 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .grid-list-item {
+        width: 100%;
+        padding: var(--space-s) var(--space-m);
+        text-align: center;
+
+        .list-content,
+        h5,
+        p {
+            width: 100%;
+        }
+
+        .list-content-title {
+            @include text-style('small-heading', '2');
+        }
+    }
+    &.mobile-scroll {
+        @include breakpoint(max-width, S) {
+
+            .grid-list-item {
+                flex-basis: 14rem;
+            }
+        }
+    }
+}

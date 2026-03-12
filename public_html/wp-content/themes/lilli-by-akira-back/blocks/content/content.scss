@@ -1,0 +1,34 @@
+@import "../gutenberg_block";
+
+.content-block {
+    max-width: var(--width-content);
+    margin-inline: auto;
+
+    &.text-align-left {
+        text-align: left;
+
+        > * {
+            justify-content: start;
+        }
+    }
+
+        &.text-align-center {
+        text-align: center;
+
+        > * {
+            justify-content: center;
+        }
+    }
+
+    &.text-align-right {
+        text-align: right;
+
+        > * {
+            justify-content: end;
+        }
+    }
+
+    > *:last-child {
+        margin-bottom: 0;
+    }
+}

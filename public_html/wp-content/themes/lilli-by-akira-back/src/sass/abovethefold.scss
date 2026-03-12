@@ -1,0 +1,29 @@
+
+//Plugins
+@import "base/reset";
+
+@import "utilities/breakpoints";
+@import "utilities/mixins";
+@import "utilities/animations";
+@import "utilities/placeholders";
+
+@import "base/variables/**/*.scss";
+@import "base/layout/**/*.scss";
+
+@import "base/typography/_typography-core";
+@import "base/buttons/_buttons-core";
+@import "base/media/_media";
+@import "base/media/bg-media";
+@import "utilities/utilities";
+
+
+@import "base/base-styles";
+
+@import "template-parts/banner";
+
+@import "template-parts/header_general";
+
+// pick your header
+// @import "template-parts/header_1";
+// @import "template-parts/header_2";
+@import "template-parts/header_3";

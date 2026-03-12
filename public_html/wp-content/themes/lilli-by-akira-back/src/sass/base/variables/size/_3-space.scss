@@ -1,0 +1,52 @@
+@use "sass:map";
+
+//===========================
+//Apply space variables here
+//===========================
+$vars-space: (
+    "desktop": (
+        "3xs": map.get($vars-size, "desktop", "s-3"),
+        "2xs": map.get($vars-size, "desktop", "s-4"),
+        "xs": map.get($vars-size, "desktop", "s-5"),
+
+        "s": map.get($vars-size, "desktop", "m-1"),
+        "m": map.get($vars-size, "desktop", "m-3"),
+        "l": map.get($vars-size, "desktop", "m-5"),
+
+        "xl": map.get($vars-size, "desktop", "l-2"),
+        "2xl": map.get($vars-size, "desktop", "l-4"),
+        "3xl": map.get($vars-size, "desktop", "xl-2"),
+        "4xl": map.get($vars-size, "desktop", "xl-4"),
+    ),
+    "mobile": (
+        "3xs": map.get($vars-size, "mobile", "s-3"),
+        "2xs": map.get($vars-size, "mobile", "s-4"),
+        "xs": map.get($vars-size, "mobile", "s-5"),
+
+        "s": map.get($vars-size, "mobile", "m-1"),
+        "m": map.get($vars-size, "mobile", "m-3"),
+        "l": map.get($vars-size, "mobile", "m-5"),
+
+        "xl": map.get($vars-size, "mobile", "l-1"),
+        "2xl": map.get($vars-size, "mobile", "l-3"),
+        "3xl": map.get($vars-size, "mobile", "xl-1"),
+        "4xl": map.get($vars-size, "mobile", "xl-2"),
+    )
+);
+
+:root {
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $mode, $vars in $vars-space {
+        @if ($mode == "desktop") {
+            @each $var, $value in $vars {
+                // Set up min and max values
+                $space-min: map.get($vars-space, "mobile", $var);
+                $space-max: map.get($vars-space, "desktop", $var);
+
+                --space-#{$var}: #{fluid-val($space-min, $space-max)}; //e.g. --space-s
+            } 
+        }
+    }
+}

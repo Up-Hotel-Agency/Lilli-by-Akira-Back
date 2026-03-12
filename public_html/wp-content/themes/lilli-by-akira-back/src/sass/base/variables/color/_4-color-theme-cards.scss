@@ -1,0 +1,36 @@
+//Sub colour themes for card elements (e.g. CTA blocks) – these work by swapping around parent theme colours where necessary
+
+.theme__card {
+
+    // Standard card colour (e.g. standard background CTA blocks)
+    &--standard {
+        --card-color-body: var(--color-body);
+        --card-color-background: var(--section-bg-alt, var(--color-background-alt));
+        --card-color-accent-primary: var(--color-accent-primary);
+        --card-color-accent-reverse: var(--color-accent-reverse);
+    }
+
+    // Accent card colour (e.g. accent primary background CTA blocks)
+    &--accent {
+        --card-color-body: var(--color-accent-primary-reverse);
+        --card-color-background: var(--color-accent-primary);
+        --card-color-accent-primary: var(--color-accent-primary-reverse);
+        --card-color-accent-reverse: var(--color-accent-primary);
+    }
+
+    // Accent card colour (e.g. accent primary background CTA blocks)
+    &--inverted {
+        --card-color-body: var(--color-background);
+        --card-color-background: var(--color-body);
+        --card-color-accent-primary: var(--color-accent-primary);
+        --card-color-accent-reverse: var(--color-accent-primary-reverse);
+    }
+}
+
+// Redefine CSS variables for elements within cards
+[class*="theme__card"] > * {
+    --color-body: var(--card-color-body);
+    --color-background: var(--card-color-background);
+    --color-accent-primary: var(--card-color-accent-primary);
+    --color-accent-primary-reverse: var(--card-color-accent-reverse);
+}

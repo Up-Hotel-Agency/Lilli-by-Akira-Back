@@ -1,0 +1,126 @@
+@use 'sass:math';
+
+//////////////////////////////////////////////////
+/// Function: fluid-val
+/// Creates a responsive value that scales between two sizes.
+//////////////////////////////////////////////////
+///
+/// Params:
+/// $min - Minimum value (must be unitless).
+/// $max - Maximum value (must be unitless).
+/// $viewport-min - Minimum viewport width (must be unitless).
+/// $viewport-max - Maximum viewport width (must be unitless).
+/// 
+/// Returns: Responsive value based on clamped values with a fluid middle
+/// Example: width: fluid-val(200, 400);
+/// Output: Scales from 12.5rem (200px) at a 375px viewport to 25rem (400px) at a 1440px viewport
+
+@function fluid-val($min, $max, $viewport-min: 375, $viewport-max: 1440) {
+
+    //Convert min and max values to rem (relative to defined base unit from variables)
+    $min-rem: math.div($min, 16) * 1rem; 
+    $max-rem: math.div($max, 16) * 1rem; 
+
+
+    //Slope and Intercept values to calculate the fluid value between min and max
+    //See https://www.aleksandrhovhannisyan.com/blog/fluid-type-scale-with-css-clamp/ for more context
+    $slope: math.div(($max - $min), ($viewport-max - $viewport-min));
+    $intercept: $min - ($slope * $viewport-min);
+
+    $slope-rounded: math.div(math.round($slope * 1000), 1000);
+    $intercept-rounded: math.div(math.round($intercept * 1000), 1000);
+
+    //Fluid value
+    $fluid: calc(($slope-rounded * 100vw) + (($intercept-rounded * 1rem) / 16));
+
+    //Result (puts min, max and fluid values in a clamp function)
+    @return clamp($min-rem, $fluid, $max-rem);
+}
+
+
+//////////////////////////////////////////////////
+/// Function: color-tint
+/// Takes an input color and lightens it
+//////////////////////////////////////////////////
+///
+/// Params:
+/// $color - Color value (can be passed via a variable).
+/// $amount - A percentage, or a keyword (e.g. 'lightest')
+/// 
+/// Returns: color-mix() function that passes through a mix-tint and amount
+/// Example: color: color-tint(#000, lighter);
+/// Output: color-mix(in oklch, #000, var(--color-mix-tint, #FFF) 50%)
+
+@function color-tint($color, $amount: 100%) {
+
+    $amount-out: $amount;
+
+    //Define preset keywords for tints
+    $amount-keywords: (
+        lightest: 87.5%,
+        lighter: 50%,
+        light: 25%
+    );
+
+    //If value contains a keyword, output the associated value from the map above
+    @each $key, $val in $amount-keywords {
+        @if $amount == $key {
+            $amount-out: $val;
+        }
+    }
+
+    @return color-mix(in oklch, $color, var(--color-mix-tint, #FFF) $amount-out);
+};
+
+
+//////////////////////////////////////////////////
+/// Function: color-shade
+/// Takes an input color and darkens it
+//////////////////////////////////////////////////
+///
+/// Params:
+/// $color - Color value (can be passed via a variable).
+/// $amount - A percentage, or a keyword (e.g. 'darkest')
+/// 
+/// Returns: color-mix() function that passes through a mix-shade and amount
+/// Example: color: color-shade(#FFF, darker);
+/// Output: color-mix(in oklch, #FFF, var(--color-mix-shade, #000) 50%)
+
+@function color-shade($color, $amount: 100%) {
+
+    $amount-out: $amount;
+
+    //Define preset keywords for tints
+    $amount-keywords: (
+        darkest: 87.5%,
+        darker: 50%,
+        dark: 25%
+    );
+
+    //If value contains a keyword, output the associated value from the map above
+    @each $key, $val in $amount-keywords {
+        @if $amount == $key {
+            $amount-out: $val;
+        }
+    }
+
+    @return color-mix(in oklch, $color, var(--color-mix-shade, #000) $amount-out);
+};
+
+
+//////////////////////////////////////////////////
+/// Function: color-opacity
+/// Takes an input color and applies an alpha value
+//////////////////////////////////////////////////
+///
+/// Params:
+/// $color - Color value (can be passed via a variable).
+/// $amount - A number between 0 and 1, or a percentage
+/// 
+/// Returns: relative color function that appends an alpha channel
+/// Example: color: color-opacity(#000, 50%);
+/// Output: oklch(from #000 l c h / 50%)
+
+@function color-opacity($color, $amount: 100%) {
+    @return oklch(from $color l c h / $amount);
+};

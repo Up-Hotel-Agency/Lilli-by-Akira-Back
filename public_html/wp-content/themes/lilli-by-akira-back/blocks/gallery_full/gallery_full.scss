@@ -1,0 +1,178 @@
+@import "../gutenberg_block";
+
+.gallery-full {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+
+    .slick-track,
+    .slick-list,
+    .gallery-full-slide,
+    img {
+        position: absolute !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+    }
+    @include breakpoint(max-width, S) {
+        height: calc(100dvh - 15.5rem);
+    }
+}
+
+.gallery-full-container {
+    position: relative;
+    height: 100dvh;
+}
+
+.gallery-full-controls {
+    position: absolute;
+    bottom: 0;
+    left: var(--container-standard);
+    right: var(--container-standard);
+    z-index: 5;
+    background-color: var(--color-background);
+    @extend %transition;
+
+    @include breakpoint(max-width, S) {
+        position: relative;
+        height: 15.5rem;
+        padding-top: var(--space-3xl);
+        left: auto;
+        right: auto;
+        border-bottom: 1px solid;
+        border-color: color-opacity(var(--color-body), 0.1);
+    }
+    &.gallery-menu-hide {
+        background-color: color-opacity(var(--color-background), 0.75);
+    }
+}
+
+.header {
+    &.gallery-menu-hide {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.gallery-cat-select {
+    padding: var(--space-s);
+    border-right: 1px solid;
+    border-color: color-opacity(var(--color-body), 0.1);
+
+    @include breakpoint(max-width, S) {
+        width: 50%;
+        border-top: 1px solid;
+        border-color: color-opacity(var(--color-body), 0.1);
+        height: 5.5rem;
+        min-width: 14rem;
+        flex-grow: 1;
+    }
+    .dropdown {
+        padding: 0;
+        border: 0;
+        background: transparent;
+
+        select {
+            min-width: 12rem;
+            padding: 0;
+
+            @include breakpoint(max-width, M) {
+                min-width: 8rem;
+            }
+        }
+        &:after {
+            right: 0;
+        }
+    }
+}
+
+.gallery-controls {
+    padding: var(--space-xs) var(--space-m);
+
+    @include breakpoint(max-width, S) {
+        border-top: 1px solid;
+        border-color: color-opacity(var(--color-body), 0.1);
+        height: 5.5rem;
+        padding: var(--space-xs) 0;
+    }
+    .button {
+        margin-bottom: 0;
+
+        @include breakpoint(max-width, S) {
+            margin: 0 var(--space-2xs);
+        }
+    }
+    .counter {
+        width: 4.5rem;
+
+        @include breakpoint(max-width, S) {
+            position: absolute;
+            width: 100%;
+            top: var(--space-m);
+            left: 0;
+            text-align: center;
+        }
+    }
+    .gallery-image-details {
+        position: relative;
+        width: 100%;
+        height: 100%;
+
+        .slick-slider,
+        .slick-list,
+        .slick-track,
+        .gallery-image-details-slide {
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+        }
+        @include breakpoint(max-width, S) {
+            position: static;
+            width: auto;
+            height: auto;
+
+            .slick-slider {
+                height: 10rem !important;
+            }
+            .gallery-image-details-slide {
+                padding-top: var(--space-2xl);
+                text-align: center;
+
+                .button {
+                    margin-top: var(--space-xs);
+                }
+            }
+        }
+    }
+    .gallery-image-details-slide {
+        display: flex !important;
+    }
+}
+
+.hide-gallery {
+    padding: 1rem var(--space-l);
+    border-left: 1px solid;
+    border-color: color-opacity(var(--color-body), 0.1);
+    color: var(--color-body);
+
+    @include breakpoint(max-width, M) {
+        padding: var(--space-s);
+    }
+    &:hover {
+        color: var(--color-accent-primary);
+    }
+    .show {
+        display: none;
+    }
+    &.active {
+        .show {
+            display: block;
+        }
+        .hide {
+            display: none;
+        }
+    }
+}

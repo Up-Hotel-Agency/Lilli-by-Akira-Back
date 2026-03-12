@@ -1,0 +1,76 @@
+@import "../gutenberg_block";
+
+.gallery-carousel-wrapper {
+    position: relative;
+    overflow: hidden;
+
+    .slick-controls {
+        margin-top: var(--space-s);
+    }
+    .slick-control {
+        color: var(--color-body);
+
+        &:hover {
+            color: var(--color-accent-primary);
+        }
+    }
+}
+
+.gallery-carousel {
+
+    .slick-track {
+        display: flex;
+        gap: var(--gutter-standard);
+    }
+
+    .gallery-carousel-slide-img {
+        @extend %transition;
+        position: relative;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        max-height: calc(100vh - var(--space-3xl));
+        width: calc(100vw - calc(2 * var(--container-standard)));
+        overflow: hidden;
+        box-shadow: 4px 8px 24px color-opacity(var(--color-body), 0.01);
+
+        img {
+            z-index: 1;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 2;
+            @extend %transition;
+            background: linear-gradient(0deg, rgba(#000, 0.6), rgba(#000, 0.6));
+            background-blend-mode: multiply, normal;
+        }
+    }
+    .caption {
+        color: color-opacity(var(--color-body), 0.5);
+        width: 100%;
+        text-align: center;
+        z-index: 3;
+        opacity: 0;
+        @extend %nav-transition;
+        transform: translateY(-0.5rem);
+        margin-top: var(--space-l);
+    }
+    .gallery-carousel-slide {
+        &.slick-active,
+        &[aria-hidden="true"]:not([tabindex="-1"]) + .slick-cloned[aria-hidden="true"] {
+            .gallery-carousel-slide-img {
+                &:before {
+                    opacity: 0;
+                }
+            }
+            .caption {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    }
+}

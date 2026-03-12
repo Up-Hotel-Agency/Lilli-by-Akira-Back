@@ -1,0 +1,59 @@
+//Primary Button Styling, which is default
+
+.buttons .button,
+.button,
+button,
+input[type="submit"],
+input[type="button"] {
+
+    //Primary button default styling
+    color: var(--color-accent-primary-reverse);
+    background-color: var(--color-accent-primary);
+
+    border: 1px solid;
+    border-color: var(--color-accent-primary);
+
+    //Icon styling
+    svg {
+        color: var(--color-accent-primary-reverse);
+    }
+
+    //Hide pseudo element of other buttons
+    &:after {
+        display: none;
+    }
+
+    //Hover state
+    &:hover,
+    &.active {
+        color: var(--color-accent-primary-reverse);
+        background-color: color-tint(var(--color-accent-primary), light);
+        border-color: color-tint(var(--color-accent-primary), light);
+
+        svg {
+            color: var(--color-accent-primary-reverse);
+        }
+    }
+
+    &.white {
+        background-color: var(--color-accent-primary-reverse);
+        color: var(--color-accent-primary);
+
+        svg {
+            color: var(--color-accent-primary);
+        }
+        &:hover {
+            background-color: color-tint(var(--color-accent-primary), light);
+        }
+    }
+
+    &.disabled {
+        background-color: color-opacity(var(--color-body), 0.25);
+        border-color: transparent;
+        pointer-events: none;
+
+        svg {
+            color: color-opacity(var(--color-body), 0.25);
+        }
+    }
+}

@@ -1,0 +1,15 @@
+.edit-post-visual-editor__post-title-wrapper {
+    padding: 0;
+    background: var(--color-background-alt, color-mix(in srgb, var(--color-background, #fff), #000 5%));
+    // border-bottom: 1px solid hsl(from var(--color-body, #000) h s l / 0.1);
+    margin: 0;
+    margin-top: 0 !important;
+
+        .wp-block-post-title {
+            color: var(--color-body);
+            @include text-style('large-heading', '3');
+            font-family: var(--font-stack-large-heading);
+            margin: 0 auto;
+            padding: var(--space-s);
+        }
+}

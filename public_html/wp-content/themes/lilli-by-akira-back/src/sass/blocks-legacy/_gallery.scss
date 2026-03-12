@@ -1,0 +1,26 @@
+.wp-block-gallery {
+    padding-inline: var(--container-standard);
+    padding-block: var(--space-xl);
+
+    + .wp-block-gallery {
+        padding-top: 0;
+        margin-top: calc( -1 * var(--space-xl) );
+    }
+
+    &.alignfull {
+        padding-inline: 0 !important;
+    }
+    ul {
+        padding: 0;
+        margin: 0;
+        
+        li {
+            padding: 0;
+            margin: 0;
+    
+            &:before {
+                display: none;
+            }
+        }
+    }
+}

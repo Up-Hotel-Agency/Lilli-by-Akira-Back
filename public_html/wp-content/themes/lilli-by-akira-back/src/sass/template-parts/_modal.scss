@@ -1,0 +1,424 @@
+.gallery-modal {
+    inset: 0;
+    background-color: var(--color-background);
+
+    .gallery-modal-images {
+        flex-grow: 1;
+        flex-basis: 100%;
+        position: relative;
+
+        .button {
+            position: absolute;
+            z-index: 3;
+            bottom: var(--space-m);
+            right: var(--space-l);
+            margin: 0;
+
+            @include breakpoint(max-width, XS) {
+                max-width: 40vw;
+                bottom: var(--space-l);
+                right: var(--space-l);
+            }
+        }
+        .gallery-modal-slider,
+        .slick-list,
+        .slick-track,
+        img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .modal-img-blanker {
+            position: absolute;
+            top: 0;
+            left: -1px;
+            z-index: 1;
+
+            @include breakpoint(max-width, S) {
+                display: none;
+            }
+        }
+    }
+    .gallery-modal-counter {
+        display: flex;
+        gap: var(--space-3xs);
+        text-align: center;
+
+        @include breakpoint(max-width, S) {
+            order: 3;
+        }
+    }
+    .gallery-modal-slide {
+        .caption {
+            position: absolute;
+            bottom: var(--space-xl);
+            left: var(--space-xl);
+            z-index: 3;
+            margin: 0;
+
+            @include breakpoint(max-width, XS) {
+                max-width: 60vw;
+            }
+        }
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 75%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 32.5%, rgba(0, 0, 0, 0.5) 100%);
+            background-blend-mode: multiply;
+        }
+    }
+    .gallery-modal-sidebar {
+        flex-basis: var(--size-xl-2);
+        flex-shrink: 0;
+        padding: var(--space-m);
+        position: relative;
+        background-color: var(--color-background);
+
+        @include breakpoint(max-width, S) {
+            width: 100%;
+            
+            .gallery-close {
+                order: 2;
+            }
+        }
+    }
+    .gallery-modal-controls {
+        display: grid;
+        gap: var(--space-s);
+        justify-items: center;
+        align-items: center;
+
+        @include breakpoint(max-width, S) {
+            grid-auto-flow: column;
+        }
+    }
+}
+
+.custom-modal-close {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: var(--size-xl-1);
+    aspect-ratio: 1;
+    padding: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-color: var(--color-accent-primary);
+
+    svg {
+        display: block;
+        @extend %transition;
+    }
+    &:hover {
+        svg {
+            rotate: 180deg;
+        }
+    }
+    @include breakpoint(max-width, S) {
+        border-bottom: 0;
+        background: #fff;
+    }
+}
+
+.inpage-modal,
+.fancybox-slide .inpage-modal {
+    text-align: center;
+    width: 70vw;
+    max-width: calc( var(--width-content) + ( 2 * var(--space-2xl) ) );
+    padding: var(--space-2xl);
+    background: var(--color-background);
+    background-size: 100%;
+    margin: var(--space-2xl) auto;
+
+    @include breakpoint(max-width, S) {
+        width: 90vw;
+    }
+
+    ul {
+        width: 50%;
+        float: left;
+        text-align: left;
+        padding: 0 var(--space-s);
+
+        @include breakpoint(max-width, S) {
+            width: 100%;
+            float: none;
+            padding: 0;
+        }
+        li {
+            font-size: var(--font-size-xs);
+
+            &:before {
+                background-color: var(--color-accent-primary);
+                width: 6px;
+                height: 6px;
+                top: var(--space-2xs);
+            }
+        }
+    }
+}
+
+.fancybox-button--fullscreen {
+    display: none !important;
+}
+
+body .fancybox-button--close {
+    position: fixed;
+    top: var(--space-m);
+    right: var(--space-m);
+    border-radius: 100%;
+    background: #fff;
+    background: var(--color-reverse);
+    display: block;
+    width: var(--size-l-5);
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    z-index: 11;
+    font-size: var(--font-size-m);
+    @extend %transition;
+
+    &:before,
+    &:after {
+        display: block;
+        background-color: var(--color-body);
+        position: absolute;
+        left: var(--space-s);
+        top: var(--space-l);
+        width: var(--size-l-1);
+        border-radius: 2px;
+        opacity: 1;
+        height: 4px;
+        @extend %transition;
+    }
+    &:before {
+        transform: rotate(45deg);
+    }
+    &:after {
+        transform: rotate(-45deg);
+    }
+    &:hover {
+        background-color: var(--color-background);
+        
+        &:before,
+        &:after {
+            background-color: var(--color-body);
+        }
+    }
+}
+
+.single-modal-inner {
+    display: flex;
+    background-color: var(--color-background);
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: auto;
+    scrollbar-width: none; // to hide the scrollbars on firefox
+
+    .spinner {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        background: var(--color-background);
+
+        &::after {
+            display: block;
+            content: '';
+            position: absolute;
+            width: 3rem;
+            height: 3rem;
+            background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11.5443 3.14237C11.9793 3.14237 12.3714 2.8817 12.5384 2.48105C12.7045 2.08141 12.6128 1.61992 12.3052 1.3136C11.9976 1.00728 11.5342 0.916014 11.1328 1.08133C10.7305 1.24767 10.4687 1.63817 10.4687 2.07127C10.4687 2.66259 10.9505 3.14237 11.5443 3.14237Z' fill='currentColor'/%3E%3Cpath d='M13.5325 20.0201C13.5325 21.1135 12.6423 22 11.5443 22C10.4463 22 9.55611 21.1135 9.55611 20.0201C9.55611 18.9267 10.4463 18.0402 11.5443 18.0402C12.6423 18.0402 13.5325 18.9267 13.5325 20.0201Z' fill='currentColor'/%3E%3Cpath d='M4.06392 11.0458C4.06392 10.4291 3.69112 9.8723 3.1187 9.63596C2.54627 9.40064 1.88725 9.53047 1.4493 9.96762C1.0103 10.4038 0.879926 11.06 1.11624 11.63C1.35357 12.2001 1.91276 12.5713 2.53204 12.5713C3.37744 12.5693 4.06188 11.8877 4.06392 11.0458Z' fill='currentColor'/%3E%3Cpath d='M22.9339 10.487C23.2445 11.7955 22.4307 13.106 21.1168 13.4152C19.8028 13.7235 18.4858 12.9131 18.1763 11.6047C17.8656 10.2962 18.6795 8.98474 19.9934 8.67653C21.3074 8.36819 22.6244 9.17861 22.9339 10.487Z' fill='currentColor'/%3E%3Cpath d='M17.9165 15.1842C16.8572 15.1832 15.9446 15.9267 15.7358 16.9613C15.528 17.9959 16.0831 19.0325 17.0609 19.4372C18.0398 19.8419 19.1693 19.5021 19.7581 18.6257C20.3479 17.7494 20.2338 16.5799 19.4851 15.8334C19.0706 15.4165 18.5052 15.1832 17.9165 15.1842Z' fill='currentColor'/%3E%3Cpath d='M5.17211 5.9986C5.5174 5.99758 5.84946 5.86167 6.09697 5.62129C6.47078 5.24905 6.58282 4.68917 6.38011 4.20231C6.17742 3.71546 5.70073 3.39797 5.17211 3.39797C4.64349 3.39797 4.16679 3.71546 3.96411 4.20231C3.76142 4.68917 3.87346 5.24905 4.24726 5.62129C4.49477 5.86168 4.82683 5.99759 5.17211 5.9986Z' fill='currentColor'/%3E%3Cpath d='M3.92545 16.158C3.4233 16.66 3.27358 17.4126 3.54655 18.0669C3.81953 18.7211 4.46121 19.1481 5.17217 19.1481C5.88313 19.1481 6.52481 18.7211 6.79779 18.0669C7.07077 17.4127 6.92104 16.66 6.4189 16.158C5.72934 15.4754 4.615 15.4754 3.92545 16.158Z' fill='currentColor'/%3E%3Cpath d='M17.9165 7.36181C19.1917 7.36282 20.2908 6.46721 20.5402 5.22166C20.7897 3.97611 20.1215 2.72853 18.9431 2.24157C17.7646 1.75461 16.4059 2.1655 15.697 3.22136C14.9881 4.27723 15.1276 5.68507 16.0301 6.58263C16.5302 7.08166 17.2086 7.36282 17.9165 7.36181Z' fill='currentColor'/%3E%3C/svg%3E");
+            background-repeat: no-repeat no-repeat;
+            background-position: center center;
+            background-size: cover;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: loadingicon 1.5s infinite;
+        }
+
+        @keyframes loadingicon {
+            0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+            }
+        }
+    }
+
+    @media (max-aspect-ratio: 3/4) {
+        display: block;
+        overflow: scroll;
+    }
+    @include breakpoint(max-width, XS) {
+        display: block;
+        overflow: scroll;
+    }
+    @media screen and (max-height: 600px) {
+        display: block;
+        overflow: scroll;
+    }
+    .modal-images {
+        width: 50%;
+        height: 100%;
+        position: sticky;
+        z-index: 5;
+        top: 0;
+
+        @media (max-aspect-ratio: 3/4) and (min-width: 640px) {
+            width: 100%;
+            height: 32rem;
+        }
+        @include breakpoint(max-width, XS) {
+            width: 100%;
+            height: auto;
+        }
+        @media screen and (max-height: 600px) {
+            position: relative;
+            width: 100%;
+        }
+        .image-carousel,
+        .slick-list,
+        .slick-track,
+        .slide,
+        .slide img,
+        > img {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .slick-controls {
+            position: absolute;
+            bottom: var(--space-m);
+            left: 0;
+            width: 100%;
+            z-index: 5;
+        }
+        .slide {
+            &:after {
+                content: "";
+                z-index: 2;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(180deg, rgba(#000, 0) 32.5%, rgba(#000, 0.5) 100%);
+                background-blend-mode: multiply;
+            }
+        }
+        .media-container{
+            height: 100%;
+            width: 100%;
+            img{
+                height: 100%;
+            }
+            @include breakpoint(max-width, XS){
+                height: unset;
+                img{
+                    height: 20rem;
+                }
+            }
+        }
+    }
+    .modal-content {
+        width: 50%;
+
+        @media (max-aspect-ratio: 3/4) {
+            width: 100%;
+            height: auto;
+            overflow: auto;
+        }
+        @include breakpoint(max-width, XS) {
+            width: 100%;
+            height: auto;
+            overflow: auto;
+        }
+        @media screen and (max-height: 600px) {
+            width: 100%;
+            height: auto;
+            overflow: auto;
+        }
+        .modal-content-inner {
+            padding: var(--space-3xl) var(--space-3xl) var(--space-xl) var(--space-3xl);
+            width: 100%;
+
+            @include breakpoint(max-width, M) {
+                padding-inline: var(--space-xl);
+            }
+            @media (max-aspect-ratio: 3/4) {
+                padding-block: var(--space-xl);
+            }
+            @include breakpoint(max-width, XS) {
+                padding: var(--space-xl) var(--space-l);
+            }
+        }
+        .modal-content-block {
+            border-top: 1px solid;
+            border-color: color-opacity(var(--color-body), 0.1);
+            padding-top: var(--space-xl);
+        }
+        .cta {
+            height: 17.5rem;
+            width: 100%;
+            display: block;
+            margin: 0;
+
+            @include breakpoint(max-width, XS) {
+                height: 16rem;
+            }
+        }
+    }
+}
+
+.modal-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: var(--size-l-5);
+    aspect-ratio: 1;
+    z-index: 10;
+    background-color: var(--color-body);
+
+    @include breakpoint(max-width, XS) {
+        width: var(--size-l-4);
+    }
+    &:hover {
+        background-color: var(--color-accent-primary);
+    }
+    svg {
+        display: block;
+        color: var(--color-background);
+    }
+}
+.modal-fixed-button {
+    position: absolute;
+    top: 0;
+    right: var(--size-l-5); //Uses size variable (not space) to offset by the close button amount
+    height: var(--size-l-5);
+    display: flex;
+    z-index: 10;
+
+    @include breakpoint(max-width, XS) {
+        right: var(--size-l-4); //Uses size variable (not space) to offset by the close button amount
+        height: var(--size-l-4);
+    }
+}

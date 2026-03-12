@@ -1,0 +1,38 @@
+.tooltip-target {
+    --tooltip-width: 24rem;
+
+    position: absolute;
+    top: 50%;
+    left: calc( 50% - ( var(--tooltip-width) / 2 ) );
+    opacity: 0;
+    z-index: -100;
+    visibility: hidden;
+    width: var(--tooltip-width);
+    padding: 2rem;
+    box-shadow: 0px 4px 8px var(--color-body-a15);
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: -10px;
+        left: calc(50% - 7px);
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 7px 10px 7px;
+        border-color: transparent transparent var(--color-accent-primary) transparent;
+    }
+}
+
+.tooltip-parent {
+    position: relative;
+
+    &:hover {
+        .tooltip-target {
+            top: 100%;
+            opacity: 1;
+            z-index: 10;
+            visibility: visible;
+        }
+    }
+}

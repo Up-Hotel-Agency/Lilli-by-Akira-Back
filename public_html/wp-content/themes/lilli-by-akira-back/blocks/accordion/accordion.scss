@@ -1,0 +1,155 @@
+@import "../gutenberg_block";
+
+.accordion {
+    max-width: var(--width-content);
+
+    .accordion-title {
+        cursor: pointer;
+        position: relative;
+        @extend %transition;
+
+        &:focus {
+            outline: 0;
+        }
+        &.has-icon {
+            padding-right: calc( var(--size-l-2) + var(--space-m) ); //Icon button width + additional spacing
+        }
+        span.button.icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 0;
+            margin: 0;
+        }
+        h3,
+        h4,
+        h5,
+        p {
+            font-style: normal;
+            color: var(--color-body);
+            margin: 0;
+            padding: var(--space-l) 0;
+            @extend %transition;
+            @include text-style('small-heading', '1');
+        }
+        &.inner-padding {
+            h3,
+            h4,
+            h5,
+            p {
+                padding: var(--space-m) calc( var(--size-l-2) + var(--space-m) ) var(--space-m) var(--space-m);
+            }
+            .icon {
+                right: var(--space-m);
+            }
+        }
+        &:hover {
+            h3,
+            h4,
+            h5,
+            p {
+                color: var(--color-accent-primary);
+            }
+            .icon {
+                border-color: var(--color-accent-primary);
+
+                svg {
+                    color: var(--color-accent-primary);
+                }
+            }
+        }
+        &.open {
+            h3,
+            h4,
+            h5,
+            p {
+                color: var(--color-accent-primary);
+            }
+            .icon {
+                border-color: var(--color-accent-primary);
+
+                svg {
+                    color: var(--color-accent-primary);
+                    transform: rotate(180deg);
+                }
+            }
+        }
+    }
+    .accordion-content {
+        display: none;
+        padding-bottom: var(--space-m);
+
+        &.inner-accordion {
+            padding: var(--space-s) var(--space-xl) var(--space-m) var(--space-xl);
+        }
+        p {
+            max-width: none;
+            color: var(--color-body);
+        }
+        p:last-child,
+        ul:last-child {
+            margin-bottom: 0;
+        }
+    }
+    .accordion-group {
+        border-bottom: 1px solid;
+        border-color: color-opacity(var(--color-body), 0.1);
+
+        @include breakpoint(max-width, XS) {
+            margin-bottom: var(--space-s);
+        }
+    }
+    &.opened {
+        .accordion-title {
+            opacity: 0.25;
+
+            &.open {
+                opacity: 1;
+            }
+        }       
+    }
+}
+
+.accordion-lockup {
+    display: grid;
+    gap: var(--gutter-standard);
+
+    &:not(.accordion-content, .content-accordion) {
+        margin-inline: auto;
+    }
+
+    @include breakpoint(min-width, M) {
+        grid-template-columns: repeat(12, 1fr);
+
+        &.content-accordion {
+
+            .content-lockup-wrapper {
+                grid-column: 1 / span 4;
+                grid-row: 1;
+            }
+
+            .accordion {
+                grid-column: 6 / span 7;
+                grid-row: 1;
+            }
+        }
+
+        &.accordion-content {
+
+            .accordion {
+                grid-column: 1 / span 7;
+                grid-row: 1;
+            }
+            
+            .content-lockup-wrapper {
+                grid-column: 9 / span 4;
+                grid-row: 1;
+            }
+        }
+
+        .content-lockup {
+            position: sticky;
+            top: calc( var(--header-height, var(--space-3xl) ) + var(--space-xl) ); //Sticky offset by header height (with a fallback) + extra space
+        }
+    }
+}

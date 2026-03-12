@@ -1,0 +1,172 @@
+.footer {
+    padding-block: var(--space-xl);
+
+    .social-links {
+        .button {
+            margin: 0 0 0 var(--space-s);
+
+            @include breakpoint(max-width, XS) {
+                margin: 0 var(--space-s) 0 0;
+            }
+        }
+    }
+}
+
+.footer-logo {
+    @include breakpoint(max-width, S) {
+        width: 100%;
+    }
+    svg {
+        @include breakpoint(max-width, S) {
+            width: var(--size-2xl-1);
+            height: auto;
+        }
+    }
+}
+
+.footer-content {
+    .footer-contact {
+        flex-basis: 25%;
+        flex-grow: 1;
+
+        @include breakpoint(max-width, XS) {
+            width: 100%;
+            flex-basis: 100%;
+        }
+    }
+}
+
+.footer-menus {
+    flex-basis: 75%;
+    display: grid;
+    // Basically this is saying "if there's enough space, fill in columns at comfortable width with a min-width of 16rem
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--gutter-standard);
+
+    @include breakpoint(max-width, XS) {
+        flex-basis: 100%;
+        width: 100%;
+        display: block;
+    }
+}
+
+.footer-contact {
+    a {
+        color: var(--color-body);
+
+        &:hover {
+            color: var(--color-accent-primary);
+        }
+    }
+    .tel,
+    .email {
+        white-space: nowrap;
+    }
+    @include breakpoint(max-width, XS) {
+        padding-top: var(--space-s);
+        padding-bottom: var(--space-m);
+
+        h5 {
+            font-size: var(--font-size-l);
+        }
+    }
+}
+
+.footer-menu {
+    margin-bottom: var(--space-l);
+    padding-right: var(--space-s);
+
+    @include breakpoint(max-width, XS) {
+        padding-right: 0;
+        margin-bottom: var(--space-m);
+        border-bottom: 1px solid;
+        border-color: color-opacity(var(--color-body), 0.1);
+    }
+    .footer-menu-wrap {
+        @include breakpoint(min-width, XS) {
+            display: block !important; // this is in case someone closes it on mobile and goes to a larger screen
+        }
+        @include breakpoint(max-width, XS) {
+            display: none;
+            padding-bottom: var(--space-2xs);
+        }
+    }
+    ul {
+        width: 100%;
+
+        @include breakpoint(max-width, XS) { 
+            display: flex;
+            flex-wrap: wrap;
+        }
+        li {
+            margin-bottom: var(--space-s);
+            padding-right: var(--space-s);
+
+            @include breakpoint(max-width, XS) {
+                width: 50%;
+                margin-bottom: 0;
+            }
+        }
+    }
+    a {
+        display: block;
+        color: var(--color-body);
+        font-size: var(--font-size-s);
+
+        @include breakpoint(max-width, XS) {
+            padding: var(--space-s) 0;
+        }
+        &:hover {
+            color: var(--color-accent-primary);
+        }
+    }
+}
+
+.mob-footer-menu-toggle {
+    width: 100%;
+
+    .button.icon {
+        display: none;
+
+        @include breakpoint(max-width, XS) {
+            display: flex;
+        }
+    }
+    @include breakpoint(max-width, XS) {
+        font-size: var(--font-size-l);
+
+        &.active {
+            color: var(--color-accent-primary);
+
+            .button {
+                border-color: var(--color-accent-primary);
+
+                svg {
+                    color: var(--color-accent-primary);
+                }
+            }
+        }
+    }
+}
+
+.copyright {
+    @include breakpoint(max-width, XS) {
+        .uphotel {
+            padding-left: 0;
+        }
+        .copyright-menu {
+            width: 100%;
+            margin-bottom: var(--space-2xs);
+
+            ul {
+                display: block;
+                padding: 0 0 0 var(--space-2xs);
+
+                li {
+                    display: inline-block;
+                    width: auto;
+                }
+            }
+        }
+    }
+}

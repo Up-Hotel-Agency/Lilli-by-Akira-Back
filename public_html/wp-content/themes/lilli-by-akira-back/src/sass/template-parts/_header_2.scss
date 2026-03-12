@@ -1,0 +1,246 @@
+:root {
+    --header-height: var(--size-l-5); //Make header height a variable
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20;
+    height: var(--header-height);
+
+    .button {
+        display: flex;
+    }
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    height: var(--header-height);
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 20;
+
+    @include breakpoint(max-width, XS) {
+        margin-top: var(--space-3xs);
+    }
+    svg {
+        height: var(--size-l-2);
+
+        &.invert {
+            display: none;
+        }
+    }
+    &.logo-switch {
+        svg {
+            &.invert {
+                display: block;
+            }
+            &.default {
+                display: none;
+            }
+        }
+    }
+}
+
+.nav-toggle {
+    aspect-ratio: 1;
+    height: var(--header-height);
+    background-color: var(--color-body);
+
+    .menu-icon {
+        span {
+            background-color: var(--color-background);
+        }
+    }
+    &.active {
+        background-color: var(--color-accent-primary);
+    }
+}
+
+.nav-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: calc(-1 * Min(30rem, 50vw) );
+    z-index: 22;
+    width: Min(30rem, 50vw);
+    height: 100%;
+    @extend %transition;
+
+    @include breakpoint(max-width, S) {
+        width: 100%;
+        top: -100%;
+        left: 0;
+        max-width: none;
+    }
+    &.menu-open {
+        top: 0;
+        left: 0;
+    }
+    .nav-toggle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+
+        &.subnav-open {
+            left: auto;
+            right: 0;
+            background-color: var(--color-body);
+        }
+    }
+    .nav-back {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 5;
+        aspect-ratio: 1;
+        height: var(--header-height);
+        background-color: var(--color-body);
+        color: var(--color-background);
+
+        &.active {
+            display: flex;
+        }
+    }
+    .nav-subitem {
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+        height: var(--header-height);
+        @extend %transition;
+
+        @include breakpoint(max-width, S) {
+            display: flex;
+            transform: translateX(100%);
+        }
+        &.active {
+            transform: translateX(0);
+        }
+        a {
+            color: var(--color-body);
+        }
+    }
+    .nav-primary {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: var(--header-height) 0 var(--space-l) 0;
+        text-align: center;
+        overflow-y: auto;
+        background-color: var(--color-background);
+        li {
+            width: fit-content;
+            padding: 0;
+            margin: 0;
+            position: static;
+
+            &:before {
+                display: none;
+            }
+
+            a {
+                color: var(--color-body);
+                @include text-style('large-heading', '3');
+                padding: var(--space-s) var(--space-m);
+                display: block;
+
+                @media (max-height: 40em) {
+                    font-size: var(--font-size-l); //Reduce font size on narrow screens so menu items fit more easily
+                }
+
+                &:hover {
+                    color: var(--color-accent-primary);
+                }
+            }
+            &:hover {
+                > a {
+                    color: var(--color-accent-primary);
+                }
+            }
+        }
+
+        ul.sub-menu {
+            position: absolute;
+            margin: 0;
+            top: 0;
+            left: -100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            padding-block: var(--header-height);
+            opacity: 0;
+            background-color: var(--color-background-alt);
+            // overflow-y: auto;
+            z-index: -1;
+            @extend %transition;
+            li .sub-menu{
+                background-color: var(--color-background-alt-2);
+            }
+            @include breakpoint(max-width, S) {
+                transform: translateX(100%);
+            }
+            &.active {
+                transform: translateX(100%);
+                opacity: 1;
+                left: 0;
+
+                @include breakpoint(max-width, S) {
+                    z-index: 2;
+                    opacity: 1;
+                    transform: translateX(0);
+                }
+            }
+            a {
+                font-size: var(--font-size-l);
+                font-weight: normal;
+            }
+        }
+    }
+}
+
+.nav-overlay {
+    opacity: 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+
+    width: 100%;
+    height: 100%;
+
+    background-color: rgba(0,0,0,0.6);
+    transition: all 0.3s ease-out, z-index 0.3s step-start;
+
+    &.menu-open {
+        opacity: 1;
+        z-index: 20;
+    }
+}
+
+.banner-block {
+    padding-top: calc( var(--header-height) + var(--space-3xl) );
+}
+
+.page-container .faqs {
+    padding-top: calc( var(--header-height) + var(--space-3xl) );
+
+    @include breakpoint(max-width, S) {
+        padding-top: 0;
+    }
+    .faqs-mob-header {
+        padding-top: calc( var(--header-height) + var(--space-3xl) );
+    }
+}

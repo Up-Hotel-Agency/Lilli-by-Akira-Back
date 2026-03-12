@@ -1,0 +1,39 @@
+@use "sass:map";
+
+//===========================
+//Apply gutter variables here
+//===========================
+$vars-gutter: (
+    "desktop": (
+        "x-tight": map.get($vars-size, "desktop", "m-1"),
+        "tight": map.get($vars-size, "desktop", "m-3"),
+        "standard": map.get($vars-size, "desktop", "m-5"),
+        "loose": map.get($vars-size, "desktop", "l-4"),
+        "x-loose": map.get($vars-size, "desktop", "xl-3"),
+    ),
+    "mobile": (
+        "x-tight": map.get($vars-size, "mobile", "s-4"),
+        "tight": map.get($vars-size, "mobile", "m-1"),
+        "standard": map.get($vars-size, "mobile", "m-5"),
+        "loose": map.get($vars-size, "mobile", "l-2"),
+        "x-loose": map.get($vars-size, "mobile", "l-4")
+    )
+);
+
+
+:root {
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $mode, $vars in $vars-gutter {
+        @if ($mode == "desktop") {
+            @each $var, $value in $vars {
+                // Set up min and max values
+                $gutter-min: map.get($vars-gutter, "mobile", $var);
+                $gutter-max: map.get($vars-gutter, "desktop", $var);
+
+                --gutter-#{$var}: #{fluid-val($gutter-min, $gutter-max)}; //e.g. --gutter-narrow
+            } 
+        }
+    }
+}

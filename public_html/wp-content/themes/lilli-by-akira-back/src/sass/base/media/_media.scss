@@ -1,0 +1,54 @@
+//Styling for base theme media component settings 
+
+//Image aspect ratio
+.set-aspect{
+    aspect-ratio: var(--aspect-ratio);
+    height: unset;
+    width: 100%;
+}
+.slick-track img.set-aspect{
+    height: fit-content;
+}
+//Apply video width
+video{
+    width: 100%;
+}
+lite-youtube{
+    width: 100%;
+    aspect-ratio:  16 / 9; //default for YouTube players
+}
+.vimeo-player{
+    aspect-ratio: 16 / 9; //default for Vimeo players
+    overflow: hidden;
+    iframe{
+        width: 100%;
+        background-color: black;
+        height: 100%;
+    }
+}
+.slick-media{
+    padding-top: var(--space-m);
+}
+
+
+//Restore heights if no aspect ratio is set
+.no-aspect.media-container{
+    &, img, .slick-list, .slick-track{
+        height: 100%;
+        width: 100%;
+    }   
+}
+.video-media-container.no-aspect {
+    overflow: hidden;
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    position: relative;
+    lite-youtube, .vimeo-player {
+        aspect-ratio: 16 / 9;
+        min-width: 100%;
+        height: auto;
+        min-height: 100%;
+        width: auto;
+    }
+}

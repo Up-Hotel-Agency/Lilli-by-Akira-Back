@@ -1,0 +1,71 @@
+.in-page-nav-wrap {
+    display: flex;
+    justify-content: center;
+    
+    @include breakpoint(max-width, S) {
+        width: 100%;
+        overflow: scroll;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+}
+
+.in-page-nav {
+    max-width: 100%;
+
+    @include breakpoint(max-width, S) {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding-left: var(--space-s);
+    }
+    a {
+        color: var(--color-body);
+        padding: var(--space-2xs) 0;
+        margin: 0 var(--space-s);
+        flex-shrink: 0;
+        min-width: var(--size-m-5);
+        opacity: 0.25;
+        @include text-style('label', '1');
+
+        &:after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            height: 1px;
+            background-color: var(--color-accent-primary);
+            @extend %transition;
+        }
+        &.active,
+        &:hover {
+            opacity: 1;
+            color: var(--color-accent-primary);
+
+            &:after {
+                width: 100%;
+            }
+        }
+        @include breakpoint(max-width, S) {
+            &:last-child {
+                padding-right: var(--space-l);
+
+                &:after {
+                    left: calc(50% - var(--space-s));
+                }
+                &.active,
+                &:hover {
+                    &:after {
+                        width: calc(100% - var(--space-l));
+                    }
+                }
+            }
+        }
+        @include breakpoint(max-width, XS) {
+            font-size: var(--font-size-xs);
+            margin: 0 var(--space-xs);
+        }
+    }
+}

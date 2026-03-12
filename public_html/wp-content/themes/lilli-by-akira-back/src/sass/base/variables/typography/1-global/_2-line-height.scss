@@ -1,0 +1,25 @@
+@use "sass:map";
+
+//===========================
+//Apply Global Line Height variables here
+//===========================
+$vars-line-height: (
+    "1": 1,
+    "2x-tight": 1.1,
+    "x-tight": 1.2,
+    "tight": 1.333,
+    "standard": 1.5,
+    "loose": 1.66
+);
+
+:root {
+
+    //===========================
+    //Function to generate utility variables based on the map above
+    //===========================
+    @each $var, $value in $vars-line-height {
+        //e.g. --line-height-2x-tight
+        --line-height-#{$var}: #{$value};
+    }
+
+}

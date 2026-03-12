@@ -1,0 +1,195 @@
+@import "../gutenberg_block";
+
+.booking-mask {
+    border: 1px solid;
+    border-color: var(--color-body);
+    background-color: var(--color-background);
+
+    @include breakpoint(max-width, S) {
+        width: 100%;
+        max-width: var(--width-content);
+    }
+    .button.primary {
+        margin: 0;
+    }
+}
+
+.dates-fields {
+    border-right: 1px solid;
+    border-color: var(--color-body);
+    position: relative;
+
+    @include breakpoint(max-width, S) {
+        border-right: 0;
+        border-bottom: 1px solid;
+    }
+    .date-field {
+        padding: var(--space-xs) var(--space-m);
+        width: var(--size-2xl-2);
+        position: relative;
+
+        input {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            color: transparent;
+            background: transparent;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            opacity: 0;
+        }
+        @include breakpoint(max-width, S) {
+            width: 50%;
+        }
+        svg {
+            margin-right: var(--space-xs);
+            color: var(--color-body);
+        }
+        &:first-child {
+            border-right: 1px solid;
+            border-color: var(--color-body);
+        }
+    }
+    .datepicker-trigger {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+
+.rooms-guests-fields {
+    position: relative;
+
+    .rooms-guests {
+        padding: var(--space-xs) var(--space-s);
+        min-width: var(--size-2xl-3);
+        cursor: pointer;
+
+        svg {
+            margin-right: var(--space-xs);
+            color: var(--color-body);
+        }
+    }
+}
+
+.banner-block {
+    .booking-mask {
+        margin-top: var(--space-2xl);
+    }
+}
+
+.rooms-guests-select {
+    // some css for this is in _base-styles.scss to stop it flashing up on page load
+    @extend %transition;
+    z-index: 5;
+
+    @include breakpoint(max-width, XS) {
+        left: auto;
+        right: 0;
+    }
+    .select-inner {
+        box-shadow: 0px 4px 8px color-opacity(var(--color-body), 0.1);
+        padding: var(--space-m);
+        width: 100%;
+        border-radius: 2px;
+        box-shadow: 4px 8px 24px rgba(0, 10, 44, 0.075);
+        background-color: var(--color-background);
+
+        &.no-padding {
+            padding: 0;
+        }
+        footer {
+            padding-top: var(--space-m);
+            border-top: 1px solid;
+            border-color: color-opacity(var(--color-body), 0.1);
+
+            a {
+                color: var(--color-body);
+
+                &:hover {
+                    color: var(--color-accent-primary);
+                }
+            }
+        }
+        .selector-value {
+            width: 3rem;
+        }
+        &.select-inner-multi{
+            .room-selector{
+                .room{
+                    margin-top: var(--space-m);
+                    &:first-of-type{
+                        margin-top: 0;
+                        .remove-room{
+                            display: none !important;
+                        }
+                    }
+                    .remove-room{
+                        cursor: pointer;
+                    }
+                    .guest-wrap{
+                        flex-direction: column;
+                    }
+                }
+            }
+        }
+    }
+    &:before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 7px 7px 7px;
+        border-color: transparent transparent #ffffff transparent;
+        top: -6px;
+        left: var(--space-s);
+
+        @include breakpoint(max-width, XS) {
+            left: auto;
+            right: var(--space-s);
+        }
+    }
+    &.active {
+        top: calc( 100% + var(--space-m) );
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.force-mobile-mask {
+    width: 100%;
+    
+    @include breakpoint(max-width, M) {
+        display: flex;
+        justify-content: center;
+    }
+
+    .booking-mask {
+        width: 100%;
+        flex-direction: column;
+        max-width: 20rem;
+
+        .dates-fields {
+            border-right: 0;
+            border-bottom: 1px solid;
+            border-color: var(--color-body);
+
+            .date-field {
+                width: 50%;
+            }
+        }
+    }
+}
+
+.banner-portrait {
+    padding-bottom: 0;
+}

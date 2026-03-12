@@ -1,0 +1,43 @@
+@import "../gutenberg_block";
+
+.logo-grid-item {
+    width: 16.666%;
+    padding: var(--space-l) var(--space-m);
+    display: flex !important;
+
+    @include breakpoint(max-width, S) {
+        width: 50%;
+    }
+    @include breakpoint(max-width, XS) {
+        width: auto;
+        padding: var(--space-m) var(--space-s);
+    }
+    .logo-wrapper {
+        width: 100%;
+        height: var(--size-l-4);
+    }
+    img,
+    svg {
+        width: 100%;
+        max-height: 100%;
+        height: auto;
+    }
+}
+
+.logo-grid {
+    &.js-logo-grid-desktop-slider {
+        .logo-grid-item {
+            width: 12rem;
+        }
+    }
+    &.js-logo-grid-mob-slider {
+        .logo-grid-item {
+            @include breakpoint(max-width, XS) {
+                width: 12rem;
+            }
+        }
+    }
+    .slick-track {
+        will-change: transform;
+    }
+}

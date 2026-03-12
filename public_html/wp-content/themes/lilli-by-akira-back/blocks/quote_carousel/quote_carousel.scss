@@ -1,0 +1,60 @@
+@import "../gutenberg_block";
+
+.quote-carousel-wrapper {
+    text-align: center;
+    padding: var(--space-xl) var(--space-3xl);
+
+    @include breakpoint(max-width, S) {
+        padding: var(--space-l) var(--space-xl);
+    }
+
+    .quote-carousel-slide-inner {
+        max-width: var(--width-content);
+        margin-inline: auto;
+    }
+}
+
+.quote-block {
+    &.with-img {
+        .quote-carousel-wrapper {
+            padding-block: var(--space-3xl);
+
+            @include breakpoint(max-width, S) {
+                padding: var(--space-xl);
+            }
+            @include breakpoint(max-width, XS) {
+                padding: var(--space-xl) var(--space-l);
+            }
+        }
+        .quote-carousel-wrapper,
+        .media-container{
+            width: 50%;
+
+            @include breakpoint(max-width, XS) {
+                width: 100%;
+            }
+        }
+        &.img-quotes {
+            .quote-carousel-wrapper {
+                order: 2;
+            }
+            .media-container{
+                order: 1;
+            }
+        }
+    }
+    .slick-control {
+        color: var(--color-body);
+
+        &:hover {
+            color: var(--color-accent-primary);
+        }
+    }
+    .media-container{
+        position: relative;
+        img {
+            box-shadow: 4px 8px 24px color-opacity(var(--color-body), 0.01);
+        }
+    }
+}
+

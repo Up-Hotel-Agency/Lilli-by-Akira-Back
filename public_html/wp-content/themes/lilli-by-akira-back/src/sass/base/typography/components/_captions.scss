@@ -1,0 +1,8 @@
+figcaption,
+.wp-caption-text {
+    @include text-style('body', 'm');
+    padding-top: var(--space-m);
+    margin-bottom: 0;
+    text-align: center;
+    color: color-opacity(var(--color-body), 0.75);
+}
