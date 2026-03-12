@@ -334,7 +334,7 @@ body.compensate-for-scrollbar {
   color: #fff;
 }
 
-.fancybox-button:focus {
+.fancybox-button:focus-visible {
   outline: none;
 }
 
@@ -872,7 +872,7 @@ body.compensate-for-scrollbar {
   z-index: 99991;
 }
 
-.fancybox-thumbs__list a:focus::before {
+.fancybox-thumbs__list a:focus-visible::before {
   opacity: .5;
 }
 

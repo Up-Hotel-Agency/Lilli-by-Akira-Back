@@ -63,7 +63,7 @@ input[type="button"] {
     }
 
     //Focus reset
-    &:focus {
+    &:focus-visible {
         outline: 0;
 
         &:before {
@@ -87,7 +87,7 @@ input[type="button"] {
                 color: color-tint(var(--color-accent-primary), light);
             }
         }
-        &:focus {
+        &:focus-visible {
             box-shadow: none;
         }
     }

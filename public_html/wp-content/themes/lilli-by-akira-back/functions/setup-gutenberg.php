@@ -35,6 +35,8 @@ add_action( 'after_setup_theme', 'mytheme_setup_theme_supported_features' );
 
 add_theme_support( 'editor-styles' );
 add_editor_style( 'assets/css/blocks-editor.css' );
+add_editor_style( 'https://use.typekit.net/ufq5wwa.css' );
+
 
 /**
  * Enqueue block JavaScript and CSS for backend gutenberg editor

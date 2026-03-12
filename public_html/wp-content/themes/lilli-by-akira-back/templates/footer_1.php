@@ -1,4 +1,4 @@
-<footer class="footer">
+<footer class="footer" style="background-image: url('<?php echo get_field('footer_background_image', 'options'); ?>');">
     <div class="container text-center">
         <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo mb-12 flex justify-center">
             <?php if(wp_get_theme() == 'MyStyle City Hotel') { ?>
@@ -56,16 +56,15 @@
             </a>
         <?php endif; ?>
     </div>
-</footer>
-
-<div class="copyright">
-    <div class="container flex items-center justify-between xs:flex-col">
-        <div class="flex xs:flex-col items-center copyright-menu">
-            <p class="size-s no-margin color-body-50">©<?php echo date('Y'); ?> Lilli by Akira Back</p>
-            <?php wp_nav_menu( array( 'theme_location' => 'Footer Copyright' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
-        </div>
-        <div class="flex xs:flex-col items-center">
-            <p class="size-s no-margin"><a href="https://uphotel.agency" target="_blank" rel="noopener"><span class="color-body-50">Website by</span> UP HOTEL AGENCY</a></p>
+    <div class="copyright container">
+        <div class="flex container-inner items-center justify-between xs:flex-col">
+            <div class="flex xs:flex-col items-center copyright-menu">
+                <p class="size-s no-margin color-body-50">©<?php echo date('Y'); ?> Lilli by Akira Back</p>
+                <?php wp_nav_menu( array( 'theme_location' => 'Footer Copyright' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
+            </div>
+            <div class="flex xs:flex-col items-center">
+                <p class="size-s no-margin"><a href="https://uphotel.agency" target="_blank" rel="noopener"><span class="color-body-50">Website by</span> UP HOTEL AGENCY</a></p>
+            </div>
         </div>
     </div>
-</div>
+</footer>

@@ -1,6 +1,9 @@
 .copyright {
-    padding: var(--space-m) 0;
-    background-color: color-opacity(var(--color-body), 0.05);
+
+    .container-inner{
+        padding-top: var(--space-m);
+        border-top: solid 1px var(--color-accent-primary);
+    }
 
     .copyright-menu p {
         margin-right: var(--space-m);

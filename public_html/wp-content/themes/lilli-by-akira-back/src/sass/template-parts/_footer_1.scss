@@ -1,5 +1,22 @@
+main section:last-of-type{
+    padding-bottom: 6rem;
+}
+
 .footer {
     padding-block: var(--space-xl);
+    margin:unset;
+    width: 100%;
+    corner-shape: scoop;
+    border-radius:fluid-val(16, 48) fluid-val(16, 48)  0 0 ;
+    overflow: clip;
+       margin-top: -3rem;
+    z-index: 9;
+    position: relative;
+   
+    @supports not (corner-shape: scoop) {
+        border-radius: 0;
+    }
+
 
     .up-core-logo{
         width: var(--size-2xl-4);

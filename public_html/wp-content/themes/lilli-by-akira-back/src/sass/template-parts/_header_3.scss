@@ -99,6 +99,18 @@ body {
     }
 }
 
+.header {
+    margin-inline: var(--container-wide);
+    width: calc(100% - 2 * var(--container-wide));
+    corner-shape: scoop;
+    border-radius: 0 0 fluid-val(16, 24) fluid-val(16, 24);
+    overflow: clip;
+   
+   @supports not (corner-shape: scoop) {
+      border-radius: 0;
+   }
+}
+
 .logo {
     margin-left: 0;
     margin-right: var(--space-s);
@@ -113,8 +125,8 @@ body {
         
 
         @include breakpoint(max-width, S) {
-            max-height: var(--size-l-2);
             width: var(--size-xl-2);
+            max-height: var(--size-xl-1);
         }
         path {
             @extend %transition;

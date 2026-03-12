@@ -212,7 +212,7 @@
         }
 
         h3 {
-            @include text-style('large-heading', '1');
+            @include text-style('large-heading', '2');
             display: inline-flex;
             justify-content: center;
             flex: 1;
@@ -307,7 +307,7 @@
             @extend %nav-transition;
             background: var(--color-black);
             mix-blend-mode: multiply;
-            opacity: 0.4;
+            opacity: 0.6;
         }
     }
 

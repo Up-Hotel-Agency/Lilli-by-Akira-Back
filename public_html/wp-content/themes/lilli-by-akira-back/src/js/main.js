@@ -701,7 +701,7 @@ jQuery(function($){
             const $input = $(this);
 
             function toggleActiveClass() {
-            if ($input.is(':focus') || $input.val().trim() !== '') {
+            if ($input.is(':focus-visible') || $input.val().trim() !== '') {
                 $input.parents('.search-bar').addClass('active');
             } else {
                 $input.parents('.search-bar').removeClass('active');

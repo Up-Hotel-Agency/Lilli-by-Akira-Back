@@ -3,7 +3,7 @@
 .compact-cta-blocks {
     position: relative;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(4rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: var(--gutter-x-tight);
     align-items: stretch;
 }

@@ -183,9 +183,9 @@
     .flatpickr-day.selected.inRange,
     .flatpickr-day.startRange.inRange,
     .flatpickr-day.endRange.inRange,
-    .flatpickr-day.selected:focus,
-    .flatpickr-day.startRange:focus,
-    .flatpickr-day.endRange:focus,
+    .flatpickr-day.selected:focus-visible,
+    .flatpickr-day.startRange:focus-visible,
+    .flatpickr-day.endRange:focus-visible,
     .flatpickr-day.selected:hover,
     .flatpickr-day.startRange:hover,
     .flatpickr-day.endRange:hover,
@@ -207,9 +207,9 @@
     .flatpickr-day:hover,
     .flatpickr-day.prevMonthDay:hover,
     .flatpickr-day.nextMonthDay:hover,
-    .flatpickr-day:focus,
-    .flatpickr-day.prevMonthDay:focus,
-    .flatpickr-day.nextMonthDay:focus {
+    .flatpickr-day:focus-visible,
+    .flatpickr-day.prevMonthDay:focus-visible,
+    .flatpickr-day.nextMonthDay:focus-visible {
         background-color: color-tint(var(--color-accent-primary), lightest);
         border-color: color-tint(var(--color-accent-primary), lightest);
     }

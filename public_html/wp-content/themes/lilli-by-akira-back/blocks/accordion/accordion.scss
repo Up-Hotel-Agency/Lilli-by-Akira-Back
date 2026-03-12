@@ -8,7 +8,7 @@
         position: relative;
         @extend %transition;
 
-        &:focus {
+        &:focus-visible {
             outline: 0;
         }
         &.has-icon {

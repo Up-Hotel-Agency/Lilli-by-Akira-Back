@@ -100,7 +100,7 @@ textarea,
     @extend %transition;
 
     //Focus State
-    &:focus,
+    &:focus-visible,
     &:hover {
         border-color: var(--color-accent-primary);
         outline: 0;
@@ -139,7 +139,7 @@ input[type="button"]{
         padding: var(--space-m) var(--space-s) var(--space-2xs) var(--space-s)m;
         margin: 0;
 
-        &:focus {
+        &:focus-visible {
             outline: 0;
 
             + label {

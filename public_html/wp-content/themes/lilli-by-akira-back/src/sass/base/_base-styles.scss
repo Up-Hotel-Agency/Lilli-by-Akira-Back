@@ -87,7 +87,7 @@ body {
     visibility: hidden;
 }
 
-.slick-slide:focus {
+.slick-slide:focus-visible {
     outline: 0;
 }
 
@@ -121,7 +121,7 @@ ul.list-reset {
     z-index: 100;
     top: -100%;
 
-    &:focus {
+    &:focus-visible {
         top: 0px;
     }
 }

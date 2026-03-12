@@ -129,7 +129,7 @@
         &::placeholder{
             opacity: 0;
         }
-        &:focus{
+        &:focus-visible{
             min-width: 160px;
             min-height: var(--size-l-2);
             padding: var(--space-2xs) calc(var(--space-s) + var(--size-m-3) + var(--size-m-1)) var(--space-2xs) var(--space-s);
