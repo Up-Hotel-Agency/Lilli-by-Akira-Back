@@ -618,13 +618,15 @@
                     },
                     "choices": {
                         "internal": "Internal",
-                        "custom": "Custom"
+                        "custom": "Custom",
+                        "book": "Booking Widget"
                     },
+                    "default_value": "internal",
+                    "return_format": "value",
                     "allow_null": 0,
                     "other_choice": 0,
-                    "default_value": "internal",
+                    "allow_in_bindings": 1,
                     "layout": "horizontal",
-                    "return_format": "value",
                     "save_other_choice": 0
                 },
                 {
@@ -726,6 +728,7 @@
                     },
                     "message": "",
                     "default_value": 0,
+                    "allow_in_bindings": 1,
                     "ui": 0,
                     "ui_on_text": "",
                     "ui_off_text": ""
@@ -2384,5 +2387,5 @@
     "description": "",
     "show_in_rest": 0,
     "display_title": "",
-    "modified": 1771322871
+    "modified": 1773327065
 }

@@ -83,7 +83,8 @@ function linkField($field, $function){
 }
 
 function isLink($field){
-    if( $field['internal_link'] || $field['external_link'] ) {
+
+    if( $field['internal_link'] || $field['external_link'] || $field['link_type'] == 'book' ) {
         return true;
     }
 }

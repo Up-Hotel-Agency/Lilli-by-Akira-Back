@@ -47,6 +47,7 @@ function block_buttons($field, $opts = [] ){
                             button_template($link, $class);
                         else: ?>
                             <div 
+                                <?php if($link['link_type'] == 'custom_modal'):?> data-custom-modal="<?php echo $link['modal_select']; ?>" <?php endif; ?>
                                 class="button <?php echo $class; ?> icon-position-<?php echo linkField( $link, 'icon_position' ); ?>">
                                 <span><?php echo linkField( $link, 'text' ); ?></span>
                                 <?php echo linkField( $link, 'icon' ); ?>
@@ -69,10 +70,20 @@ function block_buttons($field, $opts = [] ){
 }
 function button_template($link = [], $class = false, $type = false, $data = false, $aos = false, $aos_delay = false){
     ?>
-    <?php if(linkField( $link, 'url' )): ?>
-        <a class="button <?php echo $class; ?> <?php echo $type; ?> icon-position-<?php echo linkField( $link, 'icon_position' ); ?>" href="<?php echo linkField( $link, 'url' ); ?>" <?php echo linkField( $link, 'target' ); ?> <?php echo $data; ?> <?php if($aos): echo 'data-aos="true"'; if($aos_delay): echo 'data-aos-delay="'.$aos_delay.'"'; endif; endif; ?>>
+
+    <?php if($link['link_type'] == 'book'): ?>
+        <button class="button js-book-widget  <?php echo $class; ?> <?php echo $type; ?> icon-position-<?php echo linkField( $link, 'icon_position' ); ?>" <?php echo $data; ?> <?php if($aos): echo 'data-aos="true"'; if($aos_delay): echo 'data-aos-delay="'.$aos_delay.'"'; endif; endif; ?>>
             <span><?php echo linkField( $link, 'text' ); ?></span>
             <?php echo linkField( $link, 'icon' ); ?>
-        </a>
-    <?php endif; 
+        </button>
+    <?php else: ?>
+        <?php if(linkField( $link, 'url' )): ?>
+            <a class="button <?php echo $class; ?> <?php echo $type; ?> icon-position-<?php echo linkField( $link, 'icon_position' ); ?>" href="<?php echo linkField( $link, 'url' ); ?>" <?php echo linkField( $link, 'target' ); ?> <?php echo $data; ?> <?php if($aos): echo 'data-aos="true"'; if($aos_delay): echo 'data-aos-delay="'.$aos_delay.'"'; endif; endif; ?>>
+                <span><?php echo linkField( $link, 'text' ); ?></span>
+                <?php echo linkField( $link, 'icon' ); ?>
+            </a>
+        <?php endif; ?>
+    <?php endif; ?>
+
+<?php
 }

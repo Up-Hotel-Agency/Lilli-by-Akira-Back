@@ -119,6 +119,27 @@
             "selected": 0
         },
         {
+            "key": "field_69b2d509e9964",
+            "label": "Book Widget",
+            "name": "book_widget",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "rows": "",
+            "placeholder": "",
+            "new_lines": ""
+        },
+        {
             "key": "field_5f75f5ea2aaeb",
             "label": "Header Button",
             "name": "header_button_field",
@@ -245,7 +266,9 @@
                     "return_format": "value",
                     "ajax": 0,
                     "placeholder": "",
-                    "parent_repeater": "field_5f9052a11a8b8"
+                    "parent_repeater": "field_5f9052a11a8b8",
+                    "create_options": 0,
+                    "save_options": 0
                 },
                 {
                     "key": "field_5f9052d51a8b9",
@@ -472,5 +495,6 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1733243382
+    "display_title": "",
+    "modified": 1773327641
 }

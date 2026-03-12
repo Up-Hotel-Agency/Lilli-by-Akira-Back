@@ -111,6 +111,40 @@ jQuery(function($){
         $('.js-menu-toggle, html, body, header').toggleClass('menu-open');
     });
 
+   function closeBookWidget() {
+        $('.js-book-widget-container').removeClass('active');
+        $('html, body').removeClass('menu-open');
+    }
+
+    // OPEN
+    $(document).on('click', '.js-book-widget', function(e) {
+        e.preventDefault();
+        e.stopPropagation(); // important
+
+        $('.js-book-widget-container').toggleClass('active');
+        $('html, body').toggleClass('menu-open');
+    });
+
+
+    // Prevent modal clicks closing it
+    $(document).on('click', '.js-book-widget-container', function(e) {
+        //e.stopPropagation();
+    });
+
+    // Click anywhere else to close
+    $(document).on('click', function() {
+        if ($('.js-book-widget-container').hasClass('active')) {
+            closeBookWidget();
+        }
+    });
+
+    // ESC key
+    $(document).on('keydown', function(e) {
+        if (e.key === 'Escape') {
+            closeBookWidget();
+        }
+    });
+
     /*
         Nav for header 2
     */
