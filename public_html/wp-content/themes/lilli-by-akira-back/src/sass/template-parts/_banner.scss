@@ -1,10 +1,37 @@
 .banner-block {
 
+    @keyframes bannerZoom {
+        100% {
+            transform: scale(1.3); 
+        }
+    }
+    @include breakpoint(max-width, S){
+        @keyframes bannerZoom {
+            100% {
+                transform: scale(1.1); 
+            }
+        }
+    }
+
+    &.theme--image{
+        .block-bg-img{
+            overflow: hidden;
+            img{
+                animation: bannerZoom 15s;
+                animation-fill-mode: forwards;
+                @include breakpoint(max-width, S){
+                    animation: unset;
+                }
+            }
+        }
+    }
+
     .banner-content-block {
         width: 100%;
         max-width: var(--width-content);
         margin: 0;
         text-align: center;
+        
 
         > {
             h1,

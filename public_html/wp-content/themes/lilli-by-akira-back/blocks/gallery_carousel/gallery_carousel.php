@@ -76,7 +76,7 @@ function gallery_carousel_render_callback( $block, $content = '', $is_preview = 
 
             <div class="slick-controls flex justify-center items-center">
                 <a href="#" class="js-gallery-prev slick-control" title="Previous slide"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><title>Previous</title><g class="caret-left"><polyline class="arrowhead" points="29.018 36.036 16.982 24 29.018 11.964" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></g></svg></a>
-                <div class="slick-dots gallery-dots"></div>
+                <div class="js-gallery-carousel-counter">1/1</div>
                 <a href="#" class="js-gallery-next slick-control" title="Next slide"><svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><title>Next</title><g class="caret-right"><polyline class="arrowhead" points="18.982 11.964 31.018 24 18.982 36.036" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"/></g></svg></a>
             </div>
         </div>

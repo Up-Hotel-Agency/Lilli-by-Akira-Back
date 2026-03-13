@@ -76,13 +76,17 @@
                 @include breakpoint(max-width, M){
                     align-items: baseline;
                     gap: var(--space-2xs);
-                    padding: unset
+                    padding: unset;
+                    flex-direction: row;
                 }
                 .overline{
                     @include text-style('overline', '1');
                     margin-bottom: unset;
                     text-align: center;
                     color: var(--color-primary);
+                    @include breakpoint(max-width, M){
+                        text-align: left;
+                    }
                     
                 }
                 .opening-times-types{

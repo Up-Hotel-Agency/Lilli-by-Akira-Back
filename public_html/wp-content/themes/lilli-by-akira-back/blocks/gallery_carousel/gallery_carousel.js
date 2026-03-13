@@ -4,6 +4,15 @@
 
 jQuery(function($){
     $(".js-gallery-carousel").each(function(){
+
+        // gallery modal carousel
+        var $gallerycarouselSlick = $(this);
+        $gallerycarouselSlick.on('init reInit afterChange', function(event, slick, currentSlide, nextSlide, prevSlide){
+            //currentSlide is undefined on init -- set it to 0 in this case (currentSlide is 0 based)
+            var i = (currentSlide ? currentSlide : 0) + 1;
+            $('.js-gallery-carousel-counter').html(i + '/' + slick.slideCount);
+        });
+
         $(this).not('.slick-initialized').slick({
             arrows: false,
             infinite: true,
@@ -15,10 +24,10 @@ jQuery(function($){
             slidesToShow: 1,
             centerMode: true,
             variableWidth: true,
-            dots: true,
+            dots: false,
             autoplay: false,
             rows: 0,
-            appendDots: $(this).parents('.row').find(".gallery-dots")
+            //appendDots: $(this).parents('.row').find(".gallery-dots")
         });
         var slideCount = $(this).find('.slick-slide').length;
         if (slideCount <= 1) {
