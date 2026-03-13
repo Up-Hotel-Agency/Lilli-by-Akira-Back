@@ -80,7 +80,7 @@ function banner_default_render_callback( $block, $content = '', $is_preview = fa
         <?php if( get_field('booking_mask') ):
             include(get_template_directory() . '/templates/bookingmask.php');
         endif; ?>
-        <?php if( get_field('display_scroll_button') ): ?>
+        <?php if( is_front_page() ): ?>
             <a href="#" class="js-scroll-next-block banner-default-continue flex items-center button secondary icon no-margin">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>Continue</title><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.685 9.158L12 14.842 6.315 9.158"/></svg>            
             </a>

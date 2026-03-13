@@ -740,6 +740,17 @@ function slick_load(){
         });
     });
 
+    if($('.banner-block.theme--image').length){
+        console.log('hello world');
+        $('.banner-block .js-image-carousel').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            $(this).find('[data-slick-index='+nextSlide+']').addClass('animation-active');
+            var target = $(this);
+            setTimeout(function(){
+                    $(target).find('[data-slick-index='+currentSlide+']').removeClass('animation-active');
+                }, 2000, target);
+        });
+    }
+
     $('.js-img-next').click(function(e) {
         e.preventDefault();
         $(this).parent().parent().find('.media-container').slick('slickNext');

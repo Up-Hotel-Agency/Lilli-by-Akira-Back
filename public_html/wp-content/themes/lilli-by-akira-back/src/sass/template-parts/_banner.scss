@@ -1,28 +1,91 @@
 .banner-block {
 
+ 
+    &.theme--image{
+        .block-bg-img{
+            overflow: hidden;
+        }
+    }
+
     @keyframes bannerZoom {
         100% {
             transform: scale(1.3); 
         }
     }
+
+    @keyframes bannerZoomStart {
+        100% {
+            transform: scale(1.3); 
+        }
+    }
+
     @include breakpoint(max-width, S){
         @keyframes bannerZoom {
             100% {
                 transform: scale(1.1); 
             }
         }
+        @keyframes bannerZoomStart {
+        100% {
+            transform: scale(1.1); 
+        }
+    }
     }
 
-    &.theme--image{
-        .block-bg-img{
+    &.theme--image {
+        .slick-slide{
             overflow: hidden;
-            img{
+            animation: bannerZoomStart 15s;
+            animation-fill-mode: forwards;
+            @include breakpoint(max-width, S){
+                animation: unset;
+            }
+            &.animation-active{
+          
+                animation: bannerZoom 15s;
+                animation-fill-mode: forwards;
+                animation-timing-function: linear;
+                @include breakpoint(max-width, S){
+                    animation: unset;
+                }
+                
+            }
+            &:nth-of-type(even){
+                &.animation-active{
+                 
+                    animation: bannerZoom 15s;
+                    animation-fill-mode: forwards;
+                    animation-direction: reverse;
+                    animation-timing-function: linear;
+                    @include breakpoint(max-width, S){
+                        animation: unset;
+                    }
+                    
+                }
+            }
+            &:not(.slick-slide){
+            
                 animation: bannerZoom 15s;
                 animation-fill-mode: forwards;
                 @include breakpoint(max-width, S){
                     animation: unset;
                 }
+                
             }
+            @-moz-document url-prefix() {
+                video{
+                    animation: unset!important; //FF is slow
+                }
+            }
+        
+            @media not all and (min-resolution:.001dpcm) { 
+                @supports (-webkit-appearance:none) {
+                    video{
+                        animation: unset!important; //FF is slow
+                    }
+                }
+           }
+            
         }
     }
 
@@ -152,11 +215,12 @@
 }
 
 .banner-default-continue {
-    position: absolute;
+    position: absolute!important;
     bottom: var(--space-xl);
     left: 50%;
     transform: translateX(-50%);
     border-width: 2px;
+    border: unset!important;
 }
 
 .book-widget-container{
