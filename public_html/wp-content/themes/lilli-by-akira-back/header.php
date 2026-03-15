@@ -33,7 +33,7 @@ var neighbourhoodScriptLoaded;
 <meta name="theme-color" content="#0e566e">
 <link rel="manifest" href="/manifest.json">
 <link rel="preconnect" href="https://core.up-dev.com" crossorigin>
-<link rel="stylesheet" href="https://use.typekit.net/ufq5wwa.css">
+<link rel="stylesheet" href="https://use.typekit.net/nom6rmy.css">
 
 <!-- Preload webfont -->
 <link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/inter/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>

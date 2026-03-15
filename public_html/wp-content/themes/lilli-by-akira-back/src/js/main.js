@@ -741,7 +741,6 @@ function slick_load(){
     });
 
     if($('.banner-block.theme--image').length){
-        console.log('hello world');
         $('.banner-block .js-image-carousel').on('beforeChange', function(event, slick, currentSlide, nextSlide){
             $(this).find('[data-slick-index='+nextSlide+']').addClass('animation-active');
             var target = $(this);

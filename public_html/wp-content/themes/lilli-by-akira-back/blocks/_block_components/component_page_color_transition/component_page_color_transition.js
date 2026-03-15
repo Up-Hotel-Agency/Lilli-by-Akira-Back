@@ -1,4 +1,3 @@
-console.log('I exist');
 // Select your target
 
 // Define the observer
