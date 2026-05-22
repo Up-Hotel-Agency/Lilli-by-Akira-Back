@@ -1,16 +1,16 @@
 <?php
 // register the block.
 acf_register_block_type(array(
-    'name'              => 'imagecontentblock',
-    'title'             => __('Image / Content Block'),
-    'description'       => __('Image / Content Block'),
-    'render_callback'   => 'img_content_render_callback',
+    'name'              => 'restaurantbannerblock',
+    'title'             => __('Restaurant Banner'),
+    'description'       => __('Restaurant Banner'),
+    'render_callback'   => 'restaurant_banner_render_callback',
     'category'          => 'upcore-blocks',
     'icon'              => 'forms', // dashicons, without the leading dashicons-
     'keywords'          => array( 'image, content' ),
     'enqueue_assets' => function(){
-        wp_enqueue_script( 'block-acf-img-content', get_template_directory_uri() . '/assets/js/img_content/img_content.min.js' );
-        wp_enqueue_style( 'block-acf-img-content', get_template_directory_uri() . '/assets/css/img_content/img_content.css' );
+        wp_enqueue_script( 'block-acf-restaurant-banner', get_template_directory_uri() . '/assets/js/restaurant_banner/restaurant_banner.min.js' );
+        wp_enqueue_style( 'block-acf-restaurant-banner', get_template_directory_uri() . '/assets/css/restaurant_banner/restaurant_banner.css' );
     },
     'mode'              => 'preview',
     'supports'          => array(
@@ -19,7 +19,7 @@ acf_register_block_type(array(
                                     'mode'      => false
                                 )
 ));
-function img_content_render_callback( $block, $content = '', $is_preview = false ) {
+function restaurant_banner_render_callback( $block, $content = '', $is_preview = false ) {
     extract(block_color_variables());
 
     //WP Align Attribute
@@ -47,7 +47,7 @@ function img_content_render_callback( $block, $content = '', $is_preview = false
     >
         <?php include get_template_directory() .'/blocks/_block_components/component_bg_media.php'; //Apply background media from ACF row settings ?>
         
-        <div class="img-content <?php the_field('layout'); ?><?php if( get_field('images_bottom_mob') ): ?> mob-img-bottom<?php endif; ?><?php echo ' style-' . get_field('block_style'); ?><?php echo ' align' . $align; ?>">
+        <div class="img-content restaurant-banner <?php the_field('layout'); ?><?php if( get_field('images_bottom_mob') ): ?> mob-img-bottom<?php endif; ?><?php echo ' style-' . get_field('block_style'); ?><?php echo ' align' . $align; ?>">
             <div class="img" data-aos="fade-up">
                 <?php block_media( get_field('images'), [
                     'img_sizes' => array('default' => 'img_1367', 'page_area' => 41, 'mobile_page_area' => 43),
