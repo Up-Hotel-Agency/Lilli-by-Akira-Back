@@ -1,3 +1,33 @@
+<?php wp_enqueue_style( 'block-acf-instagram', get_template_directory_uri() . '/assets/css/instagram/instagram.css' ); ?>
+<section class="row instagram-block-class container" data-aos-id="instagram">
+    <div class="instagram-block text-align-left">
+        <div class="insta-content">
+            <?php if (get_field('insta_overline', 'options')): ?>
+                <p class="subtitle"><?php the_field('insta_overline', 'options') ?></p>
+            <?php endif; ?>
+            <?php if (get_field('insta_title', 'options')): ?>
+                <p class="insta-title large-heading-4"><?php the_field('insta_title', 'options') ?></p>
+            <?php endif; ?>
+            <?php if (get_field('insta_content', 'options')): ?>
+                <div class="insta-footer">
+                    <?php the_field('insta_content', 'options'); ?>
+                </div>
+            <?php endif; ?>
+        </div>
+        <div class="insta-images" id="instafeed" data-account="<?php echo get_field('instagram', 'options'); ?>">
+            <?php $instagram = up_instagram('montcalm_collection'); ?>
+            <?php if(is_array($instagram)): ?>
+            <?php $count = 1; foreach($instagram as $post):?>
+                <?php if($count > 4): break; endif; ?>
+                <a href="<?php echo $post['permalink'];?>" target="_blank" class="instagram-image">
+                    <img loading="lazy" src="<?php echo $post['src'];?>">
+                </a>
+            <?php $count++; endforeach; ?>
+            <?php endif; ?>
+        </div>
+    </div>
+</section>
+
 <footer class="footer" style="background-image: url('<?php echo get_field('footer_background_image', 'options'); ?>');">
     <div class="container text-center">
         <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo mb-12 flex justify-center">
