@@ -1,23 +1,28 @@
-main section:last-of-type{
+main section:last-of-type {
     padding-bottom: 6rem;
 }
 
 .footer {
     padding-block: var(--space-xl);
-    margin:unset;
+    margin: unset;
     width: 100%;
     corner-shape: scoop;
-    border-radius:fluid-val(16, 48) fluid-val(16, 48)  0 0 ;
+    border-radius: fluid-val(16, 48) fluid-val(16, 48) 0 0;
     overflow: clip;
     z-index: 9;
     position: relative;
-   
+
     @supports not (corner-shape: scoop) {
         border-radius: 0;
     }
 
+    .footer-main {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
 
-    .up-core-logo{
+    .up-core-logo {
         width: var(--size-2xl-4);
     }
 
@@ -32,6 +37,7 @@ main section:last-of-type{
                 width: 50%;
             }
         }
+
         a {
             margin: var(--space-2xs) var(--space-s);
             color: var(--color-body);

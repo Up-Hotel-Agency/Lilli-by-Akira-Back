@@ -29,7 +29,15 @@
 </section>
 
 <footer class="footer" style="background-image: url('<?php echo get_field('footer_background_image', 'options'); ?>');">
-    <div class="container text-center">
+    <div class="container text-center footer-main">
+        <div class="footer-address">
+            <?php if (get_field('address', 'options')): ?>
+                <p class="text-left align-start">
+                    <?php the_field('address', 'options'); ?>
+                </p>
+            <?php endif; ?>
+        </div>
+
         <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo mb-12 flex justify-center">
             <?php if(wp_get_theme() == 'MyStyle City Hotel') { ?>
                 <svg width="81" height="39" viewBox="0 0 124 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -58,6 +66,10 @@
             </svg>
             <?php } ?>
         </a>
+
+        <div class="footer-newsletter">
+
+        </div>
     </div>
     <div class="container text-center">
         <?php wp_nav_menu( array( 'theme_location' => 'Footer Menu' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
