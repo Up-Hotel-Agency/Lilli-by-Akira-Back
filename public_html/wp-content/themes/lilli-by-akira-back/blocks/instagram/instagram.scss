@@ -40,7 +40,7 @@
         }
     }
 
-    @include breakpoint(S) {
+    @include breakpoint(max-width, M) {
         flex-direction: column;
 
         .insta-content {
