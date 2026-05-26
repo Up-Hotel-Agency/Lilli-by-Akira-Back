@@ -3,19 +3,19 @@
 "use strict";
 
 function initializeMaps() {
-    $('.map-container').each(function(){
+    $('.map-container').each(function () {
         var $mapContainer = $(this);
         var map;
-        function new_map( $el ) {
+        function new_map($el) {
             var $markers = $el.find('.marker');
             var args = {
-                zoom : 12,
-                zoomControl : true,
-                center : new google.maps.LatLng(0, 0),
-                mapTypeId	: google.maps.MapTypeId.ROADMAP,
+                zoom: 12,
+                zoomControl: true,
+                center: new google.maps.LatLng(0, 0),
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
                 scrollwheel: false,
-                mapTypeControl : false,
-                streetViewControl : false,
+                mapTypeControl: false,
+                streetViewControl: false,
                 fullscreenControl: false,
                 zoomControlOptions: {
                     position: google.maps.ControlPosition.LEFT_BOTTOM
@@ -26,46 +26,43 @@ function initializeMaps() {
                         "elementType": "all",
                         "stylers": [
                             {
-                                "color": "#999999"
+                                "saturation": "-100"
+                            },
+                            {
+                                "lightness": "46"
                             }
                         ]
                     },
                     {
                         "featureType": "all",
-                        "elementType": "labels.text.fill",
+                        "elementType": "geometry",
                         "stylers": [
                             {
-                                "gamma": "1"
-                            },
-                            {
-                                "lightness": "-33"
+                                "color": "#dcdad5"
                             }
                         ]
                     },
                     {
                         "featureType": "all",
-                        "elementType": "labels.text.stroke",
+                        "elementType": "labels",
                         "stylers": [
                             {
-                                "saturation": "0"
-                            },
-                            {
-                                "lightness": "100"
-                            },
-                            {
-                                "weight": 2
-                            },
-                            {
-                                "gamma": "1"
-                            },
-                            {
-                                "visibility": "on"
+                                "visibility": "off"
                             }
                         ]
                     },
                     {
-                        "featureType": "all",
-                        "elementType": "labels.icon",
+                        "featureType": "administrative.locality",
+                        "elementType": "labels",
+                        "stylers": [
+                            {
+                                "visibility": "simplified"
+                            }
+                        ]
+                    },
+                    {
+                        "featureType": "administrative.neighborhood",
+                        "elementType": "labels",
                         "stylers": [
                             {
                                 "visibility": "off"
@@ -77,10 +74,7 @@ function initializeMaps() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "lightness": "85"
-                            },
-                            {
-                                "saturation": "0"
+                                "lightness": "60"
                             }
                         ]
                     },
@@ -89,19 +83,16 @@ function initializeMaps() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "visibility": "off"
+                                "lightness": "29"
                             }
                         ]
                     },
                     {
-                        "featureType": "poi.park",
-                        "elementType": "geometry.fill",
+                        "featureType": "poi",
+                        "elementType": "labels",
                         "stylers": [
                             {
-                                "lightness": "66"
-                            },
-                            {
-                                "visibility": "on"
+                                "visibility": "off"
                             }
                         ]
                     },
@@ -110,25 +101,10 @@ function initializeMaps() {
                         "elementType": "geometry",
                         "stylers": [
                             {
-                                "lightness": "95"
-                            },
-                            {
-                                "saturation": "0"
-                            },
-                            {
                                 "visibility": "simplified"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "geometry.stroke",
-                        "stylers": [
-                            {
-                                "saturation": 25
                             },
                             {
-                                "lightness": 25
+                                "lightness": "30"
                             }
                         ]
                     },
@@ -142,20 +118,11 @@ function initializeMaps() {
                         ]
                     },
                     {
-                        "featureType": "road.highway",
-                        "elementType": "geometry",
-                        "stylers": [
-                            {
-                                "lightness": "-10"
-                            }
-                        ]
-                    },
-                    {
                         "featureType": "road.local",
-                        "elementType": "geometry",
+                        "elementType": "all",
                         "stylers": [
                             {
-                                "lightness": "0"
+                                "visibility": "simplified"
                             }
                         ]
                     },
@@ -170,37 +137,34 @@ function initializeMaps() {
                     },
                     {
                         "featureType": "transit",
-                        "elementType": "geometry",
+                        "elementType": "all",
                         "stylers": [
                             {
-                                "lightness": "66"
-                            },
-                            {
-                                "visibility": "simplified"
+                                "visibility": "off"
                             }
                         ]
                     },
                     {
-                        "featureType": "water",
-                        "elementType": "geometry",
+                        "featureType": "transit",
+                        "elementType": "labels",
                         "stylers": [
                             {
-                                "lightness": "66"
+                                "visibility": "off"
                             }
                         ]
                     }
                 ]
             };
-            var map = new google.maps.Map( $el[0], args);
+            var map = new google.maps.Map($el[0], args);
             map.markers = [];
-            $markers.each(function(){
-                add_marker( $(this), map );
+            $markers.each(function () {
+                add_marker($(this), map);
             });
-            center_map( map );
+            center_map(map);
             return map;
         }
         var logoPin = {
-            url: '/wp-content/themes/up-core-gutenberg/assets/img/map-pin-logo.svg',
+            url: '/wp-content/themes/up-core-gutenberg/assets/img/map-pin-active.svg',
             size: new google.maps.Size(104, 136),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(52, 116),
@@ -213,43 +177,43 @@ function initializeMaps() {
             anchor: new google.maps.Point(24, 48),
             scaledSize: new google.maps.Size(48, 48)
         }
-        function add_marker( $marker, map ) {
-            var latlng = new google.maps.LatLng( $marker.attr('data-lat'), $marker.attr('data-lng') );
+        function add_marker($marker, map) {
+            var latlng = new google.maps.LatLng($marker.attr('data-lat'), $marker.attr('data-lng'));
             var pinType = $marker.attr('data-pin-type');
             var pinIcon;
 
-            if( pinType == 'pin-logo' ) {
+            if (pinType == 'pin-logo') {
                 pinIcon = logoPin;
             }
-            if( pinType == 'pin-standard' ) {
+            if (pinType == 'pin-standard') {
                 pinIcon = standardPin;
             }
 
             var marker = new google.maps.Marker({
-                position : latlng,
-                map : map,
-                icon : pinIcon,
+                position: latlng,
+                map: map,
+                icon: pinIcon,
                 optimized: false
             });
-            map.markers.push( marker );
+            map.markers.push(marker);
         }
 
-        function center_map( map ) {
+        function center_map(map) {
             var bounds = new google.maps.LatLngBounds();
-            $.each( map.markers, function( i, marker ){
-                var latlng = new google.maps.LatLng( marker.position.lat(), marker.position.lng() );
-                bounds.extend( latlng );
+            $.each(map.markers, function (i, marker) {
+                var latlng = new google.maps.LatLng(marker.position.lat(), marker.position.lng());
+                bounds.extend(latlng);
             });
-            if( map.markers.length == 1 ) {
-                map.setCenter( bounds.getCenter() );
+            if (map.markers.length == 1) {
+                map.setCenter(bounds.getCenter());
             } else {
-                map.fitBounds( bounds );
+                map.fitBounds(bounds);
             }
         }
         var map = null;
-        $(document).ready(function(){
+        $(document).ready(function () {
             // create map
-            map = new_map( $mapContainer );
+            map = new_map($mapContainer);
         });
     });
 }
@@ -257,31 +221,31 @@ function initializeMaps() {
 // only run this once per page
 var googleMapInit = true;
 var googleMapScriptLoaded = false;
-function googleMap(){
+function googleMap() {
     // function to load in google maps api
-    function loadGoogleMapScript( url, callback ) {
-        var script = document.createElement( "script" )
+    function loadGoogleMapScript(url, callback) {
+        var script = document.createElement("script")
         script.type = "text/javascript";
-        if(script.readyState) {  // only required for IE <9
-            script.onreadystatechange = function() {
-                if ( script.readyState === "loaded" || script.readyState === "complete" ) {
+        if (script.readyState) {  // only required for IE <9
+            script.onreadystatechange = function () {
+                if (script.readyState === "loaded" || script.readyState === "complete") {
                     script.onreadystatechange = null;
                     callback();
                 }
             };
         } else {  //Others
-            script.onload = function() {
+            script.onload = function () {
                 callback();
             };
         }
-      
+
         script.src = url;
-        document.getElementsByTagName( "head" )[0].appendChild( script );
+        document.getElementsByTagName("head")[0].appendChild(script);
     }
     // if not already initialised
-    if(googleMapInit) {
+    if (googleMapInit) {
         // has loadNeighbourhoodScript been run?
-        if(neighbourhoodScriptLoaded) {
+        if (neighbourhoodScriptLoaded) {
             // if yes, don't load the api script, just run the map function
             initializeMaps();
         } else {
@@ -290,10 +254,10 @@ function googleMap(){
             const live = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDAC7dBNoEuyiCKU0wFt3LNoujSAYl_HzL3o', dev = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDACb4yfZhPvS3pTzhiVUR3E5jZ7UHNF1HZc';
             var mapsKey = '';
             const host = document.location.host;
-            if(host.match(/(up-dev)/g) || host.match(/(adaodev)/g)|| host.match(/(localhost)/g)){mapsKey=dev}else{mapsKey=live}
-            var loadLink = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key='+mapsKey+'&callback=googleMap';
-            
-            loadGoogleMapScript(loadLink, function() {
+            if (host.match(/(up-dev)/g) || host.match(/(adaodev)/g) || host.match(/(localhost)/g)) { mapsKey = dev } else { mapsKey = live }
+            var loadLink = 'https://maps.googleapis.com/maps/api/js?v=3.exp&key=' + mapsKey + '&callback=googleMap';
+
+            loadGoogleMapScript(loadLink, function () {
                 googleMapScriptLoaded = true;
                 // run the map function
                 initializeMaps();
@@ -304,11 +268,11 @@ function googleMap(){
     }
 }
 
-function IEgoogleMap(){
+function IEgoogleMap() {
     googleMap();
 }
 
 //If the script is loaded within the editor run the function
-if( window.acf ) {
-    window.acf.addAction( 'render_block_preview',  googleMap() );
+if (window.acf) {
+    window.acf.addAction('render_block_preview', googleMap());
 }

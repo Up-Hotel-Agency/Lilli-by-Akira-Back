@@ -30,6 +30,7 @@ function google_map_render_callback( $block, $content = '', $is_preview = false 
     row 
     <?php if( get_field('display_content') ): ?> 
     map-lockup
+    container
     flex
     justify-between
     sm:flex-col
@@ -51,7 +52,7 @@ function google_map_render_callback( $block, $content = '', $is_preview = false 
     >
         <?php include get_template_directory() .'/blocks/_block_components/component_bg_media.php'; //Apply background media from ACF row settings ?>
         
-        <div class="map-container">
+        <div class="map-container media-container">
             <?php if( $location ): ?>
                 <div
                     class="marker"

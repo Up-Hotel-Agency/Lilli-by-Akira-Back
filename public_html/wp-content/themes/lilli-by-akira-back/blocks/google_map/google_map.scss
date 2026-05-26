@@ -32,6 +32,7 @@
     }
     .content-lockup-wrapper {
         width: 50%;
+        padding-right: 0;
 
         @include breakpoint(max-width, S) {
             width: 100%;
