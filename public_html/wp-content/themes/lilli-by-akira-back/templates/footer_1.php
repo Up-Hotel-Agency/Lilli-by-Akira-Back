@@ -29,16 +29,14 @@
 </section>
 
 <footer class="footer" style="background-image: url('<?php echo get_field('footer_background_image', 'options'); ?>');">
-    <div class="container text-center footer-main">
+    <div class="container text-center footer-main mb-12">
         <div class="footer-address">
             <?php if (get_field('address', 'options')): ?>
-                <p class="text-left align-start">
-                    <?php the_field('address', 'options'); ?>
-                </p>
+                <?php the_field('address', 'options'); ?>
             <?php endif; ?>
         </div>
 
-        <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo mb-12 flex justify-center">
+        <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo flex justify-center">
             <?php if(wp_get_theme() == 'MyStyle City Hotel') { ?>
                 <svg width="81" height="39" viewBox="0 0 124 60" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.6308 25.4434V1.63676H7.00971L13.8163 16.9766L14.3144 18.3711L14.8622 16.9766L21.7021 1.63676H27.0976V25.4434H22.416V10.3858L21.7353 12.461L16.3232 25.4434H12.3886L6.9765 12.461L6.29584 10.3858V25.4434H1.6308Z" fill="#3E7091"/>
@@ -68,7 +66,19 @@
         </a>
 
         <div class="footer-newsletter">
-
+            <?php if(get_field('newsletter_form_id', 'options')) { ?>
+                <div class="form">
+                    <div class="newsletter-content">
+                        <?php if(get_field('newsletter_form_title', 'options')) { ?>
+                            <p class="subtitle"><?php the_field('newsletter_form_title', 'options') ?></p>
+                        <?php } ?>
+                        <?php if(get_field('newsletter_form_subtitle', 'options')) { ?>
+                            <p class="subtitle size-xs"><?php the_field('newsletter_form_subtitle', 'options') ?></p>
+                        <?php } ?>
+                    </div>
+                    <?php echo do_shortcode('[gravityform id="'.get_field('newsletter_form_id', 'options').'" title="false"]'); ?>
+                </div>
+            <?php } ?>
         </div>
     </div>
     <div class="container text-center">

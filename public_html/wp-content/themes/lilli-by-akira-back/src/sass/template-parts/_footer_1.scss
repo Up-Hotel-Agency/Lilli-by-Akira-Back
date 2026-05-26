@@ -20,6 +20,68 @@ main section:last-of-type {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
+
+        @include breakpoint(max-width, M) {
+            display: flex;
+            flex-direction: column-reverse;
+            gap: var(--space-3xl);
+            padding-block: var(--space-xl);
+        }
+    }
+
+    .footer-address {
+        text-align: start;
+
+        @include breakpoint(max-width, M) {
+            text-align: center
+        }
+
+        p {
+            @include text-style('subtitle');
+        }
+    }
+
+    .footer-newsletter {
+        .form {
+            padding-left: var(--space-3xl);
+
+            @include breakpoint(max-width, M) {
+                padding-left: 0;
+            }
+        }
+
+        .gform_fields .gfield {
+            padding: 0;
+            border: unset;
+        }
+
+        .gform_wrapper.gravity-theme .gfield input {
+            background-color: var(--color-background);
+            padding: .75rem 1rem;
+            opacity: 0.75;
+        }
+
+        .gform_wrapper.gravity-theme .gfield input.medium,
+        .gform_wrapper.gravity-theme .gfield select.medium {
+            width: 100%;
+        }
+
+        .gform_footer input[type="submit"] {
+            width: unset;
+        }
+
+        .gform_wrapper.gravity-theme #field_submit,
+        .gform_wrapper.gravity-theme .gform_footer {
+            justify-content: center;
+        }
+
+        .gform_fields fieldset .ginput_container {
+            grid-template-columns: 1fr;
+        }
+
+        label {
+            font-weight: 400;
+        }
     }
 
     .up-core-logo {
