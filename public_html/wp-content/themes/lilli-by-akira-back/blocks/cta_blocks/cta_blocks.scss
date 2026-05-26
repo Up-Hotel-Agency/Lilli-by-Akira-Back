@@ -199,6 +199,10 @@
             background-color: var(--color-body);
             transform: rotate(45deg);
         }
+
+        .cat-link:not(:last-child) {
+            padding-right: 0.75rem;
+        }
     }
 
     header {

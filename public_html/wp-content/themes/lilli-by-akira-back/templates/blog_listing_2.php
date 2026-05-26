@@ -7,14 +7,16 @@
                 <?php //Featured article (Image / Content) ?>
 
                 <div class="post-item feat-post" data-aos="fade-up">
-                    <a href="<?php the_permalink(); ?>" class="post-item-img" aria-label="blog">
-                        <?php block_media( get_field('featured_image__video'), [
-                            'img_sizes' => array('default' => 'img_1367', 'page_area' => 100, 'mobile_page_area' => 100),
-                            'default_aspect' => '4/3',
-                            'video_aspect' => '4/3',
-                            'slick_dots' => true,
-                        ]); ?>
-                    </a>
+                    <div class="post-item-img-wrapper">
+                        <a href="<?php the_permalink(); ?>" class="post-item-img" aria-label="blog">
+                            <?php block_media( get_field('featured_image__video'), [
+                                'img_sizes' => array('default' => 'img_1367', 'page_area' => 100, 'mobile_page_area' => 100),
+                                'default_aspect' => '4/3',
+                                'video_aspect' => '4/3',
+                                'slick_dots' => true,
+                            ]); ?>
+                        </a>
+                    </div>
                     <div class="feat-post-content">
                         <p class="overline mb-1">Latest Article</p>
                         <h2 class="mb-1">

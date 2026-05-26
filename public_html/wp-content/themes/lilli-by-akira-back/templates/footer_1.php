@@ -1,5 +1,5 @@
 <?php wp_enqueue_style( 'block-acf-instagram', get_template_directory_uri() . '/assets/css/instagram/instagram.css' ); ?>
-<section class="row instagram-block-class container" data-aos-id="instagram">
+<section class="row instagram-block-class container has-background background--media palette--inherit theme--accent" data-aos-id="instagram">
     <div class="instagram-block text-align-left">
         <div class="insta-content">
             <?php if (get_field('insta_overline', 'options')): ?>
@@ -35,7 +35,6 @@
                 <?php the_field('address', 'options'); ?>
             <?php endif; ?>
         </div>
-
         <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo flex justify-center">
             <?php if(wp_get_theme() == 'MyStyle City Hotel') { ?>
                 <svg width="81" height="39" viewBox="0 0 124 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -64,7 +63,6 @@
             </svg>
             <?php } ?>
         </a>
-
         <div class="footer-newsletter">
             <?php if(get_field('newsletter_form_id', 'options')) { ?>
                 <div class="form">

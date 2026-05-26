@@ -95,7 +95,7 @@ function ajax_load_more() {
             <?php endif;
             if( get_blog_listing() == 'blog_2' ): ?>
 
-            <div class="post-item mb-12 third xs:flex xs:items-center" data-aos="fade-up">
+            <div class="post-item" data-aos="fade-up">
                 <a href="<?php the_permalink(); ?>" class="post-item-img mb-6">
                     <?php if(get_blog_listing() == "blog_1"): ?>
                         <?php echo img_sizes(get_post_thumbnail_id(), ['default' => 'img_800', 'lazy_load' => true]); ?>
