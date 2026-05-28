@@ -164,14 +164,14 @@ function initializeMaps() {
             return map;
         }
         var logoPin = {
-            url: '/wp-content/themes/up-core-gutenberg/assets/img/map-pin-active.svg',
+            url: '/wp-content/themes/lilli-by-akira-back/assets/img/map-pin-active.svg',
             size: new google.maps.Size(104, 136),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(52, 116),
             scaledSize: new google.maps.Size(104, 136)
         }
         var standardPin = {
-            url: '/wp-content/themes/up-core-gutenberg/assets/img/map-pin-standard.svg',
+            url: '/wp-content/themes/lilli-by-akira-back/assets/img/map-pin-standard.svg',
             size: new google.maps.Size(48, 48),
             origin: new google.maps.Point(0, 0),
             anchor: new google.maps.Point(24, 48),
@@ -251,7 +251,7 @@ function googleMap() {
         } else {
             // if no, load the api script and run the function
             //check if we're on dev or not
-            const live = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDAC7dBNoEuyiCKU0wFt3LNoujSAYl_HzL3o', dev = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDACb4yfZhPvS3pTzhiVUR3E5jZ7UHNF1HZc';
+            const live = 'AIzaSyB-IqEg5GPwa0FXfgFZXMwOtIDY6cbYDKE', dev = 'AAIzaSyB-IqEg5GPwa0FXfgFZXMwOtIDY6cbYDKE';
             var mapsKey = '';
             const host = document.location.host;
             if (host.match(/(up-dev)/g) || host.match(/(adaodev)/g) || host.match(/(localhost)/g)) { mapsKey = dev } else { mapsKey = live }
