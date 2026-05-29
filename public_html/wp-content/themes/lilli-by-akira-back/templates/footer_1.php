@@ -15,7 +15,7 @@
             <?php endif; ?>
         </div>
         <div class="insta-images" id="instafeed" data-account="<?php echo get_field('instagram', 'options'); ?>">
-            <?php $instagram = up_instagram('montcalm_collection'); ?>
+            <?php $instagram = up_instagram('lilli_byakiraback'); ?>
             <?php if(is_array($instagram)): ?>
             <?php $count = 1; foreach($instagram as $post):?>
                 <?php if($count > 4): break; endif; ?>
