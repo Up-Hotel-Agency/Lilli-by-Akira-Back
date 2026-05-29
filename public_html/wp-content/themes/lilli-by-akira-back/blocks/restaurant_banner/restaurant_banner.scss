@@ -67,7 +67,14 @@
                 }
 
                 .button.minor {
-                    padding-left: 0 !important;
+                    padding: 0 !important;
+                    border: none;
+                    
+                    &:hover {
+                        background-color: transparent;
+                        text-decoration: underline;
+                        text-underline-offset: 6px;
+                    }
                 }
             }
         }
