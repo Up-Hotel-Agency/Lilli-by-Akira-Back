@@ -251,7 +251,7 @@ function googleMap() {
         } else {
             // if no, load the api script and run the function
             //check if we're on dev or not
-            const live = 'AIzaSyB-IqEg5GPwa0FXfgFZXMwOtIDY6cbYDKE', dev = 'AAIzaSyB-IqEg5GPwa0FXfgFZXMwOtIDY6cbYDKE';
+            const live = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDA', dev = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDA';
             var mapsKey = '';
             const host = document.location.host;
             if (host.match(/(up-dev)/g) || host.match(/(adaodev)/g) || host.match(/(localhost)/g)) { mapsKey = dev } else { mapsKey = live }

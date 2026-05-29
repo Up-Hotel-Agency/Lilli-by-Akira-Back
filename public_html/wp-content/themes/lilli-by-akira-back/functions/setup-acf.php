@@ -37,9 +37,9 @@ add_filter( 'acf/admin/prevent_escaped_html_notice', '__return_true' );
 function acf_google_map_api( $api ){
     $hostName = get_site_url();
     if(preg_match('/(up-dev)/',$hostName) || preg_match('/(adaodev)/',$hostName)){
-        $api['key'] = 'AIzaSyB-IqEg5GPwa0FXfgFZXMwOtIDY6cbYDKE';
+        $api['key'] = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDA';
     }else{
-        $api['key'] = 'AIzaSyB-IqEg5GPwa0FXfgFZXMwOtIDY6cbYDKE';
+        $api['key'] = 'AIzaSyBUf5K9jbIqHdmKkqhz0cSatK0DMfOOzDA';
     }
     return $api;
 }
