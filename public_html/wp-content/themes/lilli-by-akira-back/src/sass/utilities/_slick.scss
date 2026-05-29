@@ -218,3 +218,21 @@
         }
     }
 }
+
+/* Initial state before Slick loads */
+.js-image-carousel {
+    opacity: 1;
+}
+
+.js-image-carousel:not(.slick-initialized) img {
+    display: none;
+}
+
+.js-image-carousel:not(.slick-initialized) img:first-of-type {  
+    display: block;
+    top: 0;
+}
+.js-image-carousel.slick-initialized img {
+    display: block;
+    top: 0;
+}
