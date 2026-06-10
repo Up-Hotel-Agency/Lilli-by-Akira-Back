@@ -26,12 +26,7 @@
 </section>
 
 <footer class="footer" style="background-image: url('<?php echo get_field('footer_background_image', 'options'); ?>');">
-    <div class="container text-center footer-main mb-12">
-        <div class="footer-address">
-            <?php if (get_field('address', 'options')): ?>
-                <?php the_field('address', 'options'); ?>
-            <?php endif; ?>
-        </div>
+    <div class="container footer-main">
         <a href="<?php echo get_bloginfo( 'url' ); ?>" title="<?php echo get_bloginfo( 'name' ); ?>" class="footer-logo flex justify-center">
             <?php if(wp_get_theme() == 'MyStyle City Hotel') { ?>
                 <svg width="81" height="39" viewBox="0 0 124 60" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -60,6 +55,11 @@
             </svg>
             <?php } ?>
         </a>
+        <div class="footer-address">
+            <?php if (get_field('address', 'options')): ?>
+                <p class="subtitle-1 text-center"><?php the_field('address', 'options'); ?></p>
+            <?php endif; ?>
+        </div>
         <div class="footer-newsletter">
             <?php if(get_field('newsletter_form_id', 'options')) { ?>
                 <div class="form">
@@ -75,9 +75,6 @@
                 </div>
             <?php } ?>
         </div>
-    </div>
-    <div class="container text-center">
-        <?php wp_nav_menu( array( 'theme_location' => 'Footer Menu' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
     </div>
     <div class="container flex justify-center social-links">
         <?php if( get_field('facebook', 'options') ): ?>
@@ -104,12 +101,13 @@
         <?php endif; ?>
     </div>
     <div class="copyright container">
-        <div class="flex container-inner items-center justify-between xs:flex-col">
-            <div class="flex xs:flex-col items-center copyright-menu">
+        <div class="flex container-inner justify-between">
+            <div class="flex copyright-menu items-center">
                 <p class="size-s no-margin color-body-50">©<?php echo date('Y'); ?> Lilli by Akira Back</p>
                 <?php wp_nav_menu( array( 'theme_location' => 'Footer Copyright' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
+                <?php wp_nav_menu( array( 'theme_location' => 'Footer Menu' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
             </div>
-            <div class="flex xs:flex-col items-center">
+            <div class="flex xs:flex-col">
                 <p class="size-s no-margin"><a href="https://uphotel.agency" target="_blank" rel="noopener"><span class="color-body-50">Website by</span> UP HOTEL AGENCY</a></p>
             </div>
         </div>

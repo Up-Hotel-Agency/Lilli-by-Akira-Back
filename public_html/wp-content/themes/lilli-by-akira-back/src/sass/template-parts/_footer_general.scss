@@ -1,28 +1,36 @@
 .copyright {
 
-    .container-inner{
+    @include breakpoint(max-width, M) {
+        align-items: start !important;
+    }
+
+    .container-inner {
         padding-top: var(--space-m);
-        border-top: solid 1px var(--color-accent-primary);
+
+        @include breakpoint(max-width, M) {
+            flex-direction: column;
+        }
     }
 
     .copyright-menu p {
-        margin-right: var(--space-m);
 
         @include breakpoint(max-width, XS) {
             margin-right: 0;
-            margin-bottom: var(--space-2xs);
         }
     }
+
     a {
         color: var(--color-body);
 
         @include breakpoint(max-width, XS) {
             padding: var(--space-2xs);
         }
+
         &:hover {
             color: var(--color-accent-primary);
         }
     }
+
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -32,11 +40,12 @@
             margin: 0;
             padding: var(--space-2xs) 0;
         }
+
         li {
             @include breakpoint(max-width, XS) {
                 width: 100%;
-                text-align: center;
             }
+
             a {
                 font-size: var(--font-size-s);
                 display: block;
@@ -61,6 +70,7 @@
     &.filtered {
         display: none;
     }
+
     &.fade-out {
         opacity: 0;
     }

@@ -40,11 +40,19 @@
     .insta-title p {
         font-size: 1.3125rem;
         bottom: -0.9rem;
+
+        @include breakpoint(max-width, M) {
+            bottom: -2rem;
+        }
     }
 
     .insta-content p {
         font-size: 0.875rem;
         bottom: 0.8rem;
+
+        @include breakpoint(max-width, M) {
+            bottom: 1.5rem;
+        }
     }
 
     .insta-images {
@@ -56,7 +64,7 @@
         padding: 3rem;
 
         @include breakpoint(max-width, M) {
-            padding: 2rem;
+            padding: 4rem 1rem;
         }
 
         .instagram-image {
