@@ -1,17 +1,9 @@
 <?php wp_enqueue_style( 'block-acf-instagram', get_template_directory_uri() . '/assets/css/instagram/instagram.css' ); ?>
 <section class="row instagram-block-class container has-background background--media palette--inherit theme--accent" data-aos-id="instagram">
-    <div class="instagram-block text-align-left">
-        <div class="insta-content">
-            <?php if (get_field('insta_overline', 'options')): ?>
-                <p class="subtitle"><?php the_field('insta_overline', 'options') ?></p>
-            <?php endif; ?>
+    <div class="instagram-block text-align-center">
+        <div class="insta-title">
             <?php if (get_field('insta_title', 'options')): ?>
-                <p class="insta-title large-heading-4"><?php the_field('insta_title', 'options') ?></p>
-            <?php endif; ?>
-            <?php if (get_field('insta_content', 'options')): ?>
-                <div class="insta-footer">
-                    <?php the_field('insta_content', 'options'); ?>
-                </div>
+                <p class="subtitle"><?php the_field('insta_title', 'options') ?></p>
             <?php endif; ?>
         </div>
         <div class="insta-images" id="instafeed" data-account="<?php echo get_field('instagram', 'options'); ?>">
@@ -23,6 +15,11 @@
                     <img loading="lazy" src="<?php echo $post['src'];?>">
                 </a>
             <?php $count++; endforeach; ?>
+            <?php endif; ?>
+        </div>
+        <div class="insta-content">
+            <?php if (get_field('insta_content', 'options')): ?>
+                <p><?php the_field('insta_content', 'options'); ?></p>
             <?php endif; ?>
         </div>
     </div>

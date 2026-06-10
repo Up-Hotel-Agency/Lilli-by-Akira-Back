@@ -1,28 +1,63 @@
 @import "../gutenberg_block";
 
 .instagram-block-class {
-    padding: var(--container-wide);
+    padding: 3rem 7.5rem 6rem 7.5rem;
+
+    @include breakpoint(max-width, M) {
+        padding: 4rem 2rem;
+    }
 }
 
 .instagram-block {
     position: relative;
     display: flex;
-    gap: var(--space-xl);
+    flex-direction: column;
     overflow: hidden;
+    align-items: center;
 
-    .insta-content {
-        width: 25%;
+    .insta-title p,
+    .insta-content p {
+        margin: 0;
+        position: relative;
+        padding-inline: 1rem;
+        background-color: var(--color-background);
+        text-align: center;
 
-        .insta-title {
-            font-weight: 700;
+        @include breakpoint(max-width, M) {
+            text-wrap: balance;
+            width: 80%;
         }
     }
 
+    .insta-title,
+    .insta-content {
+        @include breakpoint(max-width, M) {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    .insta-title p {
+        font-size: 1.3125rem;
+        bottom: -0.9rem;
+    }
+
+    .insta-content p {
+        font-size: 0.875rem;
+        bottom: 0.8rem;
+    }
+
     .insta-images {
-        width: 75%;
+        width: 100%;
         display: flex;
         flex-direction: row;
         gap: var(--gutter-tight);
+        border: 1px solid #FFF;
+        padding: 3rem;
+
+        @include breakpoint(max-width, M) {
+            padding: 2rem;
+        }
 
         .instagram-image {
             width: calc(100% / 4 - 1.15rem);
@@ -41,15 +76,7 @@
     }
 
     @include breakpoint(max-width, M) {
-        flex-direction: column;
-
-        .insta-content {
-            width: 100%;
-            text-align: center;
-        }
-
         .insta-images {
-            width: 100%;
             display: grid;
             grid-template-columns: repeat(2, minmax(0, 1fr));
 
