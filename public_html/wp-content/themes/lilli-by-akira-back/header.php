@@ -35,13 +35,6 @@ var neighbourhoodScriptLoaded;
 <link rel="preconnect" href="https://core.up-dev.com" crossorigin>
 <link rel="stylesheet" href="https://use.typekit.net/nom6rmy.css">
 
-<!-- Preload webfont -->
-<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/inter/inter-v13-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/inter/inter-v13-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-
-<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/red-hat-display/red-hat-display-v19-latin-700.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="<?php echo get_template_directory_uri(); ?>/assets/fonts/red-hat-display/red-hat-display-v19-latin-regular.woff2" as="font" type="font/woff2" crossorigin>
-<!-- End Preload webfont -->
 
 <?php wp_head(); ?>
 

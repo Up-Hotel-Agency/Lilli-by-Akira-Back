@@ -296,3 +296,8 @@ input[type=checkbox] {
         background: var(--color-body);
     }
 }
+
+//Prevent external links being clickable inside the editor
+.editor-styles-wrapper a[href] {
+    pointer-events: none;
+}

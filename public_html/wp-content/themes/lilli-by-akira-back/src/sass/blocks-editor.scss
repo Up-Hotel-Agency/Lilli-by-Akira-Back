@@ -28,7 +28,6 @@ body {
     [data-aos^=fade][data-aos^=fade] {
         opacity: 1 !important;
         transform: none !important;
-        pointer-events: auto !important;
     }
 
     // Prevent image and video backgrounds falling behind the editor

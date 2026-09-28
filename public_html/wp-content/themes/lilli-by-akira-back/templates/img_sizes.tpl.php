@@ -41,4 +41,4 @@
         srcset="<?php echo $images['img_188']; ?> 188w, <?php echo $images['img_375']; ?> 375w, <?php echo $images['img_500']; ?> 500w, <?php echo $images['img_640']; ?> 640w, <?php echo $images['img_800']; ?> 800w, <?php echo $images['img_1024']; ?> 1024w, <?php echo $images['img_1367']; ?> 1367w, <?php echo $images['img_1920']; ?> 1920w, <?php echo $images['img_2200']; ?> 2200w"
     <?php endif; ?>
 
-    sizes="(max-width: 48em) <?php echo $mobile_page_area ?>vw, (max-width: 64em) <?php echo $tablet_page_area ?>vw, (min-width: 64em) <?php echo $page_area ?>vw">
+    sizes="<?= $lazy_load ? 'auto, ' : '' ?>(max-width: 48em) <?php echo $mobile_page_area ?>vw, (max-width: 64em) <?php echo $tablet_page_area ?>vw, (min-width: 64em) <?php echo $page_area ?>vw">
