@@ -32,7 +32,8 @@ var neighbourhoodScriptLoaded;
 <meta name="msapplication-TileColor" content="#0e566e">
 <meta name="theme-color" content="#0e566e">
 <link rel="manifest" href="/manifest.json">
-<link rel="preconnect" href="https://core.up-dev.com" crossorigin>
+
+<link rel="preconnect" href="https://use.typekit.net" crossorigin>
 <link rel="stylesheet" href="https://use.typekit.net/nom6rmy.css">
 
 
