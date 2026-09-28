@@ -4,7 +4,7 @@ const 	gulp = require('gulp');
 const 	sass = require('gulp-sass')(require('sass'));
 const 	concat = require('gulp-concat');
 const 	sourcemaps = require('gulp-sourcemaps');
-const 	autoprefixer = require('gulp-autoprefixer');
+const 	autoprefixer = require('gulp-autoprefixer').default;
 const 	rename = require('gulp-rename');
 // const 	jslint = require('gulp-jslint');
 const 	uglify = require('gulp-uglify');
@@ -32,6 +32,7 @@ function compileSass() {
 		.pipe(sass(
 			{
 			style: 'compressed',
+			charset: false,
 			silenceDeprecations: ['import', 'mixed-decls', 'legacy-js-api']
 			}
 			).on('error', sass.logError)
@@ -51,6 +52,7 @@ function compileBlocksSass() {
 		.pipe(sass(
 			{
 			style: 'compressed',
+			charset: false,
 			silenceDeprecations: ['import', 'mixed-decls', 'legacy-js-api']
 			}
 			).on('error', sass.logError)
@@ -69,6 +71,7 @@ function compileAbovethefold() {
 		.pipe(sass(
 			{
 			style: 'compressed',
+			charset: false,
 			silenceDeprecations: ['import', 'mixed-decls', 'legacy-js-api']
 			}
 			).on('error', sass.logError)
