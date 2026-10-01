@@ -34,7 +34,13 @@ var neighbourhoodScriptLoaded;
 <link rel="manifest" href="/manifest.json">
 
 <link rel="preconnect" href="https://use.typekit.net" crossorigin>
+<link rel="preconnect" href="https://p.typekit.net" crossorigin>
 <link rel="stylesheet" href="https://use.typekit.net/nom6rmy.css">
+
+<!-- Recommended preconnects from Lighthouse -->
+<link rel="preconnect" href="https://www.opentable.co.uk" crossorigin>
+<link rel="preconnect" href="https://cdn.otstatic.com" crossorigin>
+
 
 
 <?php wp_head(); ?>
