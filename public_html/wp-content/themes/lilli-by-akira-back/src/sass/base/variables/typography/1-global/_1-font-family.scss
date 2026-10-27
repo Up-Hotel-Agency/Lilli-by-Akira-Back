@@ -14,10 +14,10 @@ $vars-font-family: (
 
 $vars-font-fallbacks: (
     "primary": (
-        "fallback": (system-ui, sans-serif) //Parentheses will not show in output
+        "fallback": (Avenir, Montserrat, Corbel, 'URW Gothic', source-sans-pro, sans-serif) //Parentheses will not show in output
     ),
     "secondary": (
-        "fallback": (system-ui, sans-serif) //Parentheses will not show in output
+        "fallback": (Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif) //Parentheses will not show in output
     )
 );
 
