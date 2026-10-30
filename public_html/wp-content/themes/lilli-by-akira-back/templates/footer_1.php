@@ -12,7 +12,7 @@
             <?php $count = 1; foreach($instagram as $post):?>
                 <?php if($count > 4): break; endif; ?>
                 <a href="<?php echo $post['permalink'];?>" target="_blank" class="instagram-image">
-                    <img loading="lazy" src="<?php echo $post['src'];?>">
+                    <img loading="lazy" src="<?php echo $post['src'];?>" alt="Instagram post image">
                 </a>
             <?php $count++; endforeach; ?>
             <?php endif; ?>

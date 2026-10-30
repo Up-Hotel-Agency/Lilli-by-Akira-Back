@@ -18,8 +18,8 @@ include 'templates/ajax_modal.php';
 
 <div class="js-book-widget-container book-widget-container">
 
-    <button class="button icon js-book-widget-close theme--image">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.755 19.245l14.49-14.49m0 14.49L4.755 4.755"/></svg>
+    <button type="button" class="button icon js-book-widget-close theme--image" aria-label="Close booking widget">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4.755 19.245l14.49-14.49m0 14.49L4.755 4.755"/></svg>
     </button>
 
     <div class="book-widget-container-wrapper">
