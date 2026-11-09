@@ -23,6 +23,12 @@
   interpolate-size: allow-keywords;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   /* Make sure the page is at least the height of the viewport */
   min-height: 100dvh;
