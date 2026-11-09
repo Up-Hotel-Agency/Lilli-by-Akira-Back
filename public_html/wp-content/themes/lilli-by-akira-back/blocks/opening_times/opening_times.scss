@@ -43,6 +43,15 @@
                 margin-bottom: unset;
             }
         }
+
+        &.background--std.has-background {
+            .date-range-contain {
+                .overline {
+                    color: var(--color-white);
+                }
+            }
+        }
+
         .opening-times-info{
             display: flex;
             justify-content: center;
@@ -74,10 +83,8 @@
                 justify-content: center;
                 flex: 1;
                 @include breakpoint(max-width, M){
-                    align-items: baseline;
                     gap: var(--space-2xs);
                     padding: unset;
-                    flex-direction: row;
                 }
                 .overline{
                     @include text-style('overline', '1');
@@ -103,7 +110,7 @@
                         text-align: center;
 
                         @include breakpoint(max-width, M){
-                              text-align: right;
+                              /* text-align: right; */
                         }
                       
                         .subtitle{

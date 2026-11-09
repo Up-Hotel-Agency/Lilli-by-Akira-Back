@@ -12,6 +12,8 @@
 }
 
 .cta-blocks-class.carousel-mode {
+    --cta-w: calc((100vw - (2 * var(--container-standard)) - (2 * var(--gutter-standard))) / 3);
+
     padding-inline: unset;
 
     .header-section {
@@ -19,6 +21,7 @@
     }
 
     .cta-blocks {
+        display: block;
         width: 100%;
         position: relative;
         overflow: hidden;
@@ -28,29 +31,32 @@
             justify-content: center;
         }
 
+        .js-cta-blocks {
+            min-width: 0; width: 100%;
+        }
+
         .slick-list {
             width: 100%;
             padding-left: var(--container-standard);
         }
 
-        .js-cta-blocks,
         .slick-track {
             display: flex;
             flex-direction: row;
-            gap: var(--gutter-standard);
-            width: 100%;
-            align-items: start;
-            justify-content: start;
+            align-items: flex-start;
+            
+            /* justify-content: start;
             overflow: visible;
             max-width: 100%;
-            padding-top: 0.25rem;
+            padding-top: 0.25rem; */
 
             .cta {
-                width: calc(33.33% - calc(3 * var(--gutter-standard) / 3) - calc(1 * var(--container-standard) / 4));
+                width: var(--cta-w);
                 flex: none;
+                margin-right: var(--gutter-standard);
 
                 @include breakpoint(max-width, M) {
-                    width: calc(100vw - calc(3 * var(--container-standard)) - calc(var(--gutter-standard) / 2));
+                    width: calc(100vw - (3 * var(--container-standard)) - (var(--gutter-standard) / 2));
                 }
 
                 //Additonal bottom padding of a row if the following row has a background

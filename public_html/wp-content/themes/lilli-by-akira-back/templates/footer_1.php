@@ -102,7 +102,7 @@
     </div>
     <div class="copyright container">
         <div class="flex container-inner justify-between">
-            <div class="flex copyright-menu items-center">
+            <div class="copyright-menu">
                 <p class="size-s no-margin color-body-50">©<?php echo date('Y'); ?> Lilli by Akira Back</p>
                 <?php wp_nav_menu( array( 'theme_location' => 'Footer Copyright' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>
                 <?php wp_nav_menu( array( 'theme_location' => 'Footer Menu' , 'container' => false, 'menu_class' => 'list-reset' ) ); ?>

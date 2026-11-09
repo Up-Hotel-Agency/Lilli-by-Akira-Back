@@ -23,7 +23,8 @@
         color: var(--color-body);
 
         @include breakpoint(max-width, XS) {
-            padding: var(--space-2xs);
+            padding-top: var(--space-2xs);
+            padding-bottom: var(--space-2xs);
         }
 
         &:hover {

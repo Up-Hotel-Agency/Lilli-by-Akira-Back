@@ -187,6 +187,7 @@ main section:last-of-type {
 
             @include breakpoint(max-width, M) {
                 height: 3.5rem;
+                width: 100%;
             }
         }
 
