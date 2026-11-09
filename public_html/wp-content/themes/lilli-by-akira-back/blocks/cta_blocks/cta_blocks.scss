@@ -43,6 +43,7 @@
             justify-content: start;
             overflow: visible;
             max-width: 100%;
+            padding-top: 0.25rem;
 
             .cta {
                 width: calc(33.33% - calc(3 * var(--gutter-standard) / 3) - calc(1 * var(--container-standard) / 4));

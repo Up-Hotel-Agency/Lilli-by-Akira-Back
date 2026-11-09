@@ -55,7 +55,7 @@ function faqs_render_callback( $block, $content = '', $is_preview = false ) {
             <form action="" class="js-live-search faqs-search" method="post">
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><line x1="20.39" y1="20.39" x2="12.91" y2="12.91" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><circle cx="9.059" cy="9.059" r="5.449" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></svg>
                 <label for="search" class="visuallyhidden">Search: </label>
-                <input type="text" placeholder="Search FAQs e.g. ‘check-in’" id="search" class="text-input js-filter-mob" value="" /></label>
+                <input type="text" placeholder="Search FAQs e.g. ‘parking’" id="search" class="text-input js-filter-mob" value="" /></label>
             </form>
             <div class="faqs-notification">
                 <span class="results-for">
@@ -66,16 +66,22 @@ function faqs_render_callback( $block, $content = '', $is_preview = false ) {
                 <span class="filter-count flex items-center">
                 </span>
             </div>
-            <a href="<?php echo get_the_permalink( get_field('get_in_touch_button_link') ); ?>" class="faqs-cta flex has-background theme--accent items-center justify-between">
-                <div class="flex-grow faqs-cta-content flex flex-col items-start justify-center">
-                    <h5 class="mb-0"><?php the_field('get_in_touch_button_title'); ?></h5>
-                    <p class="size-xs mb-0"><?php the_field('get_in_touch_button_subtitle'); ?></p>
-                </div>
 
-                <div class="button icon secondary no-margin">
-                    <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><line x1="19.982" y1="12" x2="3.982" y2="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><polyline points="14.333 6.315 20.018 12 14.333 17.685" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></svg>
-                </div>
-            </a>
+            <?php $cta = get_field( 'get_in_touch_button_link' ); ?>
+                <?php if ( ! empty( $cta['url'] ) ) : ?>
+                    <a href="<?php echo esc_url( $cta['url'] ); ?>"<?php if ( ! empty( $cta['target'] ) ) echo ' target="' . esc_attr( $cta['target'] ) . '"'; ?> class="faqs-cta flex has-background theme--accent items-center justify-between">
+                        <div class="flex-grow faqs-cta-content flex flex-col items-start justify-center">
+                            <h5 class="mb-0"><?php the_field( 'get_in_touch_button_title' ); ?></h5>
+                            <p class="size-xs mb-0"><?php the_field( 'get_in_touch_button_subtitle' ); ?></p>
+                        </div>
+
+                        <div class="button icon secondary no-margin">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><line x1="19.982" y1="12" x2="3.982" y2="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><polyline points="14.333 6.315 20.018 12 14.333 17.685" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></svg>
+                        </div>
+                    </a>
+            <?php endif; ?>
+
+
             <div class="in-page-nav-wrap">
                 <div class="in-page-nav flex flex-wrap justify-center text-center">
                     <?php $count = 1; while ( have_rows('faq_groups') ) : the_row(); ?>
@@ -88,7 +94,7 @@ function faqs_render_callback( $block, $content = '', $is_preview = false ) {
             <form action="" class="js-live-search faqs-search" method="post">
                 <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><line x1="20.39" y1="20.39" x2="12.91" y2="12.91" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><circle cx="9.059" cy="9.059" r="5.449" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></svg>
                 <label for="searchdesktop" class="visuallyhidden">Search: </label>
-                <input type="text" placeholder="Search FAQs e.g. ‘check-in’" id="searchdesktop" class="text-input js-filter-desktop" value="" />
+                <input type="text" placeholder="Search FAQs e.g. ‘parking’" id="searchdesktop" class="text-input js-filter-desktop" value="" />
             </form>
             <div class="faqs-nav-wrapper">
                 <ul class="faq-nav" data-gumshoe>
@@ -96,16 +102,21 @@ function faqs_render_callback( $block, $content = '', $is_preview = false ) {
                         <li><h5 class="mb-0"><a href="#group-<?php echo $count; ?>" class="scroll-to js-faq-nav"><?php the_sub_field('group_title'); ?></a></h5></li>
                     <?php $count ++; endwhile; ?>
                 </ul>
-                <a href="<?php echo get_the_permalink( get_field('get_in_touch_button_link') ); ?>" class="faqs-cta flex has-background theme--accent items-center justify-between">
-                    <div class="flex-grow faqs-cta-content flex flex-col items-start justify-center">
-                        <h5 class="mb-0"><?php the_field('get_in_touch_button_title'); ?></h5>
-                        <p class="size-xs mb-0"><?php the_field('get_in_touch_button_subtitle'); ?></p>
-                    </div>
+                
+                <?php $cta = get_field( 'get_in_touch_button_link' ); ?>
+                <?php if ( ! empty( $cta['url'] ) ) : ?>
+                    <a href="<?php echo esc_url( $cta['url'] ); ?>"<?php if ( ! empty( $cta['target'] ) ) echo ' target="' . esc_attr( $cta['target'] ) . '"'; ?> class="faqs-cta flex has-background theme--accent items-center justify-between">
+                        <div class="flex-grow faqs-cta-content flex flex-col items-start justify-center">
+                            <h5 class="mb-0"><?php the_field( 'get_in_touch_button_title' ); ?></h5>
+                            <p class="size-xs mb-0"><?php the_field( 'get_in_touch_button_subtitle' ); ?></p>
+                        </div>
 
-                    <div class="button icon secondary no-margin">
-                        <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><line x1="19.982" y1="12" x2="3.982" y2="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><polyline points="14.333 6.315 20.018 12 14.333 17.685" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></svg>
-                    </div>
-                </a>
+                        <div class="button icon secondary no-margin">
+                            <svg width="24" height="24" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g><line x1="19.982" y1="12" x2="3.982" y2="12" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/><polyline points="14.333 6.315 20.018 12 14.333 17.685" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/></g></svg>
+                        </div>
+                    </a>
+                <?php endif; ?>
+                
             </div>
         </div>
         <div class="faqs-content">
