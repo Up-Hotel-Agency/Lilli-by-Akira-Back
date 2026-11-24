@@ -43,8 +43,12 @@ function grid_list_render_callback( $block, $content = '', $is_preview = false )
     <?php include get_template_directory() .'/blocks/_block_components/component_block_attributes.php'; //Apply custom attributes based on fields from ACF row settings ?>
     >
         <?php include get_template_directory() .'/blocks/_block_components/component_bg_media.php'; //Apply background media from ACF row settings ?>
+        <?php
+        $listItems = get_field('list_items');
+        $totalListCount = is_array($listItems) ? count($listItems) : 0;
+        ?>
 
-        <div class="grid-list grid-columns-<?php echo get_field('number_of_columns'); ?><?php if( get_field('mobile_layout') == 'scroll' ): ?> mobile-scroll<?php endif; ?><?php if( get_field('override_page_theme') ): if( $themeField['disable_overlay'] && $themeField['text_colour'] == 'dark' ): ?> theme--default<?php endif; endif; ?>">
+        <div class="grid-list grid-columns-<?php echo $totalListCount; ?><?php if( get_field('mobile_layout') == 'scroll' ): ?> mobile-scroll<?php endif; ?><?php if( get_field('override_page_theme') ): if( $themeField['disable_overlay'] && $themeField['text_colour'] == 'dark' ): ?> theme--default<?php endif; endif; ?>">
             <?php $listCount = 1; while ( have_rows('list_items') ) : the_row(); ?>
                 <div class="grid-list-item flex flex-col items-center" data-aos="fade-up">
                     <?php if($counterType != 'none') { ?>
