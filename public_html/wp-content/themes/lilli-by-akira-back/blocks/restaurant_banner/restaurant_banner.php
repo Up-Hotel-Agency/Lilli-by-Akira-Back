@@ -66,13 +66,13 @@ function restaurant_banner_render_callback( $block, $content = '', $is_preview =
                         <?php endif; ?>
 
                         <?php if( get_field('title_title') ): ?>
-                            <h2 data-aos="fade-up"><?php the_field('title_title'); ?>
+                            <h1 class="h2" data-aos="fade-up"><?php the_field('title_title'); ?>
                                 <?php if( get_field('subtitle_subtitle') ): ?>
                                     <span class="subtitle" data-aos="fade-up" data-aos-delay="50">
                                         <?php the_field('subtitle_subtitle'); ?>
                                     </span>
                                 <?php endif; ?>
-                            </h2>
+                            </h1>
                         <?php endif; ?>
                     </header>
 
