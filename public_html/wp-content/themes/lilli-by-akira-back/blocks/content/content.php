@@ -11,6 +11,7 @@ acf_register_block_type(array(
     'enqueue_style'     => get_template_directory_uri() . '/assets/css/content/content.css',
     'supports'          => [ 
                             'align' => false,
+                            'anchor' => true,
                             'align_text' => true 
                             ]
 ));
