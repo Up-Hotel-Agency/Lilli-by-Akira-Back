@@ -153,3 +153,9 @@
         }
     }
 }
+
+.accordion-block:not(.accordion-lockup) {
+    .accordion {
+        margin-inline: auto;
+    }
+}

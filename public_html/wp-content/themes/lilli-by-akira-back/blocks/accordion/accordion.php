@@ -24,6 +24,7 @@ function accordion_render_callback( $block, $content = '', $is_preview = false )
     class="
     row
     container
+    accordion-block
     <?php if( get_field('display_content') ): ?> 
     accordion-lockup
     <?php the_field('layout'); ?>
