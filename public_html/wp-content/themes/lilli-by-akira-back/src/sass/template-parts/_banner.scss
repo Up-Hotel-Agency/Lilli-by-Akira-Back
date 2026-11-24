@@ -1,91 +1,108 @@
 .banner-block {
 
- 
-    &.theme--image{
-        .block-bg-img{
+
+    &.theme--image {
+        .block-bg-img {
             overflow: hidden;
+        }
+
+        .button.secondary {
+            &:hover {
+                color: #a89157;
+                border-color: #a89157;
+            }
+
         }
     }
 
     @keyframes bannerZoom {
         100% {
-            transform: scale(1.3); 
+            transform: scale(1.3);
         }
     }
 
     @keyframes bannerZoomStart {
         100% {
-            transform: scale(1.3); 
+            transform: scale(1.3);
         }
     }
 
-    @include breakpoint(max-width, S){
+    @include breakpoint(max-width, S) {
         @keyframes bannerZoom {
             100% {
-                transform: scale(1.1); 
+                transform: scale(1.1);
             }
         }
+
         @keyframes bannerZoomStart {
-        100% {
-            transform: scale(1.1); 
+            100% {
+                transform: scale(1.1);
+            }
         }
-    }
     }
 
     &.theme--image {
-        .slick-slide{
+        .slick-slide {
             overflow: hidden;
             animation: bannerZoomStart 15s;
             animation-fill-mode: forwards;
-            @include breakpoint(max-width, S){
+
+            @include breakpoint(max-width, S) {
                 animation: unset;
             }
-            &.animation-active{
-          
+
+            &.animation-active {
+
                 animation: bannerZoom 15s;
                 animation-fill-mode: forwards;
                 animation-timing-function: linear;
-                @include breakpoint(max-width, S){
+
+                @include breakpoint(max-width, S) {
                     animation: unset;
                 }
-                
+
             }
-            &:nth-of-type(even){
-                &.animation-active{
-                 
+
+            &:nth-of-type(even) {
+                &.animation-active {
+
                     animation: bannerZoom 15s;
                     animation-fill-mode: forwards;
                     animation-direction: reverse;
                     animation-timing-function: linear;
-                    @include breakpoint(max-width, S){
+
+                    @include breakpoint(max-width, S) {
                         animation: unset;
                     }
-                    
+
                 }
             }
-            &:not(.slick-slide){
-            
+
+            &:not(.slick-slide) {
+
                 animation: bannerZoom 15s;
                 animation-fill-mode: forwards;
-                @include breakpoint(max-width, S){
+
+                @include breakpoint(max-width, S) {
                     animation: unset;
                 }
-                
+
             }
+
             @-moz-document url-prefix() {
-                video{
-                    animation: unset!important; //FF is slow
+                video {
+                    animation: unset !important; //FF is slow
                 }
             }
-        
-            @media not all and (min-resolution:.001dpcm) { 
+
+            @media not all and (min-resolution:.001dpcm) {
                 @supports (-webkit-appearance:none) {
-                    video{
-                        animation: unset!important; //FF is slow
+                    video {
+                        animation: unset !important; //FF is slow
                     }
                 }
-           }
-            
+            }
+
         }
     }
 
@@ -94,9 +111,10 @@
         max-width: var(--width-content);
         margin: 0;
         text-align: center;
-        
+
 
         > {
+
             h1,
             h2,
             h3,
@@ -112,12 +130,15 @@
             }
         }
     }
+
     .banner-content {
         p {
             @include text-style('small-heading', '1');
         }
     }
-    &.background--media, &.theme--image {
+
+    &.background--media,
+    &.theme--image {
         min-height: 35rem;
 
         @include breakpoint(max-width, XS) {
@@ -137,6 +158,7 @@
     @include breakpoint(max-width, XS) {
         margin-bottom: 15rem;
     }
+
     .booking-mask {
         margin-top: 0;
     }
@@ -151,6 +173,7 @@
         flex-direction: column;
         align-items: center;
     }
+
     .banner-portrait-content,
     .banner-portrait-image {
         width: 50%;
@@ -159,11 +182,12 @@
             width: 100%;
         }
     }
+
     .banner-portrait-content {
         padding-right: var(--gutter-loose);
         padding-bottom: var(--space-3xl);
 
-        > * {
+        >* {
             max-width: 28rem;
         }
 
@@ -176,10 +200,11 @@
             flex-direction: column;
         }
     }
+
     .banner-portrait-image {
         aspect-ratio: 4 / 5;
         height: auto;
-        margin-bottom: calc( -2 * var(--space-3xl) );
+        margin-bottom: calc(-2 * var(--space-3xl));
         position: relative;
         box-shadow: 0px 4px 8px var(--color-body-10);
         max-width: var(--width-content);
@@ -189,7 +214,7 @@
 .continue {
     position: absolute;
     bottom: 0;
-    right: calc( var(--container-standard) / 2 );
+    right: calc(var(--container-standard) / 2);
     z-index: 4;
     transform: rotate(90deg) translateY(50%);
     transform-origin: bottom right;
@@ -198,13 +223,16 @@
     @media only screen and (max-width: 1023px) {
         display: none;
     }
+
     svg {
         transform: rotate(-90deg);
     }
+
     span {
         margin-left: var(--space-xs);
         margin-right: var(--space-m);
     }
+
     &:after {
         content: "";
         display: block;
@@ -215,15 +243,15 @@
 }
 
 .banner-default-continue {
-    position: absolute!important;
+    position: absolute !important;
     bottom: var(--space-xl);
     left: 50%;
     transform: translateX(-50%);
     border-width: 2px;
-    border: unset!important;
+    border: unset !important;
 }
 
-.book-widget-container{
+.book-widget-container {
     position: fixed;
     inset: 0;
     width: 100%;
@@ -238,32 +266,37 @@
     pointer-events: none;
     transition: all 0.5s;
     backdrop-filter: blur(0px);
-    .book-widget-container-wrapper{
+
+    .book-widget-container-wrapper {
         transform: translateY(-100%);
         opacity: 0;
         transition: all 0.7s;
     }
-    &.active{
+
+    &.active {
         opacity: 1;
         visibility: visible;
         pointer-events: all;
         backdrop-filter: blur(3px);
-        .book-widget-container-wrapper{
+
+        .book-widget-container-wrapper {
             transform: translateY(0%);
             opacity: 1;
         }
     }
-    .js-book-widget-close{
+
+    .js-book-widget-close {
         position: absolute;
         top: var(--space-m);
         right: var(--space-m);
         width: var(--size-l-3);
         height: var(--size-l-3);
         padding: var(--space-xs);
-        svg{
+
+        svg {
             width: 100%;
             height: 100%;
         }
     }
-    
+
 }
