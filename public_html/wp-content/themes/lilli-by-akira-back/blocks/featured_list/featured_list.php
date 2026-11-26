@@ -39,7 +39,20 @@ function feat_list_render_callback( $block, $content = '', $is_preview = false )
     <?php include get_template_directory() .'/blocks/_block_components/component_block_attributes.php'; //Apply custom attributes based on fields from ACF row settings ?>
     >
         <?php include get_template_directory() .'/blocks/_block_components/component_bg_media.php'; //Apply background media from ACF row settings ?>
-      
+
+        <?php if( get_field('add_title_section') ): ?>
+            <div class="title-area">
+                <?php if( get_field('overline') ): ?>
+                    <p class="mb-1 overline-1" data-aos="fade-up">
+                        <?php the_field('overline'); ?>
+                    </p>
+                <?php endif; ?>
+                <?php if( get_field('title') ): ?>
+                    <h2 class="mb-12" data-aos="fade-up"><?php the_field('title'); ?></h2>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
         <div class="featured-list flex flex-wrap<?php if( get_field('override_page_theme') ): if( $themeField['disable_overlay'] && $themeField['text_colour'] == 'dark' ): ?> theme--default<?php endif; endif; ?>">
             <?php $listCount = 1; while ( have_rows('list_items') ) : the_row(); ?>
                 <div class="featured-list-item flex items-center" data-aos="fade-up">
